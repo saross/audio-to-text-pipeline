@@ -1,0 +1,2 @@
+# Exclude data directory containing large audio files
+data/
