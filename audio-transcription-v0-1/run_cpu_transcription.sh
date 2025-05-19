@@ -51,10 +51,19 @@ if [ -z "$HUGGINGFACE_TOKEN" ]; then
             # Check if token exists in this config file
             if grep -q "HUGGINGFACE_TOKEN" "$CONFIG_FILE"; then
                 echo "Found saved token in $CONFIG_FILE"
-                # Source the file to load the token
-                source "$CONFIG_FILE"
-                TOKEN_FOUND=true
-                break
+                # Extract only the token line instead of sourcing the entire file
+                TOKEN_LINE=$(grep "export HUGGINGFACE_TOKEN" "$CONFIG_FILE" | grep -v "#" | tail -n 1)
+                
+                # If a token line was found, evaluate just that line
+                if [ -n "$TOKEN_LINE" ]; then
+                    eval "$TOKEN_LINE"
+                    
+                    # Verify the token was actually loaded
+                    if [ -n "$HUGGINGFACE_TOKEN" ]; then
+                        TOKEN_FOUND=true
+                        break
+                    fi
+                fi
             fi
         fi
     done
@@ -110,12 +119,11 @@ if [ -z "$HUGGINGFACE_TOKEN" ]; then
     fi
 fi
 
-echo "Using Hugging Face token: ${HUGGINGFACE_TOKEN:0:5}...${HUGGINGFACE_TOKEN: -5}"
-
+# Remove duplicate token display line
 echo "Using Hugging Face token: ${HUGGINGFACE_TOKEN:0:5}...${HUGGINGFACE_TOKEN: -5}"
 
 # ===== CPU OPTIMIZATION =====
-echo "Configuring CPU optimization settings..."
+echo "Configuring CPU optimisation settings..."
 
 # Set thread count - adjust these numbers based on your CPU
 CPU_THREADS=4  # Default for 4-core system

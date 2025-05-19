@@ -17,16 +17,15 @@ from pyannote.core import Segment
 from tqdm import tqdm
 import contextlib
 import gc
+import re
 
 # Force CPU usage by disabling CUDA visibility
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
-# Set CPU optimization environment variables
-os.environ["OMP_NUM_THREADS"] = "4"  # Adjust based on your CPU cores
-os.environ["MKL_NUM_THREADS"] = "4"  # Intel Math Kernel Library threads
-os.environ["OPENBLAS_NUM_THREADS"] = "4"  # OpenBLAS threads
+# CPU optimisation environment variables are set by the shell wrapper
+# This allows dynamic thread allocation based on the available cores
 
-# Step 0: Context manager for suppressing warnings
+# Context manager for suppressing warnings
 @contextlib.contextmanager
 def suppress_stderr():
     """Context manager to temporarily redirect stderr to /dev/null."""
@@ -38,7 +37,49 @@ def suppress_stderr():
     finally:
         sys.stderr = old_stderr
 
-def cpu_transcribe_diarise(audio_file, output_file=None, num_speakers=None):
+def load_whisper_prompt(filepath="whisper_prompt.txt"):
+    """Load the initial prompt for guiding Whisper transcription."""
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            prompt = f.read().strip()
+        print(f"Loaded Whisper prompt from {filepath} ({len(prompt)} characters)")
+        return prompt
+    except FileNotFoundError:
+        print(f"Whisper prompt file {filepath} not found, using default prompt.")
+        return "This is a technical discussion that may include specialized terminology."
+
+def load_term_corrections(filepath="term_corrections.txt"):
+    """Load term correction dictionary from a file for post-processing."""
+    corrections = {}
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#'):
+                    parts = line.split('|')
+                    if len(parts) == 2:
+                        incorrect, correct = parts
+                        corrections[incorrect.strip()] = correct.strip()
+        print(f"Loaded {len(corrections)} term corrections from {filepath}")
+        return corrections
+    except FileNotFoundError:
+        print(f"Term corrections file {filepath} not found, no post-processing will be applied.")
+        return {}
+
+def apply_term_corrections(text, corrections):
+    """Apply the term corrections to the text."""
+    if not corrections:
+        return text
+    
+    corrected_text = text
+    for incorrect, correct in corrections.items():
+        # Case-insensitive replacement with word boundary check
+        pattern = re.compile(r'\b' + re.escape(incorrect) + r'\b', re.IGNORECASE)
+        corrected_text = pattern.sub(correct, corrected_text)
+    
+    return corrected_text
+
+def cpu_transcribe_diarise(audio_file, output_file=None, num_speakers=None, prompt_file="whisper_prompt.txt", corrections_file="term_corrections.txt"):
     """
     Process an audio file with high-quality CPU-based transcription and diarisation.
     
@@ -46,6 +87,8 @@ def cpu_transcribe_diarise(audio_file, output_file=None, num_speakers=None):
         audio_file: Path to the audio file
         output_file: Where to save the transcript (defaults to input_filename_transcript.txt)
         num_speakers: Number of speakers in the recording (if known, otherwise auto-detected)
+        terms_file: Path to the technical terms file for initial prompting
+        corrections_file: Path to the term corrections file for post-processing
     
     Returns:
         Path to the output file
@@ -59,6 +102,10 @@ def cpu_transcribe_diarise(audio_file, output_file=None, num_speakers=None):
 
     print("CPU-only mode enabled for highest quality transcription")
     
+    # Load prompt and corrections
+    whisper_prompt = load_whisper_prompt(prompt_file)
+    term_corrections = load_term_corrections(corrections_file)
+    
     # Load Whisper large-v3 model (latest and most accurate version)
     print("Loading Whisper large-v3 model on CPU (this will take a moment)...")
     model = whisper.load_model("large-v3")
@@ -69,10 +116,17 @@ def cpu_transcribe_diarise(audio_file, output_file=None, num_speakers=None):
         audio_file,
         word_timestamps=True,
         language="en",  # You can change this for other languages
-        verbose=False
+        verbose=False,
+        initial_prompt=whisper_prompt  # Use prompt to guide transcription
     )
     
     print(f"Transcription complete with {len(transcription['segments'])} segments")
+    
+    # Apply term corrections if available
+    if term_corrections:
+        print("Applying technical term corrections...")
+        for segment in transcription["segments"]:
+            segment["text"] = apply_term_corrections(segment["text"], term_corrections)
     
     # Clear model from memory before loading diarisation
     del model
@@ -157,9 +211,14 @@ def cpu_transcribe_diarise(audio_file, output_file=None, num_speakers=None):
             else:
                 merged_segments.append(current)
                 current = segment.copy()
-        
+
         # Don't forget to add the last segment
         merged_segments.append(current)
+
+    # NEW CODE: Filter out empty UNKNOWN segments
+    print("Removing empty UNKNOWN speaker segments...")
+    merged_segments = [segment for segment in merged_segments 
+                       if not (segment["speaker"] == "UNKNOWN" and not segment["text"].strip())]    
     
     # Save the transcript
     print(f"Saving transcript to {output_file}...")
@@ -190,6 +249,8 @@ if __name__ == "__main__":
     parser.add_argument("--output", "-o", help="Output file path (default: [input]_transcript.txt)")
     parser.add_argument("--speakers", "-s", type=int, 
                        help="Number of speakers in the recording (if known, improves accuracy)")
+    parser.add_argument("--prompt", "-p", help="Path to Whisper prompt file (default: whisper_prompt.txt)")
+    parser.add_argument("--corrections", "-c", help="Path to term corrections file (default: term_corrections.txt)")
     
     args = parser.parse_args()
     
@@ -201,6 +262,8 @@ if __name__ == "__main__":
     transcript_file = cpu_transcribe_diarise(
         args.audio_file, 
         output_file=args.output,
-        num_speakers=args.speakers
+        num_speakers=args.speakers,
+        prompt_file=args.prompt if args.prompt else "whisper_prompt.txt",
+        corrections_file=args.corrections if args.corrections else "term_corrections.txt"
     )
     print(f"Transcript saved to: {transcript_file}")

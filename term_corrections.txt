@@ -1,0 +1,36 @@
+# Term corrections for whisper post-processing
+# Format: incorrect_term|correct_term
+# Each pair should be on a separate line
+# Lines starting with # are comments
+
+# Vocabulary technologies
+SysVoc|SISSVoc
+Sisk|SISSVoc
+Sysvok|SISSVoc
+scos|SKOS
+SCOS|SKOS
+Scots|SKOS
+Scosmos|Skosmos
+SCOSMOS|Skosmos
+TopRaid|TopBraid
+vocbench|VocBench
+VOCbench|VocBench
+prez|Prez
+PRESS|Prez
+press|Prez
+vocprez|VocPrez
+VOCPRESS|VocPrez
+pool party|Pool Party
+
+# ARDC terms
+research recovery in Australia|Research Vocabularies Australia
+Research Recovery Australia|Research Vocabularies Australia
+IRDC|ARDC
+rva|RVA
+Rva|RVA
+
+# Proper names
+Curawong|Kurrawong
+Kerouac|Kurrawong
+Carawong|Kurrawong
+Kurawang|Kurrawong

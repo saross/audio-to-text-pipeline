@@ -110,17 +110,94 @@ pip install openai-whisper torch numpy scipy librosa soundfile pydub tqdm
 echo "Installing pyannote.audio for speaker diarisation..."
 pip install pyannote.audio
 
-# Prompt for Hugging Face token
+# ===== CHECK/REQUEST HUGGINGFACE TOKEN =====
 echo "======================================================================"
 echo "Hugging Face Token Setup"
 echo "======================================================================"
-echo "You need a Hugging Face token to access the diarisation models."
-echo "1. Go to: https://huggingface.co/settings/tokens"
-echo "2. Create a new token if you don't have one"
-echo "3. Enter your token below"
-echo ""
 
-read -p "Enter your Hugging Face token: " HF_TOKEN
+# Check for existing token in environment variables or config files
+HF_TOKEN=""
+if [ -n "$HUGGINGFACE_TOKEN" ]; then
+    echo "Found HUGGINGFACE_TOKEN in environment variables."
+    HF_TOKEN="$HUGGINGFACE_TOKEN"
+else
+    # Check if token is saved in shell config files
+    TOKEN_FOUND=false
+    POTENTIAL_CONFIGS=("$HOME/.bashrc" "$HOME/.bash_profile" "$HOME/.zshrc" "$HOME/.profile")
+    
+    for CONFIG_FILE in "${POTENTIAL_CONFIGS[@]}"; do
+        if [ -f "$CONFIG_FILE" ]; then
+            # Check if token exists in this config file
+            if grep -q "HUGGINGFACE_TOKEN" "$CONFIG_FILE"; then
+                echo "Found saved token in $CONFIG_FILE"
+                # Extract only the token line instead of sourcing the entire file
+                TOKEN_LINE=$(grep "export HUGGINGFACE_TOKEN" "$CONFIG_FILE" | grep -v "#" | tail -n 1)
+                
+                # If a token line was found, evaluate just that line
+                if [ -n "$TOKEN_LINE" ]; then
+                    eval "$TOKEN_LINE"
+                    
+                    # Verify the token was actually loaded
+                    if [ -n "$HUGGINGFACE_TOKEN" ]; then
+                        HF_TOKEN="$HUGGINGFACE_TOKEN"
+                        TOKEN_FOUND=true
+                        break
+                    fi
+                fi
+            fi
+        fi
+    done
+fi
+
+# Prompt for token only if not found
+if [ -z "$HF_TOKEN" ]; then
+    echo "No existing Hugging Face token found."
+    echo "You need a Hugging Face token to access the diarisation models."
+    echo "1. Go to: https://huggingface.co/settings/tokens"
+    echo "2. Create a new token if you don't have one"
+    echo "3. Enter your token below"
+    echo ""
+    
+    read -p "Enter your Hugging Face token: " HF_TOKEN
+    
+    # Ask if user wants to save token to shell config
+    if [ -n "$HF_TOKEN" ]; then
+        read -p "Would you like to save this token for future use? (y/n): " SAVE_TOKEN
+        if [[ "$SAVE_TOKEN" =~ ^[Yy]$ ]]; then
+            SHELL_CONFIG=""
+            if [[ "$SHELL" == *"bash"* ]]; then
+                SHELL_CONFIG="$HOME/.bashrc"
+            elif [[ "$SHELL" == *"zsh"* ]]; then
+                SHELL_CONFIG="$HOME/.zshrc"
+            fi
+            
+            if [ -n "$SHELL_CONFIG" ] && [ -f "$SHELL_CONFIG" ]; then
+                # Check if token already exists in file to avoid duplicates
+                if grep -q "HUGGINGFACE_TOKEN" "$SHELL_CONFIG"; then
+                    echo "Token entry already exists in $SHELL_CONFIG. Updating it..."
+                    # Use sed to replace the existing token line
+                    sed -i "s/export HUGGINGFACE_TOKEN=.*/export HUGGINGFACE_TOKEN=\"$HF_TOKEN\"/" "$SHELL_CONFIG"
+                else
+                    echo "" >> "$SHELL_CONFIG"
+                    echo "# Hugging Face token for audio transcription" >> "$SHELL_CONFIG"
+                    echo "export HUGGINGFACE_TOKEN=\"$HF_TOKEN\"" >> "$SHELL_CONFIG"
+                fi
+                echo "Token saved to $SHELL_CONFIG. It will be available in new terminal sessions."
+            else
+                echo "Couldn't determine shell config file. Please add manually:"
+                echo "export HUGGINGFACE_TOKEN=\"$HF_TOKEN\""
+            fi
+        fi
+    fi
+else
+    echo "Using existing Hugging Face token: ${HF_TOKEN:0:5}...${HF_TOKEN: -5}"
+fi
+
+# If token is still empty after all of that, exit
+if [ -z "$HF_TOKEN" ]; then
+    echo "ERROR: No Hugging Face token provided. This is required for the diarisation models."
+    exit 1
+fi
 
 # Create environment setup script
 echo "Creating environment setup script..."
@@ -128,24 +205,42 @@ cat > ~/transcription-env/setup_env.sh << 'EOF'
 #!/bin/bash
 
 # Environment setup for transcription pipeline
+# Determine optimal thread count
+echo "Detecting CPU cores..."
+if command -v nproc &> /dev/null; then
+    TOTAL_CORES=$(nproc)
+    # Use 75% of cores but minimum 4
+    CALCULATED_THREADS=$(( TOTAL_CORES * 3 / 4 ))
+    CPU_THREADS=$(( CALCULATED_THREADS < 4 ? 4 : CALCULATED_THREADS ))
+    echo "Detected $TOTAL_CORES CPU cores, configuring for $CPU_THREADS threads"
+else
+    CPU_THREADS=4
+    echo "Could not detect CPU cores, using default of 4 threads"
+fi
+
+# Create environment setup script with dynamic thread count
+echo "Creating environment setup script..."
+cat > ~/transcription-env/setup_env.sh << EOF
+#!/bin/bash
+
+# Environment setup for transcription pipeline
 export HUGGINGFACE_TOKEN="$HF_TOKEN"
-export OMP_NUM_THREADS=4
-export MKL_NUM_THREADS=4
-export OPENBLAS_NUM_THREADS=4
+export OMP_NUM_THREADS=$CPU_THREADS
+export MKL_NUM_THREADS=$CPU_THREADS
+export OPENBLAS_NUM_THREADS=$CPU_THREADS
+export VECLIB_MAXIMUM_THREADS=$CPU_THREADS
 export PYTORCH_CUDA_ALLOC_CONF="max_split_size_mb:128,expandable_segments:True"
 export CUDA_LAUNCH_BLOCKING="1"
 EOF
 
 chmod +x ~/transcription-env/setup_env.sh
 
-# Add to activation script
-echo "source ~/transcription-env/setup_env.sh" >> ~/transcription-env/bin/activate
-
 # Export for current session
 export HUGGINGFACE_TOKEN="$HF_TOKEN"
-export OMP_NUM_THREADS=4
-export MKL_NUM_THREADS=4
-export OPENBLAS_NUM_THREADS=4
+export OMP_NUM_THREADS=$CPU_THREADS
+export MKL_NUM_THREADS=$CPU_THREADS
+export OPENBLAS_NUM_THREADS=$CPU_THREADS
+export VECLIB_MAXIMUM_THREADS=$CPU_THREADS
 export PYTORCH_CUDA_ALLOC_CONF="max_split_size_mb:128,expandable_segments:True"
 export CUDA_LAUNCH_BLOCKING="1"
 

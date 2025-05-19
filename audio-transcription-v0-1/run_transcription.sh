@@ -59,12 +59,18 @@ if [ -z "$HUGGINGFACE_TOKEN" ]; then
     for CONFIG_FILE in "${POTENTIAL_CONFIGS[@]}"; do
         if [ -f "$CONFIG_FILE" ]; then
             # Check if token exists in this config file
-            if grep -q "HUGGINGFACE_TOKEN" "$CONFIG_FILE"; then
+            TOKEN_LINE=$(grep "export HUGGINGFACE_TOKEN" "$CONFIG_FILE" | grep -v "#" | tail -n 1)
+            
+            if [ -n "$TOKEN_LINE" ]; then
                 echo "Found saved token in $CONFIG_FILE"
-                # Source the file to load the token
-                source "$CONFIG_FILE"
-                TOKEN_FOUND=true
-                break
+                # Extract and evaluate just the token line, not the whole file
+                eval "$TOKEN_LINE"
+                
+                # Verify that token was loaded
+                if [ -n "$HUGGINGFACE_TOKEN" ]; then
+                    TOKEN_FOUND=true
+                    break
+                fi
             fi
         fi
     done
@@ -122,14 +128,36 @@ fi
 
 echo "Using Hugging Face token: ${HUGGINGFACE_TOKEN:0:5}...${HUGGINGFACE_TOKEN: -5}"
 
-# ===== GPU MEMORY OPTIMIZATION =====
+# ===== HARDWARE OPTIMIZATION =====
 echo "Setting up optimized environment for transcription..."
 
+# GPU memory optimization
 export PYTORCH_CUDA_ALLOC_CONF="max_split_size_mb:128,expandable_segments:True"
 export CUDA_LAUNCH_BLOCKING="1"
-export OMP_NUM_THREADS="4"  # For CPU operations like diarisation
-export TOKENIZERS_PARALLELISM="false"
-export PYTHONOPTIMIZE="1"
+
+# CPU optimization for diarisation and fallback operations
+CPU_THREADS=4  # Default for 4-core system
+
+# Get CPU core count if possible
+if command -v nproc &> /dev/null; then
+    TOTAL_CORES=$(nproc)
+    # Use 75% of cores (rounded down) but minimum 4, maximum 10
+    CALCULATED_THREADS=$(( TOTAL_CORES * 3 / 4 ))
+    CPU_THREADS=$(( CALCULATED_THREADS < 4 ? 4 : (CALCULATED_THREADS > 10 ? 10 : CALCULATED_THREADS) ))
+    echo "Detected $TOTAL_CORES CPU cores, using $CPU_THREADS threads for CPU operations"
+else
+    echo "Using default thread count: $CPU_THREADS"
+fi
+
+# Set threading environment variables
+export OMP_NUM_THREADS="$CPU_THREADS"
+export MKL_NUM_THREADS="$CPU_THREADS"
+export OPENBLAS_NUM_THREADS="$CPU_THREADS"
+export VECLIB_MAXIMUM_THREADS="$CPU_THREADS"
+
+# General optimization
+export TOKENIZERS_PARALLELISM="false"  # Prevent huggingface tokenizer warnings
+export PYTHONOPTIMIZE="1"  # Optimize Python
 
 # ===== CREATE OUTPUT DIRECTORY =====
 # Create output directory if specified
