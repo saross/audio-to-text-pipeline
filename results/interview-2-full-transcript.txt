@@ -1,0 +1,2715 @@
+# Audio Transcription
+# Generated using GPU-accelerated pipeline
+# Model: tiny
+
+[00:02] UNKNOWN: As your name and your current role and experience with semantic artifacts.
+
+[00:11] UNKNOWN: Yeah, so I'm Nicholas Carr and I'm the, I guess, founder of Carrong AI, a small technology company by training on really an informatics researcher, originally, and then a data architect,
+
+[00:22] UNKNOWN: worked in government departments for many years. I worked in research as well, but now I run this company providing support
+
+[00:30] UNKNOWN: and development of semantic systems,
+
+[00:33] UNKNOWN: knowledge graph systems, either by themselves,
+
+[00:36] UNKNOWN: or in conjunction with AI systems,
+
+[00:38] UNKNOWN: too, well, government, but also the private sector,
+
+[00:41] UNKNOWN: so it's got some privacy to plan it.
+
+[00:42] UNKNOWN: So we, all of our projects are knowledge graph semantic web
+
+[00:46] UNKNOWN: projects, some of them also include AI.
+
+[00:51] UNKNOWN: Yep, and which areas do you mostly work in?
+
+[00:57] UNKNOWN: So I've got a bit of background in the minerals
+
+[01:00] UNKNOWN: and geology space so personally I know a bit of that stuff so we do work with a number of
+
+[01:05] UNKNOWN: private and government minerals or primary resource sector concerns but we also work with
+
+[01:12] UNKNOWN: environmental data so departments of environment that's sort of thing and occasionally we have
+
+[01:17] UNKNOWN: projects that are unrelated so projects in the legal space and so on but today it's mostly been
+
+[01:23] UNKNOWN: environmental, scientific, and mineral space sectors. Yeah, vegetation as well. Okay. So in general,
+
+[01:33] UNKNOWN: you might be able to like deeply comment on the trends in, you know, the Earth minerals
+
+[01:40] UNKNOWN: and environment, but you can, you can see, you know, experience outside of those areas. Yeah,
+
+[01:48] UNKNOWN: I mean, it's a specialty to be working in our technology and in our information space. So
+
+[01:53] UNKNOWN: So that will translate across.
+
+[01:55] UNKNOWN: So if we were working in a different sector,
+
+[01:57] UNKNOWN: like I don't know, let's think of art and culture,
+
+[02:00] UNKNOWN: like art and culture, to some extent,
+
+[02:02] UNKNOWN: their informatics and vocabulary concerns
+
+[02:05] UNKNOWN: are no different to anybody else's,
+
+[02:06] UNKNOWN: even though the domain is different.
+
+[02:08] UNKNOWN: And I forgot, of course, a big one,
+
+[02:10] UNKNOWN: like I've got to just then, indigenous data space.
+
+[02:13] UNKNOWN: So we've been working for many years
+
+[02:15] UNKNOWN: on a couple of big indigenous data projects.
+
+[02:17] UNKNOWN: And to some extent, the concerns are exactly the same.
+
+[02:19] UNKNOWN: So catering for specialist indigenous interests in data modeling is the same as catering for
+
+[02:25] UNKNOWN: farming or mining interest in data modeling to some extent.
+
+[02:28] UNKNOWN: And then of course there's all the specialist domain things that that particular domain
+
+[02:32] UNKNOWN: has.
+
+[02:33] UNKNOWN: But for instance indigenous data governance, which is our big thing, is almost exactly the same
+
+[02:38] UNKNOWN: as devolved data governance to any other community.
+
+[02:41] UNKNOWN: And my PhD was in cultural data actually and working with the farmers and their groups
+
+[02:47] UNKNOWN: there, they're particularly interested
+
+[02:48] UNKNOWN: to different to indigenous interests.
+
+[02:50] UNKNOWN: But the way that they had interests
+
+[02:51] UNKNOWN: and the way those are just so padded for,
+
+[02:54] UNKNOWN: ends up being the same, yeah.
+
+[02:57] UNKNOWN: Yeah, yeah, that's interested.
+
+[02:58] UNKNOWN: Yeah, that actually gets it one of the questions.
+
+[03:02] UNKNOWN: I have noted, which, like I might jump to,
+
+[03:05] UNKNOWN: since you're on that topic.
+
+[03:08] UNKNOWN: Is, well, no, actually I won't.
+
+[03:13] UNKNOWN: I'll come back to it.
+
+[03:15] UNKNOWN: What have you made for later?
+
+[03:16] UNKNOWN: Yeah.
+
+[03:17] UNKNOWN: So RVA, what critical, what gap do you see that feeling in this round out of landscape into the future now?
+
+[03:28] UNKNOWN: Well, I think future.
+
+[03:29] UNKNOWN: Yeah, I think by its design, the gap that it feels is what it was set out to do, which is when you've got researchers, in particular
+
+[03:37] UNKNOWN: and I've been very clear about the difference between researching non-research vocabulary, right?
+
+[03:43] UNKNOWN: But in the research space, if you are a researcher out there or a research unit
+
+[03:48] UNKNOWN: and what you want to do is to do a bit of vocabulary work for whatever reason,
+
+[03:51] UNKNOWN: either you actually studying the mechanics of vocabulary themselves unlikely,
+
+[03:55] UNKNOWN: because only a few research places to do that.
+
+[03:57] UNKNOWN: But if you're researching in a domain and in that domain you need
+
+[04:02] UNKNOWN: vocabularies to assist with that research and even products and development from that, you need
+
+[04:08] UNKNOWN: a place to manage and deliver and publish those vocabularies. That's what RVA does. If you're
+
+[04:13] UNKNOWN: a small researching unit at just pick one, Charles Darwin University, Sydney University,
+
+[04:17] UNKNOWN: it doesn't matter where, even CSI or whatever, and you said, I want to publish two or three
+
+[04:22] UNKNOWN: vocabularies, maybe a little data model, and I want them to be available, and I want them to be used,
+
+[04:26] UNKNOWN: and I want people to see them, maybe other people to interact with them, and even co-develop
+
+[04:29] UNKNOWN: If you didn't have RVA, you'd have to set up an infrastructure to do that.
+
+[04:33] UNKNOWN: Now, my company sets up infrastructure like that for bigger users.
+
+[04:36] UNKNOWN: If you're a whole government department and that's, and you want a whole vocabulary
+
+[04:39] UNKNOWN: for structural, we're going to build you one.
+
+[04:40] UNKNOWN: But if you're a research group, it's ridiculous to think that they would build a whole research
+
+[04:44] UNKNOWN: infrastructure or vocabulary for structure.
+
+[04:46] UNKNOWN: Just for a two to three year project, they could even be a career researcher there who's the person in their unit
+
+[04:53] UNKNOWN: that is doing vocabulary work every second or third year on different projects over 15 years.
+
+[04:58] UNKNOWN: again. You don't want to have to build a whole for a cabering for structure for that one person.
+
+[05:02] UNKNOWN: You just want them to use a shared service. Now, there are some shared services which
+
+[05:06] UNKNOWN: the commercial sector has got covered. It's an email service. You know, we all use email. None
+
+[05:09] UNKNOWN: of us have to go and implement an email server. You've either got a corporate one that you're using
+
+[05:13] UNKNOWN: in your organization or you can choose Gmail unless they've got you covered. But for a cabering
+
+[05:17] UNKNOWN: so it's not so, they just aren't for a cabering service is out there much. So at the moment,
+
+[05:22] UNKNOWN: your only options are have a big corporate one's provider to you because you're in an organization
+
+[05:26] UNKNOWN: that does work calories or use a shared one somewhere. And in Australian research,
+
+[05:31] UNKNOWN: your best shared bet is RVA, it's art to many other options. So it does that, does that well?
+
+[05:38] UNKNOWN: And it should keep doing that. Now, I know, I mean, obviously when you've got something that's working
+
+[05:43] UNKNOWN: well, there's a thought that you might want to expand it. And I leave that to ARDC to work out
+
+[05:49] UNKNOWN: what they think expansion could mean if it's needed at all. But what I would say, I have been a little bit
+
+[05:56] UNKNOWN: disappointed about over the last few years, it's not the expansion of scope. It's the expansion of use.
+
+[06:03] UNKNOWN: I think expansion of scope is probably not a good idea. I think that expansion of scope should
+
+[06:08] UNKNOWN: either do more things, probably not. There are a million things that could do, why doesn't
+
+[06:13] UNKNOWN: at Princeton start doing Bitcoin mining and hosting emails again, because those are just not appropriate.
+
+[06:19] UNKNOWN: but the thing that I would wish it to do would be to expand the user base. So if there were
+
+[06:26] UNKNOWN: 100 researchers who used it, if we thought the verb cabries, I mean maybe there's a natural
+
+[06:30] UNKNOWN: limit to how many people using verb cabries in Australia would ever be, but I would like to think
+
+[06:36] UNKNOWN: that more people would think of verb cabries work as being useful to them and more available,
+
+[06:40] UNKNOWN: and that number of users of RBA would grow. So over time you would have members of all 40 or whatever
+
+[06:46] UNKNOWN: their universities in Australia using it and that, you know, Department of Prime Ministeries over
+
+[06:50] UNKNOWN: here and that there would just be more of the same. So I don't fully know the numbers of
+
+[06:55] UNKNOWN: top of my head. Obviously numbers have gone up for RVA, but I would rather hope that they've gone
+
+[06:59] UNKNOWN: up more. I would rather hope to be seeing more of their cabbage coming in from more different
+
+[07:03] UNKNOWN: small units of people who are doing that kind of defined data work.
+
+[07:09] UNKNOWN: Yeah, that's a good point. And I just have a question about our servers as well of, you know,
+
+[07:15] UNKNOWN: the challenge or they're not going to put up vocabulary service just for one vocabulary every
+
+[07:21] UNKNOWN: three years or something as you say. What about pids as well for the vocabularies? How can I
+
+[07:29] UNKNOWN: RDC help their and how should they help and could it be integrated a little better into RVA? What
+
+[07:36] UNKNOWN: do you thoughts? Yes, it's a big issue and we should solve this years ago. So just in the last couple of
+
+[07:41] UNKNOWN: months I've done a major piece of work to try and improve things strong, my perspective.
+
+[07:47] UNKNOWN: So it should be the case that when you're making a vocabulary that you've got several options
+
+[07:52] UNKNOWN: there as to how you want to generate persistent identifiers. Business identifiers are
+
+[07:56] UNKNOWN: conceptually very easy implementation extremely hard. They're probably the hardest thing to
+
+[08:00] UNKNOWN: deal with in vocabulary. We all think they're easy. I just have a persistent identifier. It's just
+
+[08:05] UNKNOWN: not that easy. You particularly begin to know this, but the listeners of this later on trust
+
+[08:09] UNKNOWN: it's really difficult and the reason it's all difficult is because you're trying to assign
+
+[08:15] UNKNOWN: something which is a universal governed object to a technical specific resource. So the
+
+[08:20] UNKNOWN: issue here is you're trying to say I'm going to make this thing point to that thing forever but
+
+[08:23] UNKNOWN: that thing is small, it's moved around, it gets edited and the thing that I'm trying to point to
+
+[08:28] UNKNOWN: that is a university defined web address that's stable and persistent. So very, very difficult to
+
+[08:33] UNKNOWN: align those things. But what I think should happen is that when you're creating a vocabulary
+
+[08:38] UNKNOWN: Yeah, you should basically have a sort of a,
+
+[08:40] UNKNOWN: doesn't have to be a questionnaire,
+
+[08:41] UNKNOWN: but it can be in just the way you create this stuff,
+
+[08:44] UNKNOWN: you know, typing the name,
+
+[08:45] UNKNOWN: what should we have called.
+
+[08:46] UNKNOWN: And then somewhere it says,
+
+[08:47] UNKNOWN: you know, what kind of hit thing do you want going on here?
+
+[08:49] UNKNOWN: Do you not care at all,
+
+[08:50] UNKNOWN: and this is just, you just experimenting,
+
+[08:52] UNKNOWN: it doesn't really matter.
+
+[08:54] UNKNOWN: So it'll just use a sort of opaque,
+
+[08:56] UNKNOWN: kind of local name, space thing.
+
+[08:58] UNKNOWN: Or do you want this to be a really hardcore,
+
+[09:00] UNKNOWN: published thing?
+
+[09:01] UNKNOWN: And you've got a persistent identifier
+
+[09:03] UNKNOWN: that you want to use as the root,
+
+[09:04] UNKNOWN: persistent identifier.
+
+[09:05] UNKNOWN: Do you want to assign a persistent identifier
+
+[09:06] UNKNOWN: to each individual object?
+
+[09:08] UNKNOWN: do you want someone else to handle this for you?
+
+[09:10] UNKNOWN: All of those options, which we know from experience,
+
+[09:12] UNKNOWN: can be useful in different situations should be available.
+
+[09:15] UNKNOWN: And the UI absolutely needs to do this up front.
+
+[09:18] UNKNOWN: If we don't suggest options to people right up front,
+
+[09:21] UNKNOWN: what happens is they make vocabes using editor.rv.gov, blah, blah, blah, blah,
+
+[09:27] UNKNOWN: a totally system non-possistant identifier.
+
+[09:29] UNKNOWN: And that stays there for years.
+
+[09:30] UNKNOWN: And I've had to patch up vocabes.
+
+[09:32] UNKNOWN: Many of them over the years were, for five years,
+
+[09:35] UNKNOWN: a vocabes been running that's got a editor.pl Party.
+
+[09:40] UNKNOWN: You know, completely non-possistant identifier,
+
+[09:42] UNKNOWN: system-specific, all of those things.
+
+[09:45] UNKNOWN: And it's just winning it in that if someone was to take that service
+
+[09:48] UNKNOWN: in that system of a way.
+
+[09:49] UNKNOWN: It does, those web address was the absolutely meaningless.
+
+[09:52] UNKNOWN: So we've been lucky that the RVA system
+
+[09:53] UNKNOWN: has been stable for many years.
+
+[09:55] UNKNOWN: So that's allowed things that look like,
+
+[09:58] UNKNOWN: well, it's allowed non-persistent system
+
+[10:00] UNKNOWN: identifies to be fairly persistent for some years.
+
+[10:03] UNKNOWN: And that's been great.
+
+[10:04] UNKNOWN: But there's zero guarantee about that.
+
+[10:06] UNKNOWN: I mean, there's so many reasons why these things could change.
+
+[10:08] UNKNOWN: So if they do, all of those non-specifically established pits
+
+[10:13] UNKNOWN: would be broken.
+
+[10:15] UNKNOWN: So we must offer choices up front.
+
+[10:17] UNKNOWN: Now, what I've done to try and deal with
+
+[10:18] UNKNOWN: for many years, the need that a local group has been running a Pissist
+
+[10:22] UNKNOWN: not into Fife Service, and many vocabs in RVA use it. However, they've never been
+
+[10:26] UNKNOWN: coupled. There's never been an option to sort of do the sort of once it's quite a
+
+[10:30] UNKNOWN: decoupled process, and that's mostly just through lack of investment and time and effort.
+
+[10:34] UNKNOWN: It's not like there's any reason that shouldn't be, it's just no longer around to it.
+
+[10:38] UNKNOWN: Now, last year, RDC took over the technical management of the Pissist
+
+[10:42] UNKNOWN: not into Fife Service, but didn't take over the conceptual management of it.
+
+[10:46] UNKNOWN: So the technical work that was done on the persistent identifier service was established, but
+
+[10:49] UNKNOWN: I still run that.
+
+[10:50] UNKNOWN: And then data work, we still run this there, RVA, not RDC, literally host the service,
+
+[10:56] UNKNOWN: but doesn't know how they work, it's opaque to them really.
+
+[10:59] UNKNOWN: So that's the gav.au.
+
+[11:01] UNKNOWN: That's a link to data.au.au.au.
+
+[11:03] UNKNOWN: That's right.
+
+[11:04] UNKNOWN: And so when people register the persistent identifier and then actually mechanically make them
+
+[11:09] UNKNOWN: or work, I'm doing that work, and then again, we can just do that work.
+
+[11:12] UNKNOWN: RDC is facilitated, but isn't really involved in any deep way.
+
+[11:16] UNKNOWN: The only person who really understood that is Richard Walker and he's left.
+
+[11:19] UNKNOWN: Now, I said to the link that a working group a few months ago, look, we should have
+
+[11:25] UNKNOWN: a facility so that people can automatically request business and identify a certain data
+
+[11:29] UNKNOWN: working group.
+
+[11:30] UNKNOWN: From any other system, including RVA, now it doesn't mean that you're bypassing governance.
+
+[11:35] UNKNOWN: What might happen is you might request a PID and you might be instantly told whether it's
+
+[11:39] UNKNOWN: even feasible.
+
+[11:40] UNKNOWN: So if you ask for one that it really exists, absolutely not feasible.
+
+[11:43] UNKNOWN: So if you start typing in slash, deaf, slash,
+
+[11:47] UNKNOWN: a gift, that that already exists,
+
+[11:49] UNKNOWN: you can't have that one.
+
+[11:49] UNKNOWN: So that's an instant, you can't have that.
+
+[11:51] UNKNOWN: But if you said slash, deaf, slash,
+
+[11:53] UNKNOWN: my favorite vocabulary, whatever.
+
+[11:55] UNKNOWN: You might go, well, look, in see me,
+
+[11:56] UNKNOWN: that's available to you.
+
+[11:57] UNKNOWN: Do you want to request it?
+
+[11:59] UNKNOWN: And you can go, yes, now, it has to go through
+
+[12:01] UNKNOWN: a proper paid governance process of being approved.
+
+[12:04] UNKNOWN: But at least right off the bat,
+
+[12:06] UNKNOWN: you've actually requested that thing.
+
+[12:07] UNKNOWN: Now, even if you had to change it,
+
+[12:08] UNKNOWN: but at number two at the end of whatever,
+
+[12:10] UNKNOWN: it would be much, much easier having a request and something
+
+[12:13] UNKNOWN: to then change it to what you were actually allocated,
+
+[12:16] UNKNOWN: then to not have requested at all.
+
+[12:17] UNKNOWN: It puts people in the mindset of actually dealing
+
+[12:19] UNKNOWN: with the pits.
+
+[12:20] UNKNOWN: So we've almost finished implementing this now.
+
+[12:23] UNKNOWN: We have a test, lead data, working group, API up,
+
+[12:27] UNKNOWN: that has all the pits in it.
+
+[12:28] UNKNOWN: And you can make a request to it.
+
+[12:30] UNKNOWN: And this will be revealed by May, beginning of May,
+
+[12:33] UNKNOWN: in our end data work group meeting.
+
+[12:34] UNKNOWN: We'll be going for approval then,
+
+[12:35] UNKNOWN: which is we've built a new database.
+
+[12:39] UNKNOWN: We've put all the pits into it,
+
+[12:40] UNKNOWN: we've put all the governance material
+
+[12:41] UNKNOWN: the pins into it, put on the organisations into it, and now you can request a PID automatically,
+
+[12:46] UNKNOWN: and we haven't worked out all the mechanics yet, but it'll come to the point where a client
+
+[12:52] UNKNOWN: system like RVA could have five options for PIDs, correct your own local one, W3, RG, whatever,
+
+[12:58] UNKNOWN: and one of them would be linked.au. If you choose that option, you'll say, do you want to
+
+[13:03] UNKNOWN: request a PID? Yes, what do you like to request? You type it in and you can enter and go, sorry,
+
+[13:08] UNKNOWN: that was not available, or you go, and then it says, oh, that was potentially available,
+
+[13:13] UNKNOWN: it will be allocated under a view, do you want to proceed with this? Yes, I do. So you'll write
+
+[13:17] UNKNOWN: that into your data. Now, you know, you're busy, you might be making your vocab as in that lovely,
+
+[13:21] UNKNOWN: and at some point you can say when you're vocab, and then through some process yet to be determined,
+
+[13:26] UNKNOWN: that pizza crew, then there's no more food to do, if you've now got that pitting process,
+
+[13:29] UNKNOWN: it's it's working, or actually sorry, you've requested that, but, you know, you put it
+
+[13:34] UNKNOWN: a naughty word in there. You can't have that. So, can you change it to this? And you go,
+
+[13:39] UNKNOWN: yes, and then you change and then we'll go and change it in the RBA system to that. So again,
+
+[13:43] UNKNOWN: it's emphasized the fact that you need a pivot and there's a mechanism to get it. And from the
+
+[13:48] UNKNOWN: users point of view, they won't really see that it's any different to the RBA system. It's just another
+
+[13:52] UNKNOWN: part of the RBA system. It is actually a different system under the hood, because the link that it
+
+[13:56] UNKNOWN: working with can assign pits to many other things, not just RBA, but that is, that's the way the
+
+[14:02] UNKNOWN: the users aren't seeing. It would be just more capability to the RBS system. Now the issues
+
+[14:07] UNKNOWN: here are that this kind of work, doing this kind of linked data work and group thing. That's
+
+[14:12] UNKNOWN: kind of work that my company would do and we're charged with money for that. I've been doing
+
+[14:15] UNKNOWN: this for free because there is no vision from any government body in Australia to do this here.
+
+[14:21] UNKNOWN: It's come from initially research, you know, people at CSRS saying you should do this and now it's
+
+[14:25] UNKNOWN: coming from me and a few others saying we should do this looking forward into the future, but no one's
+
+[14:30] UNKNOWN: paying for it. So we'll get there, it'll take a little bit, it'll take a little bit, it'll take
+
+[14:34] UNKNOWN: to make it technically implemented and it'll take a month or two to actually
+
+[14:40] UNKNOWN: will implement the system properly, but we have to hand it over to ARDC to run it. So I think by
+
+[14:44] UNKNOWN: July or August meeting we should have a fully capable system, it'll solve a bunch of issues for
+
+[14:50] UNKNOWN: ARDC and running the system. They'll be running a new link data working group system rather than the
+
+[14:54] UNKNOWN: old legacy one which nobody likes. They don't like it, we don't like it, no one likes it.
+
+[14:58] UNKNOWN: So it'll be easier and more capable and it'll have these things that you can now do,
+
+[15:05] UNKNOWN: automatically request stuff, automatically validate data or kinds of stuff, but we're
+
+[15:10] UNKNOWN: winning it here because there's no other than me and a couple other people, there's no overarching
+
+[15:17] UNKNOWN: plan to do this. It's coming about through the goodness of certain people being involved.
+
+[15:23] UNKNOWN: Do you think there's a sort of interrupt, but that being government related pets, do you think there's a role for an edu.ru service that would be exactly the same really.
+
+[15:41] UNKNOWN: So this has been asked to be many, many, many times over the years and months is always the same.
+
+[15:48] UNKNOWN: We're giving the same answer now, which is, if the RDC thinks that they would like a.edu,
+
+[15:54] UNKNOWN: be my guest. What would you need for that? You would need the exact same mechanics.
+
+[15:58] UNKNOWN: You'd need the same reviews. You do the same technical capability that we're implementing now for the.gov.
+
+[16:02] UNKNOWN: So my suggestion is always the same, which is, let's complete the.gov.au bit.
+
+[16:09] UNKNOWN: it. And when we're happy with the situation that that's it, then you can speculate and say,
+
+[16:13] UNKNOWN: yeah, we should probably have a.edu as well. Now, I think that a.gov.au.edu, a, a quite
+
+[16:20] UNKNOWN: sensible to have. You could have both. My suggestion would be to run them on the same
+
+[16:24] UNKNOWN: infrastructure with the same everything or just there's no point running through these. We've
+
+[16:27] UNKNOWN: found, by the way, there's zero value in running individual states and territories.gov.au.au
+
+[16:32] UNKNOWN: pit services. You can just run one. It's not such a big job. One for the whole country is
+
+[16:36] UNKNOWN: So running.gov.au and.edu.au in the same place, absolutely fine. We did consider running
+
+[16:43] UNKNOWN: an image.gov.au or whatever, some derived service rather than linked.au, it would be
+
+[16:49] UNKNOWN: image shot because there was a whole regime that was potentially being muted about persistent
+
+[16:54] UNKNOWN: identifiable image. That was an ADC project that was proposed, but never got realized.
+
+[16:59] UNKNOWN: So I'm all for that, but the issue is not to think about it.au.au, one is to think about
+
+[17:03] UNKNOWN: what is the total set of tricks and tips that we should have around
+
+[17:07] UNKNOWN: business and identify as in general. So we haven't come to the limit of what dot
+
+[17:11] UNKNOWN: dot do you can do? We know that because this work that I'm suggesting now
+
+[17:14] UNKNOWN: isn't complete. So can we auto allocate? Can we auto attest? Can we allocate large
+
+[17:19] UNKNOWN: numbers? Are people all familiar with this to the understand of any all of
+
+[17:22] UNKNOWN: those questions need answering in general for pits. Whether it's a dot
+
+[17:26] UNKNOWN: do you dot you dot you dot you dot you. The second thing I'd say in the
+
+[17:29] UNKNOWN: we've W3C. Now W3C ID, I'm a my company and I are a contributing member of that consortium
+
+[17:35] UNKNOWN: because we're in the pit space and W3ID fills another role. It's easy to get pit, but it's
+
+[17:40] UNKNOWN: ungoverned and there's no guarantees about it long term. It's running on a couple of servers
+
+[17:46] UNKNOWN: that the company is very kindly provided. So it's got less guarantees about the long term than
+
+[17:50] UNKNOWN: the network and group stuff. I find it very useful. I use it frequently. It's absolutely not appropriate
+
+[17:56] UNKNOWN: for certain purposes. It's not appropriate for Australian government, that's one thing. It's also
+
+[18:00] UNKNOWN: probably not appropriate for something that you wish to be seen as Australian, if not government,
+
+[18:06] UNKNOWN: but to do with Australia in some way. So there's a jurisdictional element. It doesn't have
+
+[18:11] UNKNOWN: that's in its national one. It's also not, as I say, it's under no government governance regime,
+
+[18:18] UNKNOWN: other than in totally informal one. You know, I'm a governing member, I could approve all the
+
+[18:22] UNKNOWN: deny pids, sort of, you know, someone who wants to study throughout East slash koala, I just
+
+[18:26] UNKNOWN: say, no, you know, they're like, then they'll be fine about that. And there's no mechanism
+
+[18:30] UNKNOWN: now, it's been running on goodwill, it's got several hundred pids made there, it's all fine,
+
+[18:34] UNKNOWN: but it's a loosely governed thing. So it feels a role, if that's what you want, you get it,
+
+[18:37] UNKNOWN: but it doesn't feel all of the people requirements that we need in Australia, even just outside of
+
+[18:43] UNKNOWN: the gubs.au. So I think a.edu A1 will be a very good idea. I think that if a.edu A1
+
+[18:48] UNKNOWN: you one was established, then it should be the primary PID mechanism that's suggested for RVA.
+
+[18:55] UNKNOWN: And RVA should by default allocate.edu.au pits. And the technical way it should do it is exactly
+
+[19:01] UNKNOWN: what I just described about the.gov.au, it's just the other option. So you go, yeah, I'll have
+
+[19:05] UNKNOWN: a.edu.au1. So a new.data.edu.au, whatever, slash black. And it will say you've requested this.
+
+[19:12] UNKNOWN: That's potentially available. It'll be reviewed. It'll come back to you. It has to
+
+[19:15] UNKNOWN: has to be reviewed. We just cannot have an auto allocation system, even W3ID is reviewed.
+
+[19:21] UNKNOWN: You know, every request a human is actually seeing that thing, and you have to do that because
+
+[19:25] UNKNOWN: otherwise you get not necessarily malicious, but just things like pisses and identifies with
+
+[19:30] UNKNOWN: unusual characters in them, spaces. Now you can automate as much of this as you like it in the
+
+[19:35] UNKNOWN: day for humans not reviewing these things. We're making decisions on piss that are going to
+
+[19:39] UNKNOWN: potentially be around for 10 years and they're going to do things like I had pisses and
+
+[19:43] UNKNOWN: this is not enterprise or a question slash death slash water, and you think what's a problem
+
+[19:47] UNKNOWN: without the problem is, the vocab that it was being allocated to all the models something
+
+[19:51] UNKNOWN: to do with water, obviously. But that thing really doesn't represent the whole of water in Australia,
+
+[19:56] UNKNOWN: it really can't. And so it's not sensible to allocate that. So my suggestion for that one was
+
+[20:01] UNKNOWN: technically you would be allowed to get this pdf. First I'm first sir, but my strong recommendation
+
+[20:07] UNKNOWN: to the point that you haven't actually is you need to you need to narrow the scope to be
+
+[20:11] UNKNOWN: be commensurate with the scope of your actual object.
+
+[20:13] UNKNOWN: So in this case, there's water quality or water abundance, then it can be slashed there slash water abundance or something like that.
+
+[20:19] UNKNOWN: So, so there's that kind of narrowing that really only humans can do at this point, it must must be implemented.
+
+[20:24] UNKNOWN: So, I don't know.
+
+[20:25] UNKNOWN: I think it's one of the, the P, creation and allocations,
+
+[20:29] UNKNOWN: been one of the hardest things to do with the vocabulary for sure.
+
+[20:34] UNKNOWN: Absolutely.
+
+[20:35] UNKNOWN: I've got that hanging over my head, as you know.
+
+[20:37] UNKNOWN: Absolutely.
+
+[20:38] UNKNOWN: So this is why I think that infinity business.
+
+[20:40] UNKNOWN: If we make the technical systems more integrated,
+
+[20:44] UNKNOWN: let's go ahead with the doctor, you want to get that or work in our doctor,
+
+[20:49] UNKNOWN: you pitch, you don't even plan to a very small proportion of the workhabs in RVA,
+
+[20:54] UNKNOWN: because most of them are not government.
+
+[20:56] UNKNOWN: In fact, you and I know that shouldn't be government, really.
+
+[20:59] UNKNOWN: So, but having the capability, they're good.
+
+[21:02] UNKNOWN: The fact that the systems can request it.
+
+[21:04] UNKNOWN: As soon as that's all working, yes, the RDC could invest in then setting up a.edu,
+
+[21:09] UNKNOWN: I'd be delighted to do that after we've implemented the set of changes for .gov.au.
+
+[21:15] UNKNOWN: Once that the tooling and everything for .gov.au use there, the .edu will be dead simple.
+
+[21:20] UNKNOWN: I mean, the rate was which we actually do individual pizzas low.
+
+[21:23] UNKNOWN: If we were to double-triple or quadruple the requests by adding other domains, by getting more people involved, all these things,
+
+[21:30] UNKNOWN: it would make very little difference to the amount of work that we do if all of the tooling was in place.
+
+[21:36] UNKNOWN: So, I encourage it, I think that you could go to.edu as your default primary allocation thing,
+
+[21:42] UNKNOWN: but it just has to be under a well-managed regime.
+
+[21:45] UNKNOWN: And this gets, so the collection level identifies, I guess, the question around the high-level
+
+[21:54] UNKNOWN: resource identifier, talk of, you know, should that have an awkward ID? It should have some kind
+
+[22:02] UNKNOWN: of ID.
+
+[22:03] UNKNOWN: So if you've got a well-managed pit system, then that you could have, you know, Avi, I should think about assigning a whole vocabulary.
+
+[22:17] UNKNOWN: Well, that's what the people would be.
+
+[22:19] UNKNOWN: Which actually I don't think it does at the moment or it doesn't make you.
+
+[22:23] UNKNOWN: It doesn't make you.
+
+[22:25] UNKNOWN: And so, okay, so this is another area of discussion that's been going on for years and years.
+
+[22:30] UNKNOWN: years because of the way some of these pits work and I'm not talking about link data pits
+
+[22:35] UNKNOWN: but like all kinds of rates and so on. Deorys, the first case and handles before that,
+
+[22:40] UNKNOWN: they are registered entities in a register somewhere and then they have certain required
+
+[22:46] UNKNOWN: information about them and blah, blah, blah, blah and so on and cost money. Deorys, for instance.
+
+[22:50] UNKNOWN: So there is no reason why a.edu pit couldn't be exactly that thing and provide semantic
+
+[22:59] UNKNOWN: where blink data style mechanics under the hood. You can do both of those things as long as the
+
+[23:04] UNKNOWN: thing is registered. The problem with there is a perception that these link data pits can't
+
+[23:11] UNKNOWN: be like all kides and DIYs. They absolutely can. The only thing that missing is a registration
+
+[23:16] UNKNOWN: aspect. So you may know I've written some papers on this actually about the modes of which we
+
+[23:22] UNKNOWN: allocate pits in the data science journal companies are going to fuse it going out. But also I've wrote
+
+[23:27] UNKNOWN: a pit policy, I've written several actually, but I wrote one for the geological survey of
+
+[23:31] UNKNOWN: WHO, which I can send you. And what it says is that there are classes of object in their
+
+[23:36] UNKNOWN: world that need different kinds of pits. So one class of object are major definitional objects.
+
+[23:45] UNKNOWN: So whole models, whole vocabaries, profiles of models, those sorts of major items. And then
+
+[23:51] UNKNOWN: underneath those are minor definitional items. So the individual items within a vocabulary and within
+
+[23:56] UNKNOWN: in a class with a model and that's the thing.
+
+[24:00] UNKNOWN: And then there are whole datasets that need pits
+
+[24:03] UNKNOWN: and then there are elements within datasets.
+
+[24:04] UNKNOWN: Now the elements within datasets,
+
+[24:06] UNKNOWN: number in the millions, individual features
+
+[24:09] UNKNOWN: within a dataset, individual boreholes,
+
+[24:11] UNKNOWN: individual records, foreign, individual borehole,
+
+[24:13] UNKNOWN: in a hundred thousand boreholes in the dead borehole dataset.
+
+[24:16] UNKNOWN: So there's a huge scope there,
+
+[24:18] UNKNOWN: but the policy is quite simple.
+
+[24:19] UNKNOWN: And basically says, the allocation of the pit
+
+[24:23] UNKNOWN: is at that major object level.
+
+[24:25] UNKNOWN: So you'd see there a definitional PID or a data set pit.
+
+[24:27] UNKNOWN: There's actually no difference.
+
+[24:29] UNKNOWN: You're allocating it to a major defined object
+
+[24:31] UNKNOWN: and it's got metadata and it's in a registry
+
+[24:32] UNKNOWN: and it has a control process there.
+
+[24:34] UNKNOWN: They're all unique.
+
+[24:35] UNKNOWN: We know who the owner is, blah, blah, blah,
+
+[24:37] UNKNOWN: it's got a status that is accepted, rejected, all that.
+
+[24:39] UNKNOWN: So it looks just like raids and pits and lights and stuff.
+
+[24:42] UNKNOWN: But through the mechanics of the link data pits,
+
+[24:45] UNKNOWN: it can then cater for any amount of mini pits within that.
+
+[24:49] UNKNOWN: So if you've got a data set that's got 12 billion entries in it
+
+[24:52] UNKNOWN: and that number's not accidental.
+
+[24:54] UNKNOWN: is such a data set out there. Those 12 billion objects are all substituted, but there's only one
+
+[24:59] UNKNOWN: pet allocated, and it's governed exactly like an orcardia in a rate, but it has the technical
+
+[25:05] UNKNOWN: properties of being able to allocate hints within that. Now, the user of that can stuff it up.
+
+[25:11] UNKNOWN: They can get the speed register, and they can issue 12 billion objects underneath that, and then
+
+[25:16] UNKNOWN: break them. But that's on them. There's not much we can do about that. There's only a certain amount
+
+[25:20] UNKNOWN: of governance we can handle, and we handle up to this major object. So back to answering
+
+[25:25] UNKNOWN: your question, should we have a pencil? We should, but the pitch should be the.edu.au
+
+[25:30] UNKNOWN: pits, we don't need another regime, we just need to have a regime in place. So the regime.
+
+[25:35] UNKNOWN: And some, some best practices in guiding users towards the best practice in ways that actually
+
+[25:40] UNKNOWN: they might not even have to. That's right. Think about it so much or understand it. And we've got
+
+[25:46] UNKNOWN: but we've got eight years of that being established in a data working group actually. I'm quite happy with the governance of the pits.
+
+[25:52] UNKNOWN: It's the mechanics and the time and investment that's been a bit lacking. But the actual, the theory of governance, the guidelines, the mechanics, the control body, review groups.
+
+[26:00] UNKNOWN: You know, we follow up a couple of international standards for this kind of review. So the background standard is triple one seven nine, which is a registry standard. And then the other one is one nine one six five, which is it's the same standard as triple one seven nine with a bit more detail.
+
+[26:14] UNKNOWN: It says it's for geographical objects, but it's actually for IT objects at any sort.
+
+[26:18] UNKNOWN: And so we follow those standards in terms of life cycles and who reviews what we're in and so on.
+
+[26:23] UNKNOWN: But really, as long as the object is controlled managed,
+
+[26:27] UNKNOWN: I would also say not that this is in the standards,
+
+[26:29] UNKNOWN: but there's much of the information about it is publicly available.
+
+[26:32] UNKNOWN: So who registered it when that's all public?
+
+[26:35] UNKNOWN: That you can test against a whole set.
+
+[26:38] UNKNOWN: So say there's lots and lots of pitch register.
+
+[26:40] UNKNOWN: You have to be able to evaluate your request against those.
+
+[26:43] UNKNOWN: not just a isolation so that you don't collide with them, those sort of thing. As long
+
+[26:46] UNKNOWN: as those things are in place and there's a well managed registry, then the top level
+
+[26:50] UNKNOWN: pit acts exactly like an orc ID and so on and so on. It's now mechanically, apart from being
+
+[26:57] UNKNOWN: assigned to that thing conceptually, mechanically, it is like an orc ID. If you resolve that pit,
+
+[27:01] UNKNOWN: it will go to that object, but unlike an orc ID in a DIY, it'll have some sugary resolve
+
+[27:06] UNKNOWN: properties as well. So that pit plus other bits will go to a certain element within that object.
+
+[27:12] UNKNOWN: So, all parties can't do that, because there's only one object there, and all parties
+
+[27:14] UNKNOWN: go to a person that's it.
+
+[27:16] UNKNOWN: You can't say, for instance, resolve this all-kidey to some particular portion in
+
+[27:20] UNKNOWN: Nick's career.
+
+[27:21] UNKNOWN: That doesn't work like that.
+
+[27:23] UNKNOWN: Yeah.
+
+[27:24] UNKNOWN: So, I think we can do exactly what the RDC occasionally requests, which is a raid or all-kidey style
+
+[27:32] UNKNOWN: paid for vercaps, but it should be the.edu.au, you won't.
+
+[27:36] UNKNOWN: Yeah.
+
+[27:37] UNKNOWN: Yeah, very good. Yeah, I went a little deep into that, but that's good because I think it's an essential area that we need to think about.
+
+[27:48] UNKNOWN: We have a question about scope in the areas that you work in is this desire to support the predominant artifact types that you see
+
+[28:04] UNKNOWN: requested, I guess, within, we're talking about research, really. So, so, um, yeah, so Basics
+
+[28:12] UNKNOWN: SKOS, vocableries, or should we do? Yeah, so what ever? Yeah, what's happened over the years, it's
+
+[28:21] UNKNOWN: mostly the obviously the Simon Poxes of the world. So, what they'll do is, is they're say, okay,
+
+[28:24] UNKNOWN: so the RVA is capable of scoff-starver cabbries, and then they'll try and push it around a bit to see
+
+[28:29] UNKNOWN: what they can do. Now, this is partly because this is what they do. They're experimentalists,
+
+[28:32] UNKNOWN: and it's 20 sensible to work out what the range of the thing can do is.
+
+[28:37] UNKNOWN: So we've seen over the years the Pool Party and RBS systems being pushed to doing things like
+
+[28:42] UNKNOWN: organization registers and things like that. The problem with that is that it becomes bad practice
+
+[28:47] UNKNOWN: at real quick and I'll give you the example. The OGC, OpenGest special consortium, they implemented
+
+[28:53] UNKNOWN: their own vote cad server that was a Skroskvokad server only years ago and over the years they've
+
+[28:59] UNKNOWN: try to shoehorn more and more and more stuff into that stuff that's well beyond
+
+[29:02] UNKNOWN: Scotsburgabs. So what they now have is a situation where they've got a lot of
+
+[29:05] UNKNOWN: definition material that goes well beyond gocabs, models, profiles, different
+
+[29:11] UNKNOWN: semantic relations all shoehorned into the SKOS system and it's a mess and it's
+
+[29:15] UNKNOWN: because the better mechanics for doing that kind of modeling are a non-scotset
+
+[29:20] UNKNOWN: of mechanics which the tooling doesn't support. So they're forced things into being
+
+[29:24] UNKNOWN: brought in our relations which just are not that in real life. So this standard
+
+[29:28] UNKNOWN: installation to this other standard in their world, or this building block. You don't
+
+[29:32] UNKNOWN: need to know what a building block is, but it's not a very cap. There's building block
+
+[29:35] UNKNOWN: plates, and there's other building block in some way that just isn't a squash relation,
+
+[29:38] UNKNOWN: so to force it into one is silly. And they've done things like they've built catalogs of
+
+[29:42] UNKNOWN: catalogs of catalogs using squash collections with narrow broader relationships. It just doesn't
+
+[29:47] UNKNOWN: make any sense. So when an outsider comes to see this, they actually get confused by this model,
+
+[29:52] UNKNOWN: what they should have done is they should have defined the model mechanics that they wanted,
+
+[29:55] UNKNOWN: and then worked on implementing the tooling to do that, or just accepted that they couldn't do it
+
+[30:00] UNKNOWN: or something different instead of shooting on it. So we're unwinding that with the OGC now,
+
+[30:04] UNKNOWN: we're implementing generalised support for modeling mechanics so that they can do that.
+
+[30:10] UNKNOWN: But so there's a limit to how many, so I think I think a Pool Party in a science class, it's
+
+[30:15] UNKNOWN: cost plus a few other bits and pieces which you'd quite come to be do, but you get to a limit of that.
+
+[30:20] UNKNOWN: Now, the big limit that I think that it will be nice to see people
+
+[30:23] UNKNOWN: putting in other things, do or not pull by the RVA is model publication.
+
+[30:29] UNKNOWN: So model publication, you absolutely cannot use
+
+[30:31] UNKNOWN: cost relations with that, you actually need, and it's not open-ended.
+
+[30:35] UNKNOWN: What the OGC are doing is open-ended.
+
+[30:37] UNKNOWN: They want a continuously growing model, and they're
+
+[30:39] UNKNOWN: trying to shoot one into Scotland.
+
+[30:40] UNKNOWN: So that's a different task.
+
+[30:42] UNKNOWN: But the thing that RVA could do is to say, well,
+
+[30:44] UNKNOWN: we have a SKOS Publishing Mechanic.
+
+[30:47] UNKNOWN: We also need or could have a owl or shackled publishing mechanic.
+
+[30:51] UNKNOWN: Now, that's not open-ended.
+
+[30:52] UNKNOWN: When we look at our models, we're not talking about
+
+[30:55] UNKNOWN: an infinite set of properties and classes.
+
+[30:57] UNKNOWN: We're talking about the properties and classes that define
+
+[31:00] UNKNOWN: properties and classes, because they're a model.
+
+[31:03] UNKNOWN: So you can, and we have any number of examples of tools
+
+[31:07] UNKNOWN: which will publish an ontology.
+
+[31:10] UNKNOWN: But if I was to come as a researcher to RVA and publish one
+
+[31:14] UNKNOWN: and oncology and three vocabs, vocabs, duh, no problem.
+
+[31:17] UNKNOWN: There's no facility for them to publish the model at this stage.
+
+[31:21] UNKNOWN: And the bad things between terms as well.
+
+[31:24] UNKNOWN: Yeah, they can do that.
+
+[31:26] UNKNOWN: I mean, you can do that.
+
+[31:27] UNKNOWN: You can go to both caps and you can use both correlations between them.
+
+[31:31] UNKNOWN: Yeah.
+
+[31:32] UNKNOWN: But you can't do this.
+
+[31:33] UNKNOWN: You can't, yeah, you can't define, you can't publish a new defined set of classes and predicates.
+
+[31:38] UNKNOWN: But you can't do the central task of semantic with moral creation and publication through RVA.
+
+[31:45] UNKNOWN: Now, what researchers have done over the years is,
+
+[31:49] UNKNOWN: it's typically is they'll publish workloads in RVA and then they'll make a model and then they
+
+[31:54] UNKNOWN: will use a model documentation tool to document that model. So now they've got a human
+
+[31:58] UNKNOWN: readable version of the model great, but where they've got that. And there's no facility. Now
+
+[32:02] UNKNOWN: that those usually come out as web page is actually, but that's where they also need a process
+
+[32:07] UNKNOWN: to identify and enhance space for that thing. So then what they end up doing is they say RVA
+
+[32:11] UNKNOWN: publication of the workloads and I've done this myself and many others have done it. We'll
+
+[32:17] UNKNOWN: put the ontology, we'll document it online, we'll put it through a GitHub system, and we'll assign
+
+[32:22] UNKNOWN: a W3ID pit to it, something like that. So that's a mixed mode. Now if RVA wanted to step up the
+
+[32:27] UNKNOWN: offering that it was making, it would say, well, we publish both apps and we do it well,
+
+[32:31] UNKNOWN: we do it with persistent files, yeah, and I think that's support task and accept what you're
+
+[32:34] UNKNOWN: valuable. But those two researchers who then go beyond both apps into the next order of publication,
+
+[32:39] UNKNOWN: which is actually model-making, they should have the facility to publish models.
+
+[32:42] UNKNOWN: and RVA could deliver that too. That's not to say that RVA would allow anyone to publish any type of
+
+[32:51] UNKNOWN: thing. It's not any type of thing, it's specifically vocabs and you ontological models. So that's
+
+[32:59] UNKNOWN: what I think RVA could and should do is the next step. It could improve the vocab thing in the ways
+
+[33:03] UNKNOWN: you're talking about and this mechanics underneath that sure. But conceptually, when people in
+
+[33:09] UNKNOWN: domains and modeling the domain, the first thing they do is create vocabs, the second thing
+
+[33:13] UNKNOWN: they do sometimes the first thing to do it should be the second thing to do is to start to create
+
+[33:17] UNKNOWN: hold the main models and it's the publication of those models which there is no facility for
+
+[33:22] UNKNOWN: that Australia yet and there is actually is that very very niche is there a demand for that stuff
+
+[33:30] UNKNOWN: do you think yes there is a demand it's you see it whenever some sector starts to get series with
+
+[33:35] UNKNOWN: it's so for instance in South Australia they're probably published 12 on 12 for categories and
+
+[33:39] UNKNOWN: and their vocabulary are fairly straightforward. They're all like, what file type is this thing?
+
+[33:43] UNKNOWN: But a couple of other vocabulary are all what you call science areas, you know, what area of
+
+[33:47] UNKNOWN: geology is this day and sick turned with? Okay, fine, let's say I'm straightforward. Those are just
+
+[33:51] UNKNOWN: work caps. But then they'll say, okay, well, now we want to publish a list of features,
+
+[33:56] UNKNOWN: geological features, so we need three vocabaries to describe aspects of these features.
+
+[34:00] UNKNOWN: You know, what rock feature is, that's just a vocabulary. Yeah, but then the next one is,
+
+[34:05] UNKNOWN: okay, what commodity does that rock feature have? Maybe it's gold, whatever.
+
+[34:09] UNKNOWN: Okay, so now we've got a purpose, a commodity, or a thing that we want, and we've got a type,
+
+[34:14] UNKNOWN: how does two vocabes relate? They relate through a model, which is not yet expressed.
+
+[34:18] UNKNOWN: The moment they want to express that model, now they're into model publishing, and so what they're
+
+[34:23] UNKNOWN: actually doing is they're now moving to somewhere, needing to write down the model that relates
+
+[34:27] UNKNOWN: their vocabes together. So you publish one, go and copy, publish two, publish, that's all fine.
+
+[34:31] UNKNOWN: When you start to get more than that, it's like how did these vocabes relate to another,
+
+[34:34] UNKNOWN: that's the model, where does the model live? Now, all of the work that I've done in the last
+
+[34:38] UNKNOWN: ten years to do with vercaps, there's a model back, there's a model somewhere that relates it.
+
+[34:42] UNKNOWN: Sometimes it's trivial, we're publishing a feature type and the only thing we need to know about is
+
+[34:48] UNKNOWN: it's a geospatial feature and I'm just think a big classification vercaps, just one.
+
+[34:53] UNKNOWN: Conceptually, there's still a model there, the model is separating geospatial features from all the
+
+[34:58] UNKNOWN: other things in the world and then this vercaps area feature type applies to that, right? So it doesn't
+
+[35:03] UNKNOWN: apply to me as a person applies to that geospatial thing, sure. But usually it's much more complicated
+
+[35:07] UNKNOWN: Now, usually, let's think of a rock sample, people say,
+
+[35:10] UNKNOWN: OK, go and model rock sample is fine.
+
+[35:11] UNKNOWN: So there's 3, 4, 5, 6, 10.
+
+[35:13] UNKNOWN: Vercavaries involved with, you know, what type of materials?
+
+[35:15] UNKNOWN: What's as purpose, where is it collected, who collected,
+
+[35:17] UNKNOWN: all that stuff?
+
+[35:19] UNKNOWN: But the thing it relates to altogether is the model.
+
+[35:20] UNKNOWN: So the model must be created at some point.
+
+[35:22] UNKNOWN: And I think that vercaps of the gateway
+
+[35:25] UNKNOWN: dragged to higher order modeling, domain models,
+
+[35:29] UNKNOWN: must make models.
+
+[35:30] UNKNOWN: And they start by doing vercaps.
+
+[35:31] UNKNOWN: And then they get an idea that, hey,
+
+[35:33] UNKNOWN: we can formally define these, these are working rather well.
+
+[35:35] UNKNOWN: but the vocabes are on different dimensions of this issue.
+
+[35:39] UNKNOWN: What are the dimensions? How do they relate?
+
+[35:42] UNKNOWN: We can't just relate vocabes to vocabes with other vocabes.
+
+[35:45] UNKNOWN: We can't just draw to narrow or close match things,
+
+[35:48] UNKNOWN: because they could be, again, the material of a sample
+
+[35:51] UNKNOWN: and the purpose of the machine used to collect the sample
+
+[35:54] UNKNOWN: are completely different dimensions.
+
+[35:56] UNKNOWN: They have no scoster relations between them,
+
+[35:58] UNKNOWN: but they do have a model relation between them.
+
+[36:01] UNKNOWN: And there's an increase use, you know, there's the triple SOM folk as well, testing, you know, that ontology, ontology.
+
+[36:10] UNKNOWN: Oh, there's any number of things. You can use any ontology. Oh, yeah, there's absolutely documentation ontologies, but to have a facility for any of them will do the purpose.
+
+[36:18] UNKNOWN: Yeah, I mean, they actually all come down to very similar to what RBA already has, you know, there's a top object in the model, which is an ontology as opposed to a concept scheme.
+
+[36:26] UNKNOWN: And then the concept scheme is interested in one or more hierarchies with a certain hierarchical
+
+[36:31] UNKNOWN: set of relations.
+
+[36:32] UNKNOWN: And on top of that, it's not interested in that.
+
+[36:34] UNKNOWN: It's interested in definitions for classes and predicates.
+
+[36:38] UNKNOWN: But it's actually the actual ontological definitions are very, very simple, usually.
+
+[36:43] UNKNOWN: They are these are my classes and these are how they relate.
+
+[36:46] UNKNOWN: And either what I'm doing is I'm making up the relations, you know, not these are never
+
+[36:49] UNKNOWN: just in the world before.
+
+[36:50] UNKNOWN: Or I'm just rehashing the scheme or something like that or whatever.
+
+[36:55] UNKNOWN: the set of classes and properties, even though they are very simple to create a very, very important
+
+[37:00] UNKNOWN: for that particular applied domain. I mean, most of the modeling I've done for said geological
+
+[37:04] UNKNOWN: survey of Western Australia, most of that is just rehashing modern from elsewhere, but what I'm doing
+
+[37:08] UNKNOWN: is I'm taking that things of interest and I'm packaging for this scenario here. The majority of
+
+[37:14] UNKNOWN: the work is in the vocabularies and and so on, but the modeling is rehashing, but it has to be
+
+[37:19] UNKNOWN: package if it's not packaged I don't know going into this thing you know of all the things in
+
+[37:24] UNKNOWN: the world that could relate these things these road caps together and you know all the things
+
+[37:28] UNKNOWN: I could say about rock samples what does GSWA actually want to say about the world this model
+
+[37:33] UNKNOWN: tells you we want to know this that the next thing yeah the question about the your comment that you
+
+[37:39] UNKNOWN: could do ontologies over here and do vocabularies here well do have any comments around
+
+[37:50] UNKNOWN: our servers on top of the servers that can one thing do it all, or is there a risk that we could
+
+[37:59] UNKNOWN: alienate basic vocabulary users, I'm thinking things like, you know, on top portal, alliance, things,
+
+[38:10] UNKNOWN: and they could store vocableres as well as on top of each other.
+
+[38:15] UNKNOWN: Is there a way that we could do this, like, the underpinnings of our VA understands the triple
+
+[38:20] UNKNOWN: store right. So you should, could you make, could you make it one big underlying system or is that too?
+
+[38:28] UNKNOWN: So you can, but the issue is always the same. It's, it's, it's to work out exactly what the
+
+[38:36] UNKNOWN: scope is that you're doing. The thing is the idea that all of the semantic stuff is infinitely
+
+[38:40] UNKNOWN: expandable is great in certain ways, but it's really problematic in other ways. So I'll give you an
+
+[38:44] UNKNOWN: example. When we create vocabs for almost all of our clients, we don't use the full
+
+[38:49] UNKNOWN: expressive power of SKOS. We actually use SKOS and a few other relations here and there,
+
+[38:54] UNKNOWN: but we limit it to the VocPub profile. And the reason is that if you just strict the user
+
+[38:58] UNKNOWN: VocPub closed world profile thing, that covers 89% of all vocab issues. And people should use
+
+[39:05] UNKNOWN: that profile until they are set to death of it, and they know how it works perfectly,
+
+[39:09] UNKNOWN: and they specifically understand how they're going to expand it. Because the tooling for
+
+[39:13] UNKNOWN: for Thought Pub is dead easy.
+
+[39:14] UNKNOWN: We can have 10 plates and Excel work books
+
+[39:17] UNKNOWN: and all kinds of stuff that works very well with Thought Pub.
+
+[39:19] UNKNOWN: If we said, you can use any mechanics
+
+[39:21] UNKNOWN: that you like in Scost.
+
+[39:23] UNKNOWN: That's a really difficult tooling thing to support.
+
+[39:25] UNKNOWN: So the fact that someone might want to define
+
+[39:27] UNKNOWN: three concept schemes in one vocab is really difficult
+
+[39:30] UNKNOWN: to support from a tooling point of view.
+
+[39:31] UNKNOWN: And it doesn't usually add much benefit actually.
+
+[39:35] UNKNOWN: So we say, listen, use Thought Pub until you're absolutely certain
+
+[39:39] UNKNOWN: that it's not covering on these.
+
+[39:40] UNKNOWN: And that you can express in very fine detail
+
+[39:42] UNKNOWN: what things it doesn't do, and then we'll consider using a different profile or expanded set of
+
+[39:47] UNKNOWN: scost mechanics. So the same is true for ontologies. If you say to people, look, we're going
+
+[39:51] UNKNOWN: to support the creation and publication of ontologies, but we're only going to support these things.
+
+[39:57] UNKNOWN: You do that until until they can very precisely articulate what it is that you can't do.
+
+[40:01] UNKNOWN: Now the actual art of ontology generation has been around for as long as they're being the semantic
+
+[40:06] UNKNOWN: web, it's as old or older than scoffs actually. So, to know what you can and can't do in an
+
+[40:12] UNKNOWN: ontology, you just need to look at a tool like Prodigy or top-coachance agent. It'll tell you,
+
+[40:17] UNKNOWN: you know, when I create a class, what are the things I'm expected to do with a class? Now,
+
+[40:21] UNKNOWN: one of the confusions that's come along the last few years is the rise of closed world models
+
+[40:25] UNKNOWN: like Shackle. So, Shackle, you can use Shackle as a complete model modeling language, just as you
+
+[40:31] UNKNOWN: can out. And some people use Shackle, some people use Al, more people use Al and Shackle,
+
+[40:36] UNKNOWN: Some people use a blend of the two, and that now becomes difficult really quickly.
+
+[40:40] UNKNOWN: Now I'm the co-chair of the W3C's Shackle Working Group.
+
+[40:44] UNKNOWN: So I love my Shackle, I'm writing to Shackle.
+
+[40:47] UNKNOWN: However, if we were thinking of what is the next thing that ARDC might offer researchers to do more
+
+[40:53] UNKNOWN: semantic things, I would say, just the traditional world-of-find
+
+[40:57] UNKNOWN: our ontology creation and publication would be the next task.
+
+[41:02] UNKNOWN: it is the task that you see various portals doing on top portal or whatever they can you can
+
+[41:06] UNKNOWN: create on top as you think. But you would say to them that the important thing here is to be able
+
+[41:13] UNKNOWN: to create our models not to be able to use every mechanic in model creation. To be able to create
+
+[41:20] UNKNOWN: our models at all is not to get supported. So doing anything in that space is good. But to try and support
+
+[41:26] UNKNOWN: every combination straight away would need to a mega investment in a tool like Pool Party that
+
+[41:33] UNKNOWN: can do all of this stuff. You're talking about creation as well as...
+
+[41:36] UNKNOWN: It would need a shoveling. Yeah, and the thing is that you would need on your staff, people who
+
+[41:40] UNKNOWN: understand ontological tasks and creation and mechanics, better than anyone who's going to ask you
+
+[41:46] UNKNOWN: a question. Now, I would suggest that this stage that is no such a person on the AODC staff.
+
+[41:51] UNKNOWN: And I don't think you could get such a person any time soon. What you could do, as you could say,
+
+[41:55] UNKNOWN: Following other well-established model creation processes, we will support this one that this tool does,
+
+[42:03] UNKNOWN: so onto a portal, whatever, and that's what you do. Then your task is just to learn
+
+[42:07] UNKNOWN: what onto a portal, or whatever, supports in terms of model publication. I think this is the second order
+
+[42:13] UNKNOWN: task. I think that we can do a lot of improving of the vocabulary space, but I do think that model
+
+[42:17] UNKNOWN: creation and publication is a big deal. It should be supported, and to have a facility that's available
+
+[42:22] UNKNOWN: to researchers in Australia, create models and publish them. It would reduce the effort required
+
+[42:28] UNKNOWN: to create non-tology a lot, because at the moment, if you're a PhD student or a researcher
+
+[42:32] UNKNOWN: in Utah, go and create a model of bushfires or whatever. You're going to have to go and
+
+[42:34] UNKNOWN: use credit chain and do that from scratch and when you've done it, when you've created the
+
+[42:37] UNKNOWN: thing, how do you publish it? Even if they use a tool to create the ontology, there's no facility.
+
+[42:43] UNKNOWN: So what they're going to do is they're going to publish it on a GitHub repository under their
+
+[42:46] UNKNOWN: department's name, not using pins, blah, blah, blah. It's not integrated in any way with the
+
+[42:51] UNKNOWN: ARDC and it's offerings there. So to just even, in fact, even before creation, you'll say publication,
+
+[42:59] UNKNOWN: what you do is go and create an ontology. It has to be valid according to these things. And then
+
+[43:05] UNKNOWN: you can publish it through the ARDC now. And the same way that we use blockpub for for categories.
+
+[43:09] UNKNOWN: We use ontopub for ontologies. And all ontopub does is it just requires you to have an ontology
+
+[43:16] UNKNOWN: with only one ontological object in it. So one ontology, not multiple. Classes and properties
+
+[43:23] UNKNOWN: created dates, publication dates, release dates, descriptions, names, labels, all that,
+
+[43:28] UNKNOWN: oring boring stuff exactly the same as the SKOS of Acabories, but through the ontologies,
+
+[43:32] UNKNOWN: that's all it requires. And with that, it can then document neatly the ontology. Now,
+
+[43:37] UNKNOWN: what does it not that you do? It doesn't let you do things like defined
+
+[43:41] UNKNOWN: and bizarre ontology property chain axioms and deep modeling things.
+
+[43:47] UNKNOWN: But again, 1995% of all the modeling that's ever done
+
+[43:50] UNKNOWN: doesn't require that, it just requires standard ontologies.
+
+[43:53] UNKNOWN: So to support that profile, the on-pop profile,
+
+[43:57] UNKNOWN: it's designed to be as simple to support as rock-pop.
+
+[44:01] UNKNOWN: And we support it, you know, when we're making models of people,
+
+[44:04] UNKNOWN: that's what we do.
+
+[44:05] UNKNOWN: Obviously, it could do something like that,
+
+[44:07] UNKNOWN: and then work out what the offering is.
+
+[44:10] UNKNOWN: Maybe test the market to see if you were to supply such a thing,
+
+[44:14] UNKNOWN: how much will it cost and how many people would like you to be using it.
+
+[44:16] UNKNOWN: Now, if it was a static model publication facility,
+
+[44:20] UNKNOWN: you give us the model, we'll just publish it.
+
+[44:22] UNKNOWN: It's going to be valid and we'll publish it.
+
+[44:23] UNKNOWN: That would cost you very little.
+
+[44:24] UNKNOWN: It'd be very easy.
+
+[44:26] UNKNOWN: And then the first comment you'll get or the second comment.
+
+[44:28] UNKNOWN: The first comment you'll get is thanks to this.
+
+[44:29] UNKNOWN: The second comment is, this is limited.
+
+[44:31] UNKNOWN: I want to do me in things and your responses.
+
+[44:33] UNKNOWN: We'll back, say,
+
+[44:35] UNKNOWN: We'll do these million things when there's lots of people who want them down, not just one key being researcher, because supporting the searches is a black hole.
+
+[44:43] UNKNOWN: You know, you could never satisfy our curiosity.
+
+[44:46] UNKNOWN: So her to the others want to do more. That's their job.
+
+[44:49] UNKNOWN: But to do some model support, I think, would be very valuable.
+
+[44:52] UNKNOWN: Yeah.
+
+[44:53] UNKNOWN: Yeah.
+
+[44:54] UNKNOWN: Very good.
+
+[44:55] UNKNOWN: Well, we'll come up to time.
+
+[44:58] UNKNOWN: Absolutely.
+
+[45:00] UNKNOWN: Yeah.
+
+[45:01] UNKNOWN: I'm keen to ask you a couple more questions about RVA like, as it is like what it could
+
+[45:11] UNKNOWN: except for the, we covered the Pids pretty well about how it could do better and whether that's
+
+[45:21] UNKNOWN: going to be, we're considering is that going to be a major upgrade or minor incremental steps.
+
+[45:28] UNKNOWN: So, I don't know, I've used you for lower.
+
+[45:33] UNKNOWN: Look, actually, but what was that question that you were going to ask me, and then you decided you would hold off?
+
+[45:39] UNKNOWN: Um, nope, that's probably pretty right. That was about the, um, does RVA cover the scope.
+
+[45:48] UNKNOWN: Oh, requirements of the communities that you work in. I guess the only other one would, the other domain you haven't talked about would be medical, which is perhaps a bit of a domain.
+
+[45:58] UNKNOWN: to mind, you know, they're a little more advanced
+
+[46:02] UNKNOWN: and they've got their own pretty well developed
+
+[46:07] UNKNOWN: for a capillary service from what I understand.
+
+[46:09] UNKNOWN: They do, they've got all that for us.
+
+[46:11] UNKNOWN: They're right on to a server and some from CSRA.
+
+[46:13] UNKNOWN: Yeah, look, it is exactly right.
+
+[46:15] UNKNOWN: You see the major research, you know,
+
+[46:16] UNKNOWN: you've got the ARC and the NHNMRC, you know,
+
+[46:19] UNKNOWN: you've got on one hand medical research funded in Australia
+
+[46:23] UNKNOWN: and then all other research.
+
+[46:24] UNKNOWN: And like why, right, they're actually the same.
+
+[46:26] UNKNOWN: There should be one research funding body
+
+[46:29] UNKNOWN: that funds a lot.
+
+[46:29] UNKNOWN: So it's the same here.
+
+[46:30] UNKNOWN: We have two communities who've got medical
+
+[46:32] UNKNOWN: and then everybody else.
+
+[46:33] UNKNOWN: And the answer really is that medical's important
+
+[46:35] UNKNOWN: and expensive, right?
+
+[46:36] UNKNOWN: That's the real underlying reason.
+
+[46:37] UNKNOWN: But, conceptually, from the ADC's point of view,
+
+[46:40] UNKNOWN: there should be no difference.
+
+[46:41] UNKNOWN: So it would be nice to think that a medical researcher
+
+[46:44] UNKNOWN: making a vocabular use of simplicity is anybody else,
+
+[46:47] UNKNOWN: but the legacy here is that they are in their own world.
+
+[46:51] UNKNOWN: So I would leave it to ADC to determine whether you
+
+[46:53] UNKNOWN: want to get involved in that medical world.
+
+[46:55] UNKNOWN: You know, the people that says,
+
+[46:56] UNKNOWN: guys, that CSIRA who do their own thing,
+
+[46:58] UNKNOWN: they've never, in the 10 years I've been in the States,
+
+[47:00] UNKNOWN: we've had zero collaboration between those two worlds.
+
+[47:02] UNKNOWN: I've seen them presented certain occasions
+
+[47:04] UNKNOWN: We've presented them, but there's never been any actual involvement, right?
+
+[47:09] UNKNOWN: And that's, you know, we're all to blame for that.
+
+[47:12] UNKNOWN: But regarding the minor major kind of questions about the RVA system,
+
+[47:19] UNKNOWN: I mean, it's mostly to do with what you would think you would need to convince someone
+
+[47:25] UNKNOWN: or other to keep things either going or make them better.
+
+[47:28] UNKNOWN: would be people who are finding all of this best want to say this, I'd be a thing's a bit of a
+
+[47:35] UNKNOWN: success. We just want to keep it improving it and keep it going and that's the real story there
+
+[47:40] UNKNOWN: is that it's good and we want to make it a bit better or it's actually not performing and either
+
+[47:44] UNKNOWN: it gets improved a lot or it gets shut down. Those are the kind of directions I would imagine
+
+[47:49] UNKNOWN: you want to go in. I think that it's doing a good job. It's probably not very expensive. If I think
+
+[47:53] UNKNOWN: about the way it runs. I think it could be incrementally improved to be 20 to 30% better,
+
+[47:58] UNKNOWN: whatever that, you know, pick some figure, right? But it could be, it could be made better.
+
+[48:01] UNKNOWN: And I think the betterness would come from pit allocations and things we've talked about there.
+
+[48:06] UNKNOWN: I think the big big story, which I don't know if RVA can solve in the short term,
+
+[48:11] UNKNOWN: because we can't even solve it easily outside of RVA in our own clients, it's actually a comprehensive
+
+[48:17] UNKNOWN: the vocabulary reference point. And obvious, absolutely not that at the moment. So if I wanted
+
+[48:22] UNKNOWN: to work out what vocabulary caps out, they talk about coal. I could search for coal in
+
+[48:28] UNKNOWN: RVA, but the search is limited. It also doesn't express the full extent of vocabulary
+
+[48:32] UNKNOWN: in Australia. We know that. And maybe it doesn't need to. It just is not in no, I just,
+
+[48:37] UNKNOWN: I'm just, if you want coal in research vocabulary in Australia, you've got to cover it. But if you,
+
+[48:41] UNKNOWN: but the reality is that the pool of people use the vocabulary caps as much broader than that. So
+
+[48:46] UNKNOWN: But facility that obviously is number one useful for everybody ever is actually a central
+
+[48:51] UNKNOWN: vocabulary search point, which is almost just Google, but it would actually tap the entire
+
+[48:56] UNKNOWN: holdings of RVA and all other known vocabaries in Australia, research or not, and certain
+
+[49:01] UNKNOWN: major collections of vocabulary internationally.
+
+[49:03] UNKNOWN: Now that's a tool that the RDC could support, it would be a multi-back-end search facility
+
+[49:09] UNKNOWN: across vocabes.
+
+[49:10] UNKNOWN: Something sort of exists like this, you've got the linked open vocabulary tool, but those
+
+[49:13] UNKNOWN: specialised to do with whole models. I'm talking about just simple, simple, finally any term
+
+[49:19] UNKNOWN: in any vocabulary that has coal in their off-playable or the description, something like that.
+
+[49:24] UNKNOWN: That would be extremely useful because after creation, the next question people ask is,
+
+[49:28] UNKNOWN: how do I find existing vocabulary to reuse them? And obviously, it doesn't answer that question
+
+[49:33] UNKNOWN: other than its own domain. It answers the own question in its own domain quite well,
+
+[49:36] UNKNOWN: you know, you say to the coal in there, it's got that covered, but that just isn't the real
+
+[49:39] UNKNOWN: story that researchers are concerned about. They want to know about coal in vocabulary in general,
+
+[49:43] UNKNOWN: not just in RBA. There are no researchers, as far as I can tell, who come along going,
+
+[49:47] UNKNOWN: I'm going to use only vocabulary. No, they come along saying, I'm going to use any vocabulary.
+
+[49:52] UNKNOWN: In RBAs.
+
+[49:53] UNKNOWN: Observed. In ten other places.
+
+[49:55] UNKNOWN: In RBAs, ten or seven. So, you know, they're anywhere. We've been able to deal with this,
+
+[49:58] UNKNOWN: is to provide people one, you search in these ten locations. We've written down the ten locations,
+
+[50:02] UNKNOWN: Agroport, or Antroport, RBA, geological survey of Queensland. So, we're probably going to provide
+
+[50:08] UNKNOWN: a private sector search across an industry specific set of things, the geology ones. We can do that
+
+[50:12] UNKNOWN: in Australia. But again, that's only a small proportion of the total set of
+
+[50:16] UNKNOWN: vocabes out there. So again, we don't have to know that there is an answer to this, but
+
+[50:21] UNKNOWN: that is actually a big question. How do I find other vocabes and reuse them? That's...
+
+[50:26] UNKNOWN: That's an excellent one. Okay, very good. Excellent. I do have... I have two others,
+
+[50:32] UNKNOWN: all questions, but I'm going to let you go. I actually realize I don't have a meeting following this.
+
+[50:37] UNKNOWN: So if it's actually a couple of questions, we can keep you going.
+
+[50:40] UNKNOWN: I'm sure.
+
+[50:42] UNKNOWN: This is just so much fun.
+
+[50:44] UNKNOWN: I just want to keep going.
+
+[50:45] UNKNOWN: It's all right, no worries.
+
+[50:46] UNKNOWN: Now it's really interesting.
+
+[50:48] UNKNOWN: It's good.
+
+[50:50] UNKNOWN: There's a thing about.
+
+[50:52] UNKNOWN: Yeah, just in terms of major minor upgrade.
+
+[50:58] UNKNOWN: What's your thoughts on,
+
+[51:00] UNKNOWN: I have a little, I have trouble with RVA with the metadata
+
+[51:05] UNKNOWN: being different to the metadata within the vocabulary file, the turtle, whatever it is.
+
+[51:17] UNKNOWN: What can we do something about that? Can we make and the ability to search a crop like
+
+[51:26] UNKNOWN: make that metadata linked and to be able to search across it and not have to do the entry twice
+
+[51:32] UNKNOWN: basically because I find that the metadata in the vocabulary file does not match the metadata
+
+[51:40] UNKNOWN: within the ARDC metadata profile that's requesting. So do you imagine a change that would
+
+[51:49] UNKNOWN: solve that that for most users wouldn't they may not even notice very much but it would still be
+
+[51:55] UNKNOWN: a major change that issue here was simply the two different systems. It's because of and it's hard
+
+[52:01] UNKNOWN: to know people's thoughts going back 10 years, but essentially I think this is what happened.
+
+[52:05] UNKNOWN: There's a tool to the UCS support, it publishes Vowcaps, okay fine, but it's quite limited.
+
+[52:09] UNKNOWN: And not just limited, we can't actually edit this spot because the mechanics and the programming
+
+[52:15] UNKNOWN: energy is actually archaic and it's not supported. So what we'll do is we'll use this spot
+
+[52:19] UNKNOWN: and then we'll wrap layers on top of it to achieve all these other outcomes like a registry.
+
+[52:23] UNKNOWN: So basically RVA is a registry of Vowcaps, the actual Vowcaps content and the registry content
+
+[52:29] UNKNOWN: content is not shared and that's the fundamental problem. That's separate things.
+
+[52:33] UNKNOWN: So, I draft up my very cap content here and then I, that's a bundle and then I put
+
+[52:38] UNKNOWN: registry information on top of it and the versions are not aligned and all that stuff.
+
+[52:42] UNKNOWN: So, that's because of the limits of the tooling now. That was done presumably because
+
+[52:47] UNKNOWN: they weren't too many options at the time. You know, go back in the years and you've got
+
+[52:50] UNKNOWN: you've got a tool that can handle scarce great, but we need a registry. So, we add the registry
+
+[52:55] UNKNOWN: to it. Now, since there's been 10 years, the way we do all our registries of vote caps is
+
+[53:01] UNKNOWN: exactly not that. It's actually simpler. All we do is this, we say all of the registries
+
+[53:05] UNKNOWN: information must be in the vote cap. So there is no information that's not in the vote cap.
+
+[53:10] UNKNOWN: So when you look at the states of the vote cap, last published date version, all that's up is literally
+
+[53:14] UNKNOWN: in the vote cap. Now if you want to only see the registries information, you don't want to see
+
+[53:18] UNKNOWN: all the concepts, you just want to see the vote cap 1, 2, 3, 4 published date whatever. That comes out
+
+[53:22] UNKNOWN: If you want to look inside the VogueCap and see all of this concept, that comes out of the VogueCap.
+
+[53:27] UNKNOWN: So what this means is that the actual registry content is just the VogueCap files.
+
+[53:32] UNKNOWN: There's no other information allowed by design.
+
+[53:34] UNKNOWN: It's pure semantic web here and that the metadata, everything, it's just in these things.
+
+[53:39] UNKNOWN: Now you have to have a mechanism to actually control that source and we're just using source control.
+
+[53:44] UNKNOWN: So we say there's a version control repository, all the VogueCap files are in it.
+
+[53:48] UNKNOWN: and when something is in the registry, it's in there,
+
+[53:53] UNKNOWN: because it's in the version control repository.
+
+[53:56] UNKNOWN: But the way that gets expressed out
+
+[53:58] UNKNOWN: is the content of the VowCab file itself.
+
+[54:01] UNKNOWN: It doesn't express meta-information about the VowCab file.
+
+[54:05] UNKNOWN: So the VowCab trial is only used to
+
+[54:07] UNKNOWN: literally control the existence in the registry.
+
+[54:10] UNKNOWN: The status, the created date, the version,
+
+[54:12] UNKNOWN: all that stuff is a property inside the VowCab file itself.
+
+[54:16] UNKNOWN: And that is co-edited.
+
+[54:17] UNKNOWN: It's mostly a decision by the person creating a vocab,
+
+[54:19] UNKNOWN: but the registry manager, the person who's actually responsible for managing this whole thing,
+
+[54:23] UNKNOWN: they can, and sometimes do go in and change the actual content of the vocab file.
+
+[54:27] UNKNOWN: So you've created a vocab file, you've made 10,000 changes to it, and you hit republish,
+
+[54:32] UNKNOWN: but you fail to indicate a version change or a created date update.
+
+[54:36] UNKNOWN: Now the registry manager, that's not appropriate.
+
+[54:38] UNKNOWN: You've changed all the stuff, you must actually tick over the modified data, the very least.
+
+[54:43] UNKNOWN: Now some of it's discretionary, you know, whether you want to indicate a vocab new version
+
+[54:47] UNKNOWN: release or whatever's sort of up to you, but the modified dates are kind of absolutely,
+
+[54:51] UNKNOWN: you know, if you've modified it, it's modified, you know. So that kind of thing means that the focus
+
+[54:55] UNKNOWN: is on the complete information is in that vocab. In isolation, it's complete. In a registry,
+
+[55:00] UNKNOWN: it's complete. The status of the vocab with respect to the registry, it's in must be in the vocab itself.
+
+[55:06] UNKNOWN: And it's actually very, it sounds difficult. It's actually simpler. It's just just one file.
+
+[55:12] UNKNOWN: You think, okay, but what about if I want to do this, you can always think of a complicate scenario which might require more.
+
+[55:18] UNKNOWN: You just don't allow that. It's exactly what I said before about allowing tricky things when you don't need to.
+
+[55:23] UNKNOWN: 90% of what people want to do is covered by this model.
+
+[55:26] UNKNOWN: Okay, well, hang on. What if I want an experimental version of it and a stable version over there and I want to blah, blah, blah.
+
+[55:34] UNKNOWN: Okay, so at the moment, RVA doesn't, it has a demo server and that's the key, as you say, do whatever you want to do over here.
+
+[55:40] UNKNOWN: But when you come to actually publishing for real, you've got one file, it's got a lot of stuff in there.
+
+[55:45] UNKNOWN: You could say that if it's on the server, it is a stable published object.
+
+[55:50] UNKNOWN: You can have stable and experimental elements within it.
+
+[55:53] UNKNOWN: So individual concepts might be stable or experimental, whatever.
+
+[55:56] UNKNOWN: You can have publication dates down to the individual concept level if you want.
+
+[56:02] UNKNOWN: So you might have a very cat that was published two years ago, but this concept was only published six months ago, whatever.
+
+[56:07] UNKNOWN: But that's still all in the Vogue Have Fun.
+
+[56:09] UNKNOWN: None of this requires a registry outside of the Vogue Have Someselves.
+
+[56:13] UNKNOWN: So the other thing that this would do is it simplifies the tooling enormously at the background
+
+[56:17] UNKNOWN: at the back end.
+
+[56:18] UNKNOWN: So you say the source of all the Vogue Hass is this version to troll thing.
+
+[56:22] UNKNOWN: It all goes into one triple store and then there's tooling to publish it out.
+
+[56:26] UNKNOWN: That more than medically means that the search will work on every aspect of the content,
+
+[56:29] UNKNOWN: the metadata of the whole lot, because it's literally all in one database.
+
+[56:33] UNKNOWN: So you do it in its full-text index, all that stuff.
+
+[56:36] UNKNOWN: that if you search for something with a prompted thing,
+
+[56:38] UNKNOWN: it'll search for the vocab name,
+
+[56:40] UNKNOWN: the definitions, the concept turns to the coal I mentioned before.
+
+[56:44] UNKNOWN: If you search for a coal or one of our systems, it'll find,
+
+[56:47] UNKNOWN: if there's a whole vocab about coal, that'll come up first.
+
+[56:50] UNKNOWN: Secondly, any individual concept about coal will come up next.
+
+[56:54] UNKNOWN: And then thirdly, any concept that's about coal,
+
+[56:56] UNKNOWN: but not coal, like the concept,
+
+[56:59] UNKNOWN: preferably, but isn't coal, but it talks about coal
+
+[57:01] UNKNOWN: in the description that'll come up.
+
+[57:02] UNKNOWN: So there's a preference order in terms of the objects,
+
+[57:04] UNKNOWN: but the entirety of the registry and the Vokad is all in one.
+
+[57:08] UNKNOWN: And now I think it's the right solution.
+
+[57:10] UNKNOWN: We're talking, let's guess how many Vokad is there on our FIA?
+
+[57:14] UNKNOWN: Let's say this 500, but whether there was 500 or 1500 or 5000,
+
+[57:19] UNKNOWN: it's still in the small database territory.
+
+[57:22] UNKNOWN: So mechanically, it's actually a small system
+
+[57:25] UNKNOWN: compared to very large corporations out there.
+
+[57:27] UNKNOWN: So the actual result, the technical and sourcing to support it,
+
+[57:33] UNKNOWN: is only at several or two, actually.
+
+[57:36] UNKNOWN: It doesn't need to make clone after clone after clone
+
+[57:38] UNKNOWN: after clone of whole vocabulary systems
+
+[57:40] UNKNOWN: like it's doing at the moment.
+
+[57:41] UNKNOWN: It can just literally be one system.
+
+[57:43] UNKNOWN: As long as the registry information
+
+[57:45] UNKNOWN: and the access controls are in place.
+
+[57:47] UNKNOWN: So if you log on, you can only edit your vocabulary
+
+[57:49] UNKNOWN: as you can't edit someone else's.
+
+[57:50] UNKNOWN: Those kinds of things must be supported.
+
+[57:53] UNKNOWN: But to my mind, it can be supported through just literally
+
+[57:55] UNKNOWN: one system with files in it and not much else, yeah.
+
+[57:59] UNKNOWN: So that RVA underneath, it clones each time someone loads of vocabulary, it's within its own
+
+[58:07] UNKNOWN: data base.
+
+[58:09] UNKNOWN: It's in comments that's own what database.
+
+[58:12] UNKNOWN: The repository.
+
+[58:13] UNKNOWN: So it uses a triple store and the triple stores almost all these days have really a similar set-up.
+
+[58:20] UNKNOWN: They say, OK, within one repository, I can have different name graphs, fine, and I can search
+
+[58:27] UNKNOWN: and I can differentiate data separately and there, but I can also have multiple repositories
+
+[58:31] UNKNOWN: which are completely isolated. And you can understand, I mean a lot of databases do this,
+
+[58:35] UNKNOWN: so sometimes they call data set, sometimes they call repositories, but let's just take
+
+[58:39] UNKNOWN: generively secu, which is what you guys use and what we're used to, we tend to use, it's the
+
+[58:43] UNKNOWN: leading open source one. So it's individual repositories are completely isolated. Each repository
+
+[58:48] UNKNOWN: has a different sparkle in point and has completely, you can't search across them. You have
+
+[58:53] UNKNOWN: in an other layer on top. So what RVA does is it creates a repository per
+
+[58:57] UNKNOWN: vote cap, and it adds to the vote cap content, labeling information and other
+
+[59:02] UNKNOWN: bits and pieces. So you've got your vote cap, so when you try and download a
+
+[59:05] UNKNOWN: vote cap, you don't get the vote cap you put in. You get the vote cap you put in
+
+[59:07] UNKNOWN: plus standard labeling content, and things like that. Now that's duplicate. It means
+
+[59:14] UNKNOWN: that the same labeling content is present in every single repository. And that is
+
+[59:16] UNKNOWN: a lot of repositories. So what we do is we don't do that, we create a name
+
+[59:22] UNKNOWN: graph per vocabulary and then all the supplementary information about labeling is in a single
+
+[59:29] UNKNOWN: other graph and it's shared. So every vocab in our systems out there,
+
+[59:33] UNKNOWN: 90% of the labels they need are the same labels so they're just in one place.
+
+[59:37] UNKNOWN: Oh, this vocab needs a few extra labels so you just get the person to supply and the vocab to add them
+
+[59:41] UNKNOWN: fine. So when you download that vocab you get all their concepts and all third party objects
+
+[59:46] UNKNOWN: that they've referred to. If they want them to be labeled they have to supply the labels
+
+[59:49] UNKNOWN: it's fine, so it's a small overhead.
+
+[59:52] UNKNOWN: But it also means that their vocab is now
+
+[59:54] UNKNOWN: just in a name graph, and that exact vocab
+
+[59:57] UNKNOWN: minus all of the background labeling
+
+[59:59] UNKNOWN: can be extracted if that's what you want.
+
+[60:01] UNKNOWN: And it can be cross-searched across all the other things.
+
+[60:03] UNKNOWN: So we're talking about this would be
+
+[60:07] UNKNOWN: the same repository, the one underlying repository,
+
+[60:13] UNKNOWN: with individual graphs within that repository.
+
+[60:17] UNKNOWN: and within the graphs is the metadata.
+
+[60:20] UNKNOWN: Exactly. Now, if you talk to say Richard,
+
+[60:23] UNKNOWN: who, when the stuff years ago,
+
+[60:25] UNKNOWN: if we had this conversation 10 years ago,
+
+[60:27] UNKNOWN: there might have been concerns about the management,
+
+[60:29] UNKNOWN: all of those vericabs, EM that one repository.
+
+[60:31] UNKNOWN: So we didn't have an answer.
+
+[60:34] UNKNOWN: It was guess who up to know whether it would be manageable,
+
+[60:36] UNKNOWN: 10 years ago, because we didn't have experience.
+
+[60:38] UNKNOWN: So we do now, and we can say this manageable.
+
+[60:40] UNKNOWN: We've got vericabs servers with 250 vericabs,
+
+[60:43] UNKNOWN: so that's geological survey, please land.
+
+[60:45] UNKNOWN: They have no problems managing that stuff.
+
+[60:47] UNKNOWN: Now they are one unit, managing it.
+
+[60:48] UNKNOWN: So it's fairly straightforward for them.
+
+[60:50] UNKNOWN: But say they had a set of the users,
+
+[60:54] UNKNOWN: and they had to manage to the vote caps in their behalf,
+
+[60:56] UNKNOWN: they would need more procedures and management than they've got now.
+
+[60:59] UNKNOWN: But not ten times more.
+
+[61:01] UNKNOWN: They would need to have the access control in place,
+
+[61:03] UNKNOWN: as I mentioned before, so that if you log in,
+
+[61:06] UNKNOWN: you're only able to edit your vote caps, not anybody else's.
+
+[61:09] UNKNOWN: But in turn, and that's actually all in the version control side of things.
+
+[61:12] UNKNOWN: In terms of the actual triple stores,
+
+[61:14] UNKNOWN: quite sustainable to have one big repository with all the stuff in there. And we've, when I
+
+[61:18] UNKNOWN: mentioned quite meaning before that, you know, the workout context is actually quite small.
+
+[61:21] UNKNOWN: If we look at other graphs that we know about the biodiversity data repository is millions of times bigger,
+
+[61:28] UNKNOWN: then the vocab content, it's got literally billions of triples in it, billions and billions,
+
+[61:32] UNKNOWN: and so, so that kind of scaling, we know how to do those things now, we know how they work,
+
+[61:37] UNKNOWN: we know what tool them support them, we know how to keep the content isolated into different graphs.
+
+[61:41] UNKNOWN: Well, I say, we, there are lots of professionals that know that this is not just me.
+
+[61:45] UNKNOWN: So, so I can quite comfortably say that it is a feasible for RVA to run on one repository
+
+[61:52] UNKNOWN: with multiple graphs in it with all the workhaves in there to do comprehensive search and to
+
+[61:57] UNKNOWN: contain all the registering information in the workhaves content. Yes, it's totally plausible.
+
+[62:02] UNKNOWN: It will be a simplification of the system we've got now. You have to rebuild the access control
+
+[62:08] UNKNOWN: part of it. Yep. But you would reduce the number of background systems down enormously.
+
+[62:12] UNKNOWN: You have version of troll database, access control, duh. Yeah, yep, yep. So in a way that is,
+
+[62:22] UNKNOWN: that is a major upgrade, but it's not the major major upgrade would be a changing scope,
+
+[62:30] UNKNOWN: group, which we might not want to go down.
+
+[62:34] UNKNOWN: Yeah, I mean, we just being out of cater for the more complex models.
+
+[62:41] UNKNOWN: So I guess like doing a major upgrades maybe not to cater for vocabularies is not ruling out.
+
+[62:48] UNKNOWN: That that system couldn't cater for models into the future.
+
+[62:54] UNKNOWN: No, absolutely not.
+
+[62:55] UNKNOWN: I mean, I would actually say that that quite separate, you could do this upgrade here.
+
+[63:00] UNKNOWN: of a bunch of things, it would probably simplify, it would look, it's just like in the other
+
+[63:03] UNKNOWN: systems that are quite legacy. Not just that, the actual RVA tooling itself, the actual
+
+[63:08] UNKNOWN: rigidity is also a legacy application, you know, a good you've made it, there's no other examples
+
+[63:12] UNKNOWN: of it. You could move to much more standardized tooling to do the RVA task as it's doing
+
+[63:18] UNKNOWN: done now. And in either in parallel or after or before or whatever you like, you could consider
+
+[63:25] UNKNOWN: what model publication looks like, I would suggest that model publication doesn't need to
+
+[63:29] UNKNOWN: use the same set of anything's actually. What you would do is you would get a model submitted,
+
+[63:35] UNKNOWN: it would have to be valid according to a certain validation thing, which you could make up a
+
+[63:39] UNKNOWN: submission thing using. If that upload your model isn't valid, yes or no, we know how to do that.
+
+[63:43] UNKNOWN: Then you would store that model in version control and you would publish it out, but it doesn't
+
+[63:48] UNKNOWN: have to be in the same system as all the Vowcaps. You might have a separate system for it, or
+
+[63:54] UNKNOWN: or you could include it as yet another published thing in the Vercaps system.
+
+[63:59] UNKNOWN: But I would think that we're talking 500 Vercaps in at this stage zero models.
+
+[64:04] UNKNOWN: In the next three years you might have 1,000 Vercaps and 5 models or maybe 50 models.
+
+[64:09] UNKNOWN: But the scales are such that I would work out what would be needed for a minimalistic model
+
+[64:15] UNKNOWN: publication and test that out and just keep it outside of the Vercaps thing.
+
+[64:19] UNKNOWN: And when you get to the point of having published 1,000 Vercaps and 100s of models, then
+
+[64:23] UNKNOWN: might say, okay, we can actually combine those things, but I think there could be a very simple
+
+[64:28] UNKNOWN: model publishing mechanic. It's the mechanic that we already see people doing by themselves.
+
+[64:33] UNKNOWN: It's just that the RBA is supportive, so that the model is all in one place. Do you basically
+
+[64:36] UNKNOWN: make a modern registry? It's a big central version of the 12th thing and you publish those models.
+
+[64:41] UNKNOWN: You statically create documentation for them and you publish them with pisses and identifies. That
+
+[64:46] UNKNOWN: that to me is a very simple task. It's we've done it to death, but the RBA or ARDC could support
+
+[64:51] UNKNOWN: that but that doesn't really impact the changes that you suggest here for the RVA mechanism
+
+[64:59] UNKNOWN: itself. It's related to it and it could consume it one day but I would just test the waters
+
+[65:04] UNKNOWN: and do them separately there because we don't know if you were to offer a model publication
+
+[65:07] UNKNOWN: thing maybe nobody comes to you with models and anything after two years but three models
+
+[65:13] UNKNOWN: they're all from Nick, your case, you know just keep to the very cap. So I'll be cautious about the model
+
+[65:18] UNKNOWN: public. I would take what I said with a pinch of salt, just see if that's really demand.
+
+[65:21] UNKNOWN: But on the very campsite, I think just as a risk mitigation thing for long-term technical support,
+
+[65:27] UNKNOWN: you would want to change the RBA system. There's a bunch of standard tools.
+
+[65:35] UNKNOWN: Service registries, tooling, available now, that you could select from a value weight, which would be
+
+[65:42] UNKNOWN: Yeah, yeah, yeah, and and at two simplest ones that are already present, you're already
+
+[65:47] UNKNOWN: half using them. One is just using standard version control for the actual static content.
+
+[65:51] UNKNOWN: And the other one is a single trickle store to put all the content into to search it.
+
+[65:55] UNKNOWN: The trickle store is really just indexing all that content, right? That's what it's doing.
+
+[65:58] UNKNOWN: So if you just use that, if you forget access control and things on top of it, if you just did that
+
+[66:02] UNKNOWN: and said, going forward, we're going to manage access control on a GitHub style pull request
+
+[66:09] UNKNOWN: making this and where you put pull requests in to create new vocabs into, you can actually put
+
+[66:13] UNKNOWN: a pull request in someone else's vocab and then you've been Australia would say, no, you can't
+
+[66:17] UNKNOWN: do that. So that kind of GitHub-based management is super well known by all your developers and
+
+[66:23] UNKNOWN: it would take very little effort to set up a governed access management thing here. The only
+
+[66:29] UNKNOWN: question you might have is, is that sensible for all of your users? Are they all going to jump on
+
+[66:32] UNKNOWN: board with things like pull requests? So that's when you go back to your graphical user interface
+
+[66:38] UNKNOWN: started editing in poor part of the way, but the results of that, it might be in the GitHub
+
+[66:42] UNKNOWN: thing, so the management is still there in GitHub. But just implementing GitHub and pick
+
+[66:49] UNKNOWN: your favorite open store, open open access, triple store, probably for sake, but could be
+
+[66:53] UNKNOWN: RDF for JEE, the one. That covers a lot of what you want, and then it's the publication mechanism
+
+[66:59] UNKNOWN: out here, which SISFOT is currently doing and could still do, or you could use another one in
+
+[67:03] UNKNOWN: this several. But the thing here is to just reduce the number of custom components you've got
+
+[67:09] UNKNOWN: up down, you know, it's like we used to have all different kinds of version of trauma
+
+[67:13] UNKNOWN: because there's nobody uses a material anymore. Nobody uses turtles, the end. We all
+
+[67:18] UNKNOWN: use get, get up. So just to see how that, that, are we, for second, what was the other one?
+
+[67:23] UNKNOWN: Are you out of your mind? Are you out of your mind? Are you out of your mind? Are you out of your mind?
+
+[67:27] UNKNOWN: Are you out of your mind? Are you out of your mind? Are you out of your mind? Are you out of your mind?
+
+[67:29] UNKNOWN: Are you out of your mind? Are you out of your mind? Are you out of your mind? Are you out of your mind?
+
+[67:31] UNKNOWN: Are you out of your mind? Are you out of your mind? Are you out of your mind? Are you out of your mind?
+
+[67:33] UNKNOWN: Are you out of your mind? Are you out of your mind? Are you out of your mind? Are you out of your mind?
+
+[67:35] UNKNOWN: are other ones also that are open source, but for second-end idea for J2B ones, there are commercial
+
+[67:41] UNKNOWN: ones as well. There's Neptune and things like that for AWS, but you guys are already running
+
+[67:48] UNKNOWN: for Seki. You're probably running more instances than you realize. We've implemented very
+
+[67:54] UNKNOWN: live-scale commercial and open source triple stores and our general feel is that you would
+
+[68:01] UNKNOWN: have to have very specific requirements not to be able to use for sake. So this you can articulate
+
+[68:06] UNKNOWN: very carefully what it is that for sake isn't doing for you or I need this kind of special index
+
+[68:12] UNKNOWN: that graphDB provides and this you can articulate that you can use for sake. And for the projects
+
+[68:18] UNKNOWN: of the scope and the style and the size we're talking about here, like one instance of for sake
+
+[68:23] UNKNOWN: a reasonably well instance would cover the entire RVA database of all both caps and that's because
+
+[68:28] UNKNOWN: Because we have lots of examples of this, you know, we have GSQs 250 workloads in one system,
+
+[68:37] UNKNOWN: no sweat.
+
+[68:38] UNKNOWN: It's a tiny system that's handling it fine.
+
+[68:41] UNKNOWN: If RVA had 2500, it would still cover it.
+
+[68:44] UNKNOWN: Mm-hmm.
+
+[68:45] UNKNOWN: Yeah.
+
+[68:46] UNKNOWN: So it's a registry tooling on top of the second, you've got the second.
+
+[68:51] UNKNOWN: Underneath.
+
+[68:52] UNKNOWN: So the second is the database, you would have to implement the rate.
+
+[68:54] UNKNOWN: Now, the content of the registry would come out of the individual workloads, but the
+
+[68:58] UNKNOWN: way that that registry access control and so on is managed would be some version of what you have now,
+
+[69:05] UNKNOWN: but implemented under the hood differently. I mean, all it would really do is that someone logs in
+
+[69:13] UNKNOWN: and when they log in, it just limits their view to their artifacts. So it just looks at, you know,
+
+[69:18] UNKNOWN: what they've created and so on and what they've entitled us internationally. It's exactly the same
+
+[69:22] UNKNOWN: as you've got now, but it's drawing all of its content from the vote have not from a separate database,
+
+[69:27] UNKNOWN: which I don't even know what the database is that you guys have, but it must be a, you know,
+
+[69:31] UNKNOWN: some other kind of postgres database that's doing that. Yeah. Yeah. And one very quick last
+
+[69:37] UNKNOWN: question, API stuff. Do you have any comments on APIs and standardization of them or what we're using,
+
+[69:48] UNKNOWN: what we could do better, particularly? I've probably used your APIs more than anybody else
+
+[69:53] UNKNOWN: and I haven't used them that much. So the API that I've wanted to use for some time is the search API
+
+[70:00] UNKNOWN: so that I can make a tool. I have made this tool several times but I've never found a long-term
+
+[70:06] UNKNOWN: requirement to support it, which is I've got a comprehensive vocabulary to support their search tool here.
+
+[70:11] UNKNOWN: It searches my repository number one, my repository number two, RA, RBA number three, and beyond. And so I've made that tool.
+
+[70:17] UNKNOWN: It's a single web page and it's existed for some time running for a few years. No, I'm kidding, shut down.
+
+[70:23] UNKNOWN: Another API that I've used is your creation API, where I'd say,
+
+[70:27] UNKNOWN: I want to create a vocab on my system here, and I want to publish it through my system,
+
+[70:32] UNKNOWN: and then I want to co-register with RVA. So I'm going to push the registry information to RVA.
+
+[70:38] UNKNOWN: And that's doable. It's been done. But again, we don't have enough people who want to do that to keep supporting.
+
+[70:47] UNKNOWN: I think we'll get there. There's enough vocabs coming out of geological surveys and so on
+
+[70:52] UNKNOWN: to co-register. But this is another reason for the separate registry and the vocab thing. It's the
+
+[70:55] UNKNOWN: idea that you would register a vocab that's not in the audio system, but it's somewhere else.
+
+[71:00] UNKNOWN: So it's a reference to it. That can actually also be achieved with semantic content. You literally
+
+[71:06] UNKNOWN: just create a vocab file with the registry information in it. But when you click on it, it results
+
+[71:12] UNKNOWN: somewhere else. So I think that even that level of the registry should contain things that are
+
+[71:17] UNKNOWN: not stored here, that can also be achieved through the actual, it's a, it's a, it's a blank
+
+[71:22] UNKNOWN: vocab, basically, that point somewhere else. That's fine.
+
+[71:24] UNKNOWN: Oh, that could be useful for what you were saying about being out of search cross when someone
+
+[71:29] UNKNOWN: comes to search across.
+
+[71:30] UNKNOWN: Yes.
+
+[71:31] UNKNOWN: Yeah, you know, old geology.
+
+[71:32] UNKNOWN: Exactly.
+
+[71:33] UNKNOWN: In the best case, what had happened is, you would say to someone, look, if your vocab is in the
+
+[71:38] UNKNOWN: field of research, but it's published elsewhere. So the geological sort of WA, they published
+
+[71:43] UNKNOWN: their own vocabs for themselves and the data data WA industry fine. But there's nothing
+
+[71:47] UNKNOWN: stopping them co-publishing, not just referencing the co-publishing Vogue cabin RVA, so then what
+
+[71:52] UNKNOWN: you do is you take the entire Vogue cabin, you send it over to RVA, and it comes out through
+
+[71:56] UNKNOWN: the RVA system, it's in the triple stores it's searchable, but if you click on a link it'll come
+
+[72:01] UNKNOWN: back to the home system. So that's also been classed and we know that that works fine with the
+
+[72:05] UNKNOWN: registry APIs, but again we just haven't had the strong requirement to maintain that tooling.
+
+[72:15] UNKNOWN: So back to your original question about the APIs.
+
+[72:17] UNKNOWN: The APIs is out, they're not even quite sufficient.
+
+[72:19] UNKNOWN: But I don't think that they're widely used.
+
+[72:21] UNKNOWN: I think I've used them a bit, and I'm probably one of the few,
+
+[72:23] UNKNOWN: or not just me, but, you know, declines that we work for.
+
+[72:26] UNKNOWN: Probably one of the few uses out there.
+
+[72:28] UNKNOWN: I think that we are seeing some standardized vocabulary
+
+[72:31] UNKNOWN: of APIs being made now.
+
+[72:32] UNKNOWN: The model API and that's something.
+
+[72:34] UNKNOWN: And I think that, obviously, it would need to support.
+
+[72:38] UNKNOWN: It does now and would keep needing to support
+
+[72:40] UNKNOWN: to standardize searching across the domains.
+
+[72:42] UNKNOWN: How do you do that?
+
+[72:43] UNKNOWN: sparkle at points of the obvious one, that let you do anything. But the very next one that's not a
+
+[72:48] UNKNOWN: sparkle in point as they say more developed or friendly or something would be some other API.
+
+[72:54] UNKNOWN: At the moment, the other API is a standard full tech search API which is not a cemented one that
+
+[73:00] UNKNOWN: rich in impermanence, which searches across your vocabulary, that you're things in a certain way.
+
+[73:05] UNKNOWN: You can't, for instance, specifically select geoscience Australia as a publisher in the
+
+[73:10] UNKNOWN: the Army at the moment, you have to search for the phrase,
+
+[73:12] UNKNOWN: GSI and Australia, and then from the results,
+
+[73:14] UNKNOWN: choose the one that is the publisher,
+
+[73:15] UNKNOWN: as opposed to a vocab that has the words,
+
+[73:17] UNKNOWN: GSI and Australia in it.
+
+[73:19] UNKNOWN: So an API that wasn't a sparkly API
+
+[73:23] UNKNOWN: that was a somewhat standard vocab search API,
+
+[73:26] UNKNOWN: we'd need to be supported,
+
+[73:27] UNKNOWN: and there's candidates now for that
+
+[73:29] UNKNOWN: that they weren't 10 years ago,
+
+[73:30] UNKNOWN: the mod API being the main one.
+
+[73:31] UNKNOWN: So I would say that going forward,
+
+[73:33] UNKNOWN: you'd want to support that.
+
+[73:34] UNKNOWN: Obviously the vocab tool and we implement
+
+[73:37] UNKNOWN: is poised to support that API as well.
+
+[73:39] UNKNOWN: been running a VRCAP search API for 10 years and we've involved in the mod stuff if they're
+
+[73:44] UNKNOWN: going to standardise it with support it. The other one is the OGC records API, it's just a
+
+[73:48] UNKNOWN: catalog API, but it works fine for VRCaps so we really support that one. So there are a
+
+[73:53] UNKNOWN: couple of candidates there that and where this comes out is so where we see it's less true for
+
+[74:00] UNKNOWN: IVA, but when we implement VRCAP systems, they are often required to be used by downstream systems.
+
+[74:06] UNKNOWN: So I mentioned the GILO2, so South Australia, they've got their vocab server there.
+
+[74:09] UNKNOWN: They have two or three systems, which must derive vocab content from that,
+
+[74:14] UNKNOWN: and therefore it must use an API that thinks support. So we have to have implemented a system that
+
+[74:18] UNKNOWN: has certain APIs in place. If those APIs were standard, either OGC records, APIs, or mod APIs,
+
+[74:24] UNKNOWN: that would be better. We haven't had that opportunity before, but going forward, that's what
+
+[74:29] UNKNOWN: we do commercially. We'd say, Piz the vocab server that we can supply you, and he uses the same API
+
+[74:34] UNKNOWN: as the RVA one. So if you wanted your system to draw from both those places it's the same
+
+[74:38] UNKNOWN: API two times. Yeah, but yeah, I don't think I think this is an easy part of the conversation
+
+[74:44] UNKNOWN: actually. The APIs are honestly the developers can make stuff much more easy than they can deal
+
+[74:49] UNKNOWN: with say the registry issues and the PD issues. Yeah. Yeah. Yeah. To me, the content one seems a bit
+
+[74:56] UNKNOWN: Oh, messy. And your insight's been useful, like, different, pragmatic, I guess, is that we could potentially get into a lot of trouble trying to cater for the monority at this step.
+
+[75:18] UNKNOWN: Yeah. And, you know, I mean, you want to help researchers out, but the thing is that every researcher is a unique special flower doing the unique special flower things.
+
+[75:25] UNKNOWN: And, you know, again, just talk to Roman about the things that he's had to do to support
+
+[75:30] UNKNOWN: just Simon Cox, you know, and Simon's a power user, and he's a lead user, or was a lead
+
+[75:36] UNKNOWN: user of all the stuff that's true, but what he wants to do with pull party is not what most
+
+[75:40] UNKNOWN: people want to do, and if what you're doing is trying to support the majority of the people
+
+[75:45] UNKNOWN: in the majority of the time, you don't need to support Simon, you need to support the
+
+[75:48] UNKNOWN: fundamental, so getting the issues that you identified, the metadata better, the pet allocations
+
+[75:54] UNKNOWN: better. Simon doesn't care about that. He understands that. So if he understands that,
+
+[75:56] UNKNOWN: he doesn't need to be supported. But everybody else does. So getting the pit allocations in the
+
+[76:01] UNKNOWN: metadata better is a more important task for RVA's, a system than catering specific for Simon.
+
+[76:06] UNKNOWN: I think. And now, Simon obviously isn't with us in this research phase anymore, but as if if a
+
+[76:13] UNKNOWN: vocab researcher comes along, I don't think RVA is the tool for them. If they were searching vocabs
+
+[76:19] UNKNOWN: and what vocab should do, then they are in that world and they can use protege and they can use
+
+[76:23] UNKNOWN: the technical tools there, but if they're a person who isn't a vocabulary researcher,
+
+[76:27] UNKNOWN: but needs to make vocabulary abs, that's your target because that's the bigger group.
+
+[76:30] UNKNOWN: And so what do they do? So it might be pointing those power users, the protege and what
+
+[76:35] UNKNOWN: users offer to pathways for publishing their models and on top of that. Yeah, I mean,
+
+[76:42] UNKNOWN: say someone wants to imagine this tricky scenario, someone says to you, hey, look, I'd like to publish
+
+[76:47] UNKNOWN: it's not just Scott's, I've invented Scott's awesome and Scott's awesome is Scott's
+
+[76:51] UNKNOWN: plus these other properties, which I think does a better job of modeling certain concepts.
+
+[76:55] UNKNOWN: And I want to publish, I don't just want to publish the vocab, which is about fish,
+
+[76:58] UNKNOWN: but I want to publish a scotch, awesome vocab, about fish to show the power of the scotch,
+
+[77:03] UNKNOWN: awesome model, not just the fish, but so that is the question that you don't want to answer
+
+[77:07] UNKNOWN: an RVA. You want to say to that person, what you need to do is to write search papers about that
+
+[77:12] UNKNOWN: and to make essentially make your own specialised tooling that will show that power.
+
+[77:15] UNKNOWN: There are generic semantic web publication tools which might get some way there, but if they really
+
+[77:21] UNKNOWN: show something new, they need to go and make specialised experimental tool and to do that.
+
+[77:25] UNKNOWN: That is not your job to support that, because that is vocab research, as opposed to vocab use.
+
+[77:30] UNKNOWN: And obviously, it's research data infrastructure, not the making of research tools, I think.
+
+[77:37] UNKNOWN: So if you continue just basically supporting Scott's class, then there'd be nothing stopping
+
+[77:46] UNKNOWN: people from using schema.org or whatever, or within their resource, just that the basic
+
+[77:54] UNKNOWN: model is, you would support, as Scott's model.
+
+[77:56] UNKNOWN: To a certain extent, yeah, I mean, what the systems will do, and so what presides for instance,
+
+[78:00] UNKNOWN: is it'll auto handle certain kinds of property.
+
+[78:04] UNKNOWN: So, for me, your central object, the concept scheme, or a concept, what I'm usually looking
+
+[78:08] UNKNOWN: at, really any predicates that you want to supply for that, as long as they are not,
+
+[78:13] UNKNOWN: if the predicate points to a literal object, easy, doesn't matter what the predicate
+
+[78:16] UNKNOWN: is, it can label it.
+
+[78:17] UNKNOWN: If the predicate points to a blank node with certain elements, it can handle that down to
+
+[78:20] UNKNOWN: a certain depth.
+
+[78:21] UNKNOWN: What it can't do is, I can't say, here's a concept that points to another concept and a long
+
+[78:26] UNKNOWN: chain of really difficult stuff.
+
+[78:28] UNKNOWN: It'll run out of screen-space to deliver that, so that there's an element there.
+
+[78:33] UNKNOWN: Also the big thing it can't do is it can't work out what the central or important objects are unless you tell it
+
+[78:39] UNKNOWN: So the VocPup profile fundamentally apart from mandating certain kinds of elements it fundamentally says that in a vocab the number one object is a concept scheme
+
+[78:47] UNKNOWN: And then another two type of object or all the concepts in the concept scheme and they must be related in this particular way
+
+[78:52] UNKNOWN: So that means that when we encounter a vocab file, we know it is start the problem with another kind of fancy pants models
+
+[78:59] UNKNOWN: you don't know where it starts. There's some weird graph, where's the entry point even?
+
+[79:02] UNKNOWN: But if you know that the entry points are Scott's concepts scheme, yeah, you can add,
+
+[79:05] UNKNOWN: this is the Scott's plus, it's the plus condition. You can add any straightforward
+
+[79:10] UNKNOWN: predicates and properties to the concepts scheme or to the individual concepts. And again,
+
+[79:14] UNKNOWN: if Scott solves 70% of all the workout problems by itself, then Scott sent a few other basic
+
+[79:20] UNKNOWN: vocabulary solved 90% of them. And Scott's plus, everything you've ever seen, as long as
+
+[79:25] UNKNOWN: as long as it's only applied to the concept scheme and the concepts, solves 99% of them.
+
+[79:30] UNKNOWN: Vowcaps-wise, it's only extreme cases that go beyond that, where the only way to solve
+
+[79:35] UNKNOWN: that is to have a combined object that's got 15 different concept schemes, and a special object
+
+[79:40] UNKNOWN: called a concept scheme parent in there that I've never heard of before.
+
+[79:44] UNKNOWN: There's only very rare modeling cases that you do that now, as I mean, I'm actually a model
+
+[79:48] UNKNOWN: by training, right?
+
+[79:49] UNKNOWN: So modeling is actually what I do, you'd be on this stuff, and usually the people who do
+
+[79:53] UNKNOWN: those kinds of really complicated models they're in one of two camps. They really know what they're doing
+
+[79:57] UNKNOWN: and this is really difficult stuff or they don't know what they're doing and they're making a
+
+[80:01] UNKNOWN: hash of something that could be much simpler. Yeah yeah oh no really that's good it's good to
+
+[80:07] UNKNOWN: know I mean it's it's easy to stuff up a simple vocabulary as you know as you've seen me
+
+[80:14] UNKNOWN: and I've got stuff in our way they still to fix and so if people can be guided towards that basic
+
+[80:20] UNKNOWN: best practice. That would be for you.
+
+[80:24] UNKNOWN: So Les is working for us. I mean, you know, his job, he's doing training modules on how to do
+
+[80:29] UNKNOWN: vocab and things like that. But his job, he does two jobs. He works for us and he works for a
+
+[80:33] UNKNOWN: government agency part-time. His government agency job is a hundred percent making one vocab.
+
+[80:38] UNKNOWN: It's a very big vocab. But the actual expressive power in the vocab is just scoffs and a couple
+
+[80:44] UNKNOWN: of other schema law properties. The effort is not in the representation mechanism. The effort is
+
+[80:50] UNKNOWN: is actually acquiring the work out content and being thoughtful and organizing it.
+
+[80:55] UNKNOWN: But the actual mechanics that he needs is just to cost a bit of schema.org cup of properties
+
+[80:59] UNKNOWN: to do things like say, so this is the hierarchy and this concept comes from these people,
+
+[81:03] UNKNOWN: we got it at this time, it's registry stuff.
+
+[81:06] UNKNOWN: So that's the mechanics he needs for a very, very large government for a cab of thousands
+
+[81:10] UNKNOWN: of terms.
+
+[81:11] UNKNOWN: It's got a team of five people working kind of full-time on it, it's a big deal.
+
+[81:16] UNKNOWN: But the actual mechanics are quite simple.
+
+[81:17] UNKNOWN: I'm being at a point point people towards base that good metadata, they might find useful, you know some
+
+[81:23] UNKNOWN: prof stuff, things like that if they need it, yeah, yeah, yeah, there's a what's you could do.
+
+[81:29] UNKNOWN: Well, look, that's, I'm telling you, vocabulary is better.
+
+[81:32] UNKNOWN: The secondary purpose of the VOPPOP profile is to communicate specific requirements on
+
+[81:37] UNKNOWN: metadata to a cheaper purpose. So what VOPPOP says is that the fundamental thing, there's only one
+
+[81:42] UNKNOWN: concept scheme for vocabulary, let's keep it simple, folks, don't muck around. You can have any
+
+[81:46] UNKNOWN: number of concepts in there, they've got to be in one hierarchy, not two hierarchy. So okay fine,
+
+[81:50] UNKNOWN: you can have a poly hierarchy, so a concept can be in multiple places in the hierarchy, that's fine,
+
+[81:55] UNKNOWN: but there's a single hierarchy that every terms in, there's no isolated terms. You can have any
+
+[81:59] UNKNOWN: number of collections, okay that's fine. And then all the other restrictions are just on basic
+
+[82:04] UNKNOWN: metadata, and the primary purpose of which is simple description, so it created dates and
+
+[82:09] UNKNOWN: things like that. The secondary purpose is all about the origins of the concepts. So if
+
+[82:13] UNKNOWN: of what Club really just says, every concept must tell you that what
+
+[82:17] UNKNOWN: what Vow cab it's in to I'm in this Vow cab and they must be,
+
+[82:21] UNKNOWN: otherwise I wouldn't be able to see them. But secondarily,
+
+[82:23] UNKNOWN: they need to tell you where they were defined, where they defined
+
+[82:26] UNKNOWN: from the first time in this Vow cab or they defined somewhere else.
+
+[82:28] UNKNOWN: So the reason for that is that the thing I've been trying to solve is
+
+[82:31] UNKNOWN: reuse. So we see a Vow cab here. It's one concept scheme.
+
+[82:35] UNKNOWN: It's got 100 terms in it. Eight of them are defined in this Vow cab,
+
+[82:38] UNKNOWN: but the other 92 are defined in other Vow cabs and I'm just
+
+[82:41] UNKNOWN: bringing them in. But I want to tell you that I'm bringing them in now, you would say,
+
+[82:44] UNKNOWN: oh, but it doesn't, you are, I do that, you are, yeah, let's get real about people and machines here.
+
+[82:48] UNKNOWN: People and machines and tech heads would resolve the ERI, find that it goes to another
+
+[82:52] UNKNOWN: vocab and go, oh, yeah, I see this comes from another vocab, but a human user looking at the
+
+[82:56] UNKNOWN: labeled content isn't going to see that they're not even going to notice or care about the ERI.
+
+[83:00] UNKNOWN: They need to be told very explicitly, this term comes from another vocab. So they've got
+
+[83:05] UNKNOWN: pub insists on saying, I'm present in this book ab, but I was actually defined somewhere else,
+
+[83:10] UNKNOWN: or I was defined here. So that's a whole block of pub does. Now that's a recommendation for
+
+[83:14] UNKNOWN: particular purposes. You could also say something like, look, in Australians research community,
+
+[83:20] UNKNOWN: we need a little bit more metadata than that. We need metadata to do things like allocate fields
+
+[83:25] UNKNOWN: of research codes and proportion of funding bodies and which organization you're from. So then you
+
+[83:31] UNKNOWN: you would say, OK, there's a profile of vodka called the AIDC's vodka profile, which I've
+
+[83:35] UNKNOWN: advocated for many times, and what it would do is it would say, it's all the things we
+
+[83:39] UNKNOWN: just said about vodka because we want cross-use and vodka's generic. So that's all cool.
+
+[83:43] UNKNOWN: But the RVA insists on a couple of other fields and metadata to achieve purposes, which
+
+[83:48] UNKNOWN: vodka, public general, doesn't have, and they are, every vodka must be allocated an FOR code.
+
+[83:53] UNKNOWN: This is for our counting. Every vodka must be assigned a not a creator, because that could
+
+[83:59] UNKNOWN: individual person, but a some kind of supporting unit of the creator that is a research organization.
+
+[84:05] UNKNOWN: Basically, what we're looking for is the sponsor of that vocab. Who's the sponsor?
+
+[84:10] UNKNOWN: It's not someone's pet project. This is a research Australia theme. Therefore,
+
+[84:14] UNKNOWN: the entity that supports it must be from the list of known research entities.
+
+[84:18] UNKNOWN: Because that's, I think as researchers, citations would be useful.
+
+[84:24] UNKNOWN: All of this is, so you can imagine that they're going to...
+
+[84:26] UNKNOWN: to encourage folks to get them. Absolutely. They need to be cited. Exactly. So I would say this
+
+[84:31] UNKNOWN: is probably about only four or five editions that you make to Vockpub that would take it from
+
+[84:37] UNKNOWN: generic Vockpub to RDC Vockpub that would enormously assist a registry. Now things like registry
+
+[84:43] UNKNOWN: statuses and so on are not mandated but a possible in Vockpub, but in your case you'd absolutely
+
+[84:49] UNKNOWN: want to mandate them. You'd want to say when you're creating vocabs and publishing them through
+
+[84:54] UNKNOWN: IVA version 2, the status of the vocabs in the registry and the items within it and so on must
+
+[85:00] UNKNOWN: be present. Now the status in the registry is simply that it has been published really.
+
+[85:04] UNKNOWN: So the user doesn't really need to fill them out, the system could do it, but from a validation
+
+[85:09] UNKNOWN: point of view, every vocab must have such a status. If it's been proposed to the system, but not
+
+[85:13] UNKNOWN: yet published, it's literally submitted. If it's been accepted by the system, it publishes
+
+[85:19] UNKNOWN: is now stable, published through RVA.
+
+[85:21] UNKNOWN: So those kinds of, again, probably four or five fields of metadata,
+
+[85:24] UNKNOWN: there's any number of things that I could have,
+
+[85:26] UNKNOWN: but I think that there's only a few that you would need
+
+[85:28] UNKNOWN: to really make a difference to your own accounting around
+
+[85:33] UNKNOWN: the very catch and management of them.
+
+[85:35] UNKNOWN: Yeah, and that's good because now you've gotten it gone over time,
+
+[85:39] UNKNOWN: but got it a really important topic around, you know,
+
+[85:44] UNKNOWN: governance and people's trust in the resources in RVA,
+
+[85:49] UNKNOWN: at the moment is minimal. That decision was made for various reasons but you know what's
+
+[85:57] UNKNOWN: some minimum stuff that is a requirement that's going to build trust in and the usefulness of
+
+[86:03] UNKNOWN: the resources. Yeah. Let me show you one. If you let me share my screen, let me just show you something.
+
+[86:17] UNKNOWN: Meeting in front. No. It's not, you can't share yet. All right. Well look, why don't you
+
+[86:21] UNKNOWN: you know, it doesn't stay shared, but look, why don't you bring this up and I'll just send you that.
+
+[86:25] UNKNOWN: Who can present? Oh, so, oh, he got everyone, it says now.
+
+[86:32] UNKNOWN: Yep. And I've finished with questions for you.
+
+[86:36] UNKNOWN: Okay. Well, this is the end, actually.
+
+[86:38] UNKNOWN: I mean, we can talk about this forever, but this is the kind of thing I want to show you.
+
+[86:41] UNKNOWN: So this is the geological survey of South Australia's system. Now this system was actually made two years ago.
+
+[86:46] UNKNOWN: So from our point of view, it's old and it needs to be updated.
+
+[86:49] UNKNOWN: It was made two years ago, but they had a pause on the project.
+
+[86:52] UNKNOWN: the project and I only got published a couple of weeks ago. But all I wanted to show you is
+
+[86:57] UNKNOWN: this is a registry of very capture right now. The information you see here is
+
+[87:02] UNKNOWN: experimentally what they want their registry to contain. So what do they want to contain? The
+
+[87:06] UNKNOWN: name of the vote cab, the custodian, which is kind of boringly, it's mostly the geological
+
+[87:11] UNKNOWN: service, South of Australia, but there's a couple of others, there's Karawan, here is CGI, and you know,
+
+[87:17] UNKNOWN: here's an ISO community. So it's not given that they're all South of Australian vote cabs, but they
+
+[87:22] UNKNOWN: use them all, it's this derivation mode which is proposed but you can see not fully implemented here.
+
+[87:27] UNKNOWN: It just tells you whether this verb cab is a directory use of an existing verb cab,
+
+[87:33] UNKNOWN: whether it's their own verb cab or whether it's a subset and extension of an existing verb cab.
+
+[87:37] UNKNOWN: So this gives us a fundamental insight into whether this is one of their custom jobs or whether
+
+[87:42] UNKNOWN: it's pinch from somewhere else and then there's the standard registry status here.
+
+[87:47] UNKNOWN: Now the point about this is not that RVA would have this information but this information is
+
+[87:52] UNKNOWN: It's not mandated for vocabulary in general, but it is mandated for their vocabulary.
+
+[87:57] UNKNOWN: So they've got an extension to the profile to require a custodian, a derivation mode in the status to be included in the information.
+
+[88:05] UNKNOWN: Whenever they create a vocabulary, now if we go to the Geological Survey of Western Australia, they have a slightly different set.
+
+[88:15] UNKNOWN: It's not very different, but it's slightly different.
+
+[88:22] UNKNOWN: title, description, status, derivation,
+
+[88:24] UNKNOWN: vote, unfilled, you can see, and themes.
+
+[88:26] UNKNOWN: So they vote caps a theme, according to a theme and vote cap.
+
+[88:29] UNKNOWN: Now, you can imagine that RVA would have, again,
+
+[88:33] UNKNOWN: research codes, research, unit, publisher, individual research,
+
+[88:38] UNKNOWN: so that you could find all the vote caps by my favorite researcher out there,
+
+[88:41] UNKNOWN: whatever, whatever.
+
+[88:42] UNKNOWN: So you can think about that.
+
+[88:43] UNKNOWN: Now, now, now, search would find you these,
+
+[88:44] UNKNOWN: but actually, just the listings and so on is,
+
+[88:46] UNKNOWN: is usually where it's at for discovery.
+
+[88:48] UNKNOWN: You know, people look down this list and they can see,
+
+[88:50] UNKNOWN: these are stable, these are accepted, but not stable, this is the categories on and on and on.
+
+[88:54] UNKNOWN: So the point is that we could extend or you could extend the the VOPPUT model to do what
+
+[89:01] UNKNOWN: you mentioned before, to ensure that all of the registry and governance information that
+
+[89:05] UNKNOWN: you need is actually present in the vocabs themselves. And then a combination of the original
+
+[89:10] UNKNOWN: author of the vocab and the system would actually write that out. So again, you don't really need to
+
+[89:14] UNKNOWN: ask the what the submitter date is. The system can work that out. By the time they hit send into the
+
+[89:19] UNKNOWN: system. It will stamp in the system. And when it gets published, that's the accepted. So,
+
+[89:24] UNKNOWN: a lot of the stuff you could do for them. But I think that in the Verkab content, we could
+
+[89:30] UNKNOWN: see everything we need, and again, the differences to validate what in the Verkab, that's a normal
+
+[89:36] UNKNOWN: shackle validation mechanic, as opposed to a custom registry mechanic somewhere else. So,
+
+[89:42] UNKNOWN: imagine that all funding goes away and RVA is put on life support for five years. If you just
+
+[89:48] UNKNOWN: maintain the GitHub repository with a content in it, triple store be nice. But if you
+
+[89:53] UNKNOWN: just maintain the GitHub, you literally didn't have any other systems except for GitHub.
+
+[89:57] UNKNOWN: You could still guarantee that you had photographs that were all neatly organized and managed
+
+[90:01] UNKNOWN: because you could check or validate them. That cost you nothing to do is retooling
+
+[90:05] UNKNOWN: and the content of the verb cab files is all you need for that. So if you've got the
+
+[90:08] UNKNOWN: validated presence and the mechanic to validate it and you don't need other systems, that
+
+[90:13] UNKNOWN: that literally the cheapest verb cab offering you could ever make anyone is we're going to
+
+[90:16] UNKNOWN: managed to skip out repository with this validator and these work apps in it. We're not going to
+
+[90:20] UNKNOWN: help you search them. None of that stuff. In fact, you have searches in that bad. But we're not going
+
+[90:25] UNKNOWN: to publish them in any way. It's just, but we are going to maintain the presence in this registry.
+
+[90:29] UNKNOWN: That would be the least offering that you couldn't make. And it's still quite compelling because
+
+[90:34] UNKNOWN: checkable relations are amazing. You can, you can, you can just tell anything. Yeah. And it won't be
+
+[90:41] UNKNOWN: built on bespoke code upon code that, or in a particular person lives, then, you're staffed.
+
+[90:47] UNKNOWN: Yeah. Yeah. And you know, like all of the work that we've done, like we've spent several years
+
+[90:51] UNKNOWN: now writing at the Prez system. But what we've ensured is that there is no special
+
+[90:56] UNKNOWN: anything that pres needs other than a normal sparkle endpoint under the hood. And the reason for that
+
+[91:00] UNKNOWN: is that if you implement our system on top of a vocab on top of a triple store, and then, you know,
+
+[91:05] UNKNOWN: we go bar store or you get sick of the tool or you just don't want it like it anymore,
+
+[91:08] UNKNOWN: There's been no special anything that presives used that have forced you to, you know,
+
+[91:14] UNKNOWN: vendor locking in that point.
+
+[91:15] UNKNOWN: It's an open sourcing anyway, but the point is it's just using a sparkle endpoint.
+
+[91:19] UNKNOWN: So you can swap out the back end database, pres keeps working.
+
+[91:21] UNKNOWN: You can throw away pres and pickups and swap if you want, or something else,
+
+[91:24] UNKNOWN: that respects that interface.
+
+[91:26] UNKNOWN: So we've been very, very keen to ensure that the management of resources interfaces get version control,
+
+[91:34] UNKNOWN: that the search supply endpoint is a sparkle endpoint.
+
+[91:38] UNKNOWN: point. Whatever you can have open search, you can have CQL, which is a special search language,
+
+[91:43] UNKNOWN: all that stuff implemented on top of Sparkle Sparkle, or let you do anything. So we've maintained
+
+[91:48] UNKNOWN: these interfaces such that the tooling can be changed and so on. As a company, that's what we do,
+
+[91:55] UNKNOWN: but that's my recommendation to all systems out there. You get very serious about interfaces,
+
+[92:01] UNKNOWN: and you maintain them rigorously. You do not allow the tool to
+
+[92:04] UNKNOWN: to cheekily do things, yeah, it's using sparkle and these other things.
+
+[92:09] UNKNOWN: So Sysfock has a couple of weird endpoints that the system uses.
+
+[92:13] UNKNOWN: That means that that's a system's bound to Sysfock now.
+
+[92:19] UNKNOWN: Oh, I'll let you go because it's a totally picture-bring.
+
+[92:24] UNKNOWN: It's been really good though.
+
+[92:25] UNKNOWN: Very good.
+
+[92:26] UNKNOWN: Yeah, well, very happy to talk about this.
+
+[92:27] UNKNOWN: My, it's what I love to do, say.
+
+[92:29] UNKNOWN: Yes, yes.
+
+[92:30] UNKNOWN: Nah, it's good.
+
+[92:31] UNKNOWN: Yep, you give, it helps to think about.
+
+[92:34] UNKNOWN: nice and pragmatic as well. I do have to send you an email, by the way, it turns out that turn
+
+[92:41] UNKNOWN: have tuplicated and Cisco caps and are publishing them and now we

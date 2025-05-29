@@ -1,0 +1,25 @@
+# Technical Interview - Research Vocabularies Australia (RVA)
+
+Interview about research vocabulary management, semantic technologies, and the future of RVA by the Australian Research Data Commons. Use Australian English spelling.
+
+CRITICAL TERMS (commonly misrecognised):
+- SKOS (S-K-O-S, not 'scos')
+- SISSVoc (S-I-S-S-V-o-c, not 'SysVoc')
+- Kurrawong (K-U-R-R-A-W-O-N-G company)
+- ARDC (Australian Research Data Commons, not 'arc')
+- RVA (Research Vocabularies Australia)
+
+KEY TERMS:
+ORGANISATIONS: CSIRO, Geoscience Australia
+TECHNOLOGIES: SKOS, OWL, RDF, SISSVoc, Skosmos, VocBench, Prez, VocPrez, SSSOM, Triple Store, TopBraid, Pool Party
+FORMATS: JSON, YAML, Turtle, URI, PIDs
+SERVICES: Ontoserver, Agriportal, Bioportal, LOV, FAIR
+PEOPLE: Nick Car, Rowan Brownlee, Simon Cox
+
+TECHNICAL CONTEXT:
+- Semantic web technologies and linked data
+- Vocabulary management systems
+- Research data infrastructure
+- Government and research sector collaboration
+
+When unclear, use [inaudible]. Preserve exact terminology used by speakers.

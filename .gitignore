@@ -1,2 +1,3 @@
 # Exclude data directory containing large audio files
 data/
+trasciption-pipeline-cpp/data

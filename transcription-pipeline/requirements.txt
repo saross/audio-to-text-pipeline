@@ -1,0 +1,33 @@
+# Core transcription dependencies  
+faster-whisper==0.10.0  # Specific version known to work
+pyannote.audio==3.1.1
+
+# Note: PyTorch will be installed separately in Dockerfile to ensure CUDA compatibility
+# torch==2.0.1+cu117
+# torchaudio==2.0.2+cu117
+# torchvision==0.15.2+cu117
+
+# Audio processing
+librosa==0.10.1
+soundfile==0.12.1
+pydub==0.25.1
+
+# Numerical computing  
+numpy==1.24.3  # Compatible with PyTorch 2.0.1
+scipy==1.10.1
+
+# Utilities
+tqdm==4.66.1
+pyyaml==6.0.1
+pathlib2==2.3.7
+
+# Hugging Face ecosystem for pyannote
+transformers==4.36.2
+datasets==2.16.1
+huggingface_hub==0.20.2
+
+# For development and debugging
+psutil==5.9.6
+
+# Additional dependencies that might help with cuDNN
+nvidia-ml-py3==7.352.0

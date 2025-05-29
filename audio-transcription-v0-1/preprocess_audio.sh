@@ -30,6 +30,7 @@
 #   -o, --output FILE       Output file path (default: [input]_processed.flac)
 #   -p, --preset STRING     Preset configuration (default: interview)
 #                           Available presets: interview, lecture, noisy, music
+#   --diagnose              Only run diagnostics on the audio file
 #   --no-flac               Skip FLAC conversion
 #   --no-resample           Skip resampling to 16kHz
 #   --no-noise-reduction    Skip noise reduction
@@ -43,6 +44,9 @@
 # EXAMPLES:
 #   # Basic usage:
 #   ./preprocess_audio.sh data/interview.mp4
+#
+#   # Diagnose a problematic file:
+#   ./preprocess_audio.sh data/interview.mp4 --diagnose
 #
 #   # Specify output location:
 #   ./preprocess_audio.sh data/interview.mp4 -o cleaned/interview.flac
@@ -70,9 +74,16 @@ if ! command -v ffmpeg &> /dev/null; then
     exit 1
 fi
 
+if ! command -v ffprobe &> /dev/null; then
+    echo "ERROR: FFprobe is required but not found"
+    echo "Please install FFmpeg: https://ffmpeg.org/download.html"
+    exit 1
+fi
+
 # Set default values
 OUTPUT_FILE=""
 PRESET="interview"
+DIAGNOSE_ONLY=""
 SKIP_FLAC=""
 SKIP_RESAMPLE=""
 SKIP_NOISE_REDUCTION=""
@@ -96,6 +107,10 @@ while [[ $# -gt 0 ]]; do
         -p|--preset)
             PRESET="$2"
             shift 2
+            ;;
+        --diagnose)
+            DIAGNOSE_ONLY="--diagnose"
+            shift
             ;;
         --no-flac)
             SKIP_FLAC="--no-flac"
@@ -165,6 +180,19 @@ INPUT_FILE="$1"
 if [ ! -f "$INPUT_FILE" ]; then
     echo "ERROR: Input file '$INPUT_FILE' not found"
     exit 1
+fi
+
+# If diagnose-only mode, run diagnostics and exit
+if [ -n "$DIAGNOSE_ONLY" ]; then
+    echo "======================================================================"
+    echo "AUDIO FILE DIAGNOSTICS"
+    echo "======================================================================"
+    echo "File: $INPUT_FILE"
+    echo ""
+    
+    # Run Python script in diagnose mode
+    python audio_preprocess.py "$INPUT_FILE" --diagnose
+    exit $?
 fi
 
 # Apply presets (override default options)
@@ -268,5 +296,14 @@ if [ $? -eq 0 ]; then
     fi
 else
     echo "ERROR: Audio processing failed"
+    
+    # Suggest running diagnostics
+    echo ""
+    echo "TROUBLESHOOTING SUGGESTIONS:"
+    echo "1. Run diagnostics: ./preprocess_audio.sh \"$INPUT_FILE\" --diagnose"
+    echo "2. Try converting just to FLAC: ./preprocess_audio.sh \"$INPUT_FILE\" --no-resample --no-noise-reduction --no-normalize --no-compression --no-enhance --no-trim --no-mono"
+    echo "3. Test with a smaller audio file first"
+    echo "4. Check available disk space and RAM"
+    
     exit 1
 fi

@@ -270,13 +270,13 @@ def convert_to_flac(input_file, output_file=None, verbose=True):
         return None
 
 def resample_audio(input_file, output_file=None, target_sr=16000, verbose=True):
-    """Resample audio to target sample rate."""
+    """Resample audio to target sample rate with speech optimization."""
     if output_file is None:
         base_name = os.path.splitext(input_file)[0]
         ext = os.path.splitext(input_file)[1]
         output_file = f"{base_name}_resampled{ext}"
     
-    log(f"Resampling to {target_sr}Hz...", verbose)
+    log(f"Resampling to {target_sr}Hz with speech optimization...", verbose)
     
     # Check input sample rate using FFprobe (more reliable than soundfile)
     try:
@@ -287,40 +287,46 @@ def resample_audio(input_file, output_file=None, target_sr=16000, verbose=True):
         if result.returncode == 0:
             current_sr = int(result.stdout.strip())
             if current_sr == target_sr:
-                log(f"File already at {target_sr}Hz, skipping resampling", verbose)
-                return input_file
+                log(f"File already at {target_sr}Hz, but applying speech optimization anyway", verbose)
             else:
                 log(f"Current sample rate: {current_sr}Hz, resampling to {target_sr}Hz", verbose)
         else:
-            log(f"Could not determine sample rate, proceeding with resampling anyway", verbose)
+            log(f"Could not determine sample rate, proceeding with optimization", verbose)
             
     except Exception as e:
-        log(f"Error checking sample rate: {e}, proceeding with resampling anyway", verbose)
+        log(f"Error checking sample rate: {e}, proceeding with optimization", verbose)
     
-    # Use FFmpeg for resampling with timeout
+    # Use FFmpeg for resampling with speech optimization
     command = [
         "ffmpeg", "-i", input_file,
-        "-ar", str(target_sr),
+        "-ar", str(target_sr),           # Sample rate
+        "-ac", "1",                      # Force mono
+        "-sample_fmt", "s16",            # 16-bit depth (not 24-bit)
+        "-compression_level", "8",       # Maximum FLAC compression
         "-hide_banner", "-loglevel", "error",
         "-y",
         output_file
     ]
     
+    log(f"Optimizing for speech recognition (16kHz, 16-bit, mono, compressed)", verbose)
     success = run_command(command, verbose, timeout=300)
     
     # Verify the output was created and has reasonable size
     if success and os.path.exists(output_file):
         try:
+            input_size = os.path.getsize(input_file)
             output_size = os.path.getsize(output_file)
+            compression_ratio = input_size / output_size if output_size > 0 else 0
+            
             if output_size > 1024:  # At least 1KB
-                log(f"Resampling successful: {output_size/(1024*1024):.1f}MB", verbose)
+                log(f"Speech optimization successful: {output_size/(1024*1024):.1f}MB (was {input_size/(1024*1024):.1f}MB, {compression_ratio:.1f}x smaller)", verbose)
                 return output_file
             else:
-                log("Resampling failed: output file too small", verbose)
+                log("Speech optimization failed: output file too small", verbose)
         except:
-            log("Resampling failed: could not verify output", verbose)
+            log("Speech optimization failed: could not verify output", verbose)
     
-    log("Resampling failed, returning original file", verbose)
+    log("Speech optimization failed, returning original file", verbose)
     return input_file
 
 def reduce_noise(input_file, output_file=None, strength=0.5, verbose=True):

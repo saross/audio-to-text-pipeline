@@ -1,0 +1,12 @@
+# Test Transcription (first 10 segments)
+
+[0.0s]  As your name and your current role and experience, yeah, experience with semantic artifacts.
+[10.5s]  Yeah, so I'm Nicholas Carr, and I'm the, I guess, founder of Carol and AI, a small
+[16.0s]  technology company by training on really a, an informatics researcher originally, and then
+[21.4s]  a data architect who worked in government departments for many years, worked in researchers
+[26.1s]  as well, but now I run this company providing support and development of semantic systems,
+[33.2s]  knowledge graph systems, either by themselves or in conjunction with AI systems to, well,
+[39.9s]  government, but also the private sector, so it's got some private sector clients.
+[42.9s]  So we, all of our projects are knowledge graph semantic web projects, some of them also
+[48.6s]  into AI.
+[49.6s]  Yeah, and which areas do you mostly work in?
