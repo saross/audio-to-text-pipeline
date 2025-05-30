@@ -36,7 +36,7 @@ build_image() {
     echo -e "${BLUE}Building whisper.cpp Docker image...${NC}"
     cd "$PROJECT_ROOT"
     # Build with docker directory as context so COPY can find transcribe.py
-    docker build -f docker/Dockerfile.whisper-cpp -t whisper-cpp-gpu docker/
+    docker build -f docker/Dockerfile.whisper-cpp -t whisper-cpp-cuda .
     if [ $? -eq 0 ]; then
         echo -e "${GREEN}Build complete!${NC}"
     else
@@ -51,15 +51,15 @@ test_gpu() {
     echo ""
     
     # First check if Docker image exists
-    if ! docker image inspect whisper-cpp-gpu >/dev/null 2>&1; then
-        echo -e "${RED}Error: Docker image 'whisper-cpp-gpu' not found.${NC}"
+    if ! docker image inspect whisper-cpp-cuda >/dev/null 2>&1; then
+        echo -e "${RED}Error: Docker image 'whisper-cpp-cuda' not found.${NC}"
         echo "Please run: $0 --build"
         exit 1
     fi
     
     # Test nvidia-smi
     echo -e "${BLUE}Running nvidia-smi in container:${NC}"
-    docker run --rm --gpus all --entrypoint nvidia-smi whisper-cpp-gpu
+    docker run --rm --gpus all --entrypoint nvidia-smi whisper-cpp-cuda
     
     if [ $? -eq 0 ]; then
         echo ""
@@ -68,12 +68,12 @@ test_gpu() {
         # Additional GPU info
         echo ""
         echo -e "${BLUE}GPU Memory Info:${NC}"
-        docker run --rm --gpus all --entrypoint nvidia-smi whisper-cpp-gpu --query-gpu=name,memory.total,memory.free --format=csv,noheader
+        docker run --rm --gpus all --entrypoint nvidia-smi whisper-cpp-cuda --query-gpu=name,memory.total,memory.free --format=csv,noheader
         
         # Test CUDA
         echo ""
         echo -e "${BLUE}Testing CUDA in whisper.cpp:${NC}"
-        docker run --rm --gpus all --entrypoint /bin/bash whisper-cpp-gpu -c "cd /app/whisper.cpp && ./build/bin/main --help 2>&1 | grep -i cuda || echo 'CUDA info not found in help output'"
+        docker run --rm --gpus all --entrypoint /bin/bash whisper-cpp-cuda -c "cd /app/whisper.cpp && ./build/bin/main --help 2>&1 | grep -i cuda || echo 'CUDA info not found in help output'"
         
         echo ""
         echo -e "${GREEN}GPU is ready for transcription!${NC}"
@@ -113,8 +113,8 @@ if [ ! -f "$INPUT_FILE" ]; then
 fi
 
 # Check if Docker image exists
-if ! docker image inspect whisper-cpp-gpu >/dev/null 2>&1; then
-    echo -e "${RED}Error: Docker image 'whisper-cpp-gpu' not found.${NC}"
+if ! docker image inspect whisper-cpp-cuda >/dev/null 2>&1; then
+    echo -e "${RED}Error: Docker image 'whisper-cpp-cuda' not found.${NC}"
     echo "Please run: $0 --build"
     exit 1
 fi
@@ -210,7 +210,7 @@ echo ""
 
 # Complete command
 # Note: transcribe.py expects different argument format than whisper.cpp
-FULL_CMD="$DOCKER_CMD whisper-cpp-gpu /input/$INPUT_NAME -o /output/$OUTPUT_NAME -m $MODEL $PROMPT_ARG"
+FULL_CMD="$DOCKER_CMD whisper-cpp-cuda-fixed /input/$INPUT_NAME -o /output/$OUTPUT_NAME -m $MODEL $PROMPT_ARG"
 
 # Execute
 eval "$FULL_CMD"

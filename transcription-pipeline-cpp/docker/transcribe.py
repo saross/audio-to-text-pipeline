@@ -11,7 +11,8 @@ import tempfile
 def find_whisper_binary():
     """Find the whisper executable"""
     possible_names = [
-        "/app/whisper.cpp/build/bin/whisper-cli",  # Current CMake build location
+        "/app/whisper.cpp/build/bin/whisper-cli",  # Correct CMake build location
+        "/app/whisper.cpp/build/examples/cli/whisper-cli",  # Alternative location
         "/app/whisper.cpp/build/bin/main",  # Deprecated but might work
         "/app/whisper.cpp/whisper-cli",
         "/app/whisper.cpp/main"
@@ -78,6 +79,11 @@ def transcribe(input_file, output_file, model="medium.en", threads=4, prompt_fil
         "-np",    # No prints (suppress transcription output)
     ]
     
+    # Specify output file without extension (whisper.cpp adds .txt automatically)
+    output_base = output_file.rsplit('.txt', 1)[0] if output_file and output_file.endswith('.txt') else output_file
+    if output_base:
+        cmd.extend(["-of", output_base])
+    
     # Check if CUDA is available and add GPU layers
     try:
         # Test if whisper was built with CUDA support
@@ -125,7 +131,14 @@ def transcribe(input_file, output_file, model="medium.en", threads=4, prompt_fil
     
     # Run whisper.cpp
     print("Processing... (this may take several minutes)")
-    result = subprocess.run(cmd, capture_output=False)
+    
+    # If using the deprecated 'main' binary, we need to handle the deprecation warning
+    if whisper_binary.endswith('/main'):
+        print("WARNING: Using deprecated 'main' binary. The container should be rebuilt to use whisper-cli.")
+        # Run with stderr redirected to handle deprecation warning
+        result = subprocess.run(cmd, stderr=subprocess.DEVNULL)
+    else:
+        result = subprocess.run(cmd, capture_output=False)
     
     # Clean up temporary prompt file
     if temp_prompt_file:
@@ -137,21 +150,48 @@ def transcribe(input_file, output_file, model="medium.en", threads=4, prompt_fil
     elapsed = time.time() - start_time
     print(f"\nTranscription completed in {elapsed/60:.1f} minutes")
     
-    # whisper.cpp creates input_file.txt in the same directory
-    expected_output = input_file + ".txt"
+    if result.returncode != 0:
+        print(f"Error: Transcription failed with return code {result.returncode}")
+        return result.returncode
     
-    if result.returncode == 0 and os.path.exists(expected_output):
-        if output_file:
+    # Look for output file in multiple possible locations
+    base_name = os.path.basename(input_file).rsplit('.', 1)[0]
+    possible_outputs = [
+        input_file + ".txt",  # Next to input file
+        os.path.join(os.path.dirname(input_file), base_name + ".txt"),  # In input dir
+        os.path.join(output_dir, base_name + ".txt") if output_file else None,  # In output dir
+        base_name + ".txt",  # In current directory
+    ]
+    
+    output_found = None
+    for possible in possible_outputs:
+        if possible and os.path.exists(possible):
+            output_found = possible
+            print(f"Found output at: {output_found}")
+            break
+    
+    if output_found:
+        if output_file and output_found != output_file:
             # Move to desired location
-            shutil.move(expected_output, output_file)
+            shutil.move(output_found, output_file)
             print(f"Output saved to: {output_file}")
         else:
-            print(f"Output saved to: {expected_output}")
+            print(f"Output saved to: {output_found}")
+        return 0
     else:
-        print(f"Error: Expected output file not found: {expected_output}")
+        print(f"Error: Output file not found in any expected location")
+        print("Searched locations:")
+        for loc in possible_outputs:
+            if loc:
+                print(f"  - {loc}")
+        
+        # List files in current directory to help debug
+        print("\nFiles in current directory:")
+        for f in os.listdir("."):
+            if f.endswith(".txt"):
+                print(f"  - {f}")
+        
         return 1
-    
-    return result.returncode
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Whisper.cpp transcription wrapper")

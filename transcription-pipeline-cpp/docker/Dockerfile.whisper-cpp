@@ -38,11 +38,15 @@ RUN git clone https://github.com/ggerganov/whisper.cpp.git && \
     CUDACXX=/usr/local/cuda/bin/nvcc \
     cmake -B build \
         -DGGML_CUDA=ON \
+        -DWHISPER_BUILD_EXAMPLES=ON \
         -DCMAKE_CUDA_ARCHITECTURES="60;70;75;80;86" \
         -DCMAKE_BUILD_TYPE=Release && \
     cmake --build build --config Release -j $(nproc) && \
-    echo "Checking for CUDA support in binary:" && \
-    ldd build/bin/whisper-cli | grep -i cuda || echo "Warning: No CUDA libraries linked"
+    cmake --build build --target whisper-cli --config Release -j $(nproc) && \
+    echo "Checking for built executables:" && \
+    ls -la build/bin/ && \
+    echo "whisper-cli built successfully at:" && \
+    ls -la build/bin/whisper-cli
 
 # Remove stub libraries after building
 RUN rm -f /usr/local/cuda/lib64/stubs/libcuda.so.1
@@ -59,7 +63,7 @@ RUN pip3 install pyyaml
 
 # Copy the transcription wrapper script
 WORKDIR /app
-COPY transcribe.py /app/transcribe.py
+COPY docker/transcribe.py /app/transcribe.py
 RUN chmod +x /app/transcribe.py
 
 # Test nvidia-smi is available
