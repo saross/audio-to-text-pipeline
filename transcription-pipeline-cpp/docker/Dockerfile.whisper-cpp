@@ -26,8 +26,7 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /app
 
-# Set CUDA library paths and create libcuda stub
-ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/lib64/stubs:$LD_LIBRARY_PATH
+# Set CUDA library paths for building (including stubs)
 ENV LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/lib64/stubs:$LIBRARY_PATH
 
 # Create symbolic link for libcuda stub (needed for building)
@@ -36,11 +35,17 @@ RUN ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/lib
 # Clone and build whisper.cpp with CUDA support
 RUN git clone https://github.com/ggerganov/whisper.cpp.git && \
     cd whisper.cpp && \
+    CUDACXX=/usr/local/cuda/bin/nvcc \
     cmake -B build \
         -DGGML_CUDA=ON \
         -DCMAKE_CUDA_ARCHITECTURES="60;70;75;80;86" \
         -DCMAKE_BUILD_TYPE=Release && \
-    cmake --build build --config Release -j $(nproc)
+    cmake --build build --config Release -j $(nproc) && \
+    echo "Checking for CUDA support in binary:" && \
+    ldd build/bin/whisper-cli | grep -i cuda || echo "Warning: No CUDA libraries linked"
+
+# Remove stub libraries after building
+RUN rm -f /usr/local/cuda/lib64/stubs/libcuda.so.1
 
 # Download models
 WORKDIR /app/whisper.cpp
@@ -59,6 +64,9 @@ RUN chmod +x /app/transcribe.py
 
 # Test nvidia-smi is available
 RUN which nvidia-smi || echo "nvidia-smi not found in PATH"
+
+# Set runtime LD_LIBRARY_PATH (exclude stubs directory)
+ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 
 # Set entrypoint
 ENTRYPOINT ["python3", "/app/transcribe.py"]

@@ -59,7 +59,7 @@ test_gpu() {
     
     # Test nvidia-smi
     echo -e "${BLUE}Running nvidia-smi in container:${NC}"
-    docker run --rm --gpus all whisper-cpp-gpu nvidia-smi
+    docker run --rm --gpus all --entrypoint nvidia-smi whisper-cpp-gpu
     
     if [ $? -eq 0 ]; then
         echo ""
@@ -68,12 +68,12 @@ test_gpu() {
         # Additional GPU info
         echo ""
         echo -e "${BLUE}GPU Memory Info:${NC}"
-        docker run --rm --gpus all whisper-cpp-gpu nvidia-smi --query-gpu=name,memory.total,memory.free --format=csv,noheader
+        docker run --rm --gpus all --entrypoint nvidia-smi whisper-cpp-gpu --query-gpu=name,memory.total,memory.free --format=csv,noheader
         
         # Test CUDA
         echo ""
         echo -e "${BLUE}Testing CUDA in whisper.cpp:${NC}"
-        docker run --rm --gpus all whisper-cpp-gpu /bin/bash -c "cd /app/whisper.cpp && ./main --help | grep -i cuda"
+        docker run --rm --gpus all --entrypoint /bin/bash whisper-cpp-gpu -c "cd /app/whisper.cpp && ./build/bin/main --help 2>&1 | grep -i cuda || echo 'CUDA info not found in help output'"
         
         echo ""
         echo -e "${GREEN}GPU is ready for transcription!${NC}"
@@ -136,8 +136,11 @@ while [[ $# -gt 0 ]]; do
         -o|--output)
             if [[ "$2" == */* ]]; then
                 # Full path provided
-                OUTPUT_DIR=$(dirname "$(realpath "$2")")
+                OUTPUT_DIR=$(dirname "$2")
                 OUTPUT_NAME=$(basename "$2")
+                # Create directory if it doesn't exist
+                mkdir -p "$OUTPUT_DIR"
+                OUTPUT_DIR=$(realpath "$OUTPUT_DIR")
             else
                 # Just filename provided
                 OUTPUT_NAME="$2"
@@ -190,7 +193,7 @@ if [ -n "$PROMPT_FILE" ]; then
     PROMPT_DIR=$(dirname "$PROMPT_PATH")
     PROMPT_NAME=$(basename "$PROMPT_PATH")
     DOCKER_CMD="$DOCKER_CMD -v \"$PROMPT_DIR\":/prompts"
-    PROMPT_ARG="-p /prompts/$PROMPT_NAME"
+    PROMPT_ARG="--prompt /prompts/$PROMPT_NAME"
     echo -e "${BLUE}Using prompt: $PROMPT_FILE${NC}"
 fi
 
@@ -206,6 +209,7 @@ echo -e "${YELLOW}Progress will be shown below. This may take a few minutes...${
 echo ""
 
 # Complete command
+# Note: transcribe.py expects different argument format than whisper.cpp
 FULL_CMD="$DOCKER_CMD whisper-cpp-gpu /input/$INPUT_NAME -o /output/$OUTPUT_NAME -m $MODEL $PROMPT_ARG"
 
 # Execute
