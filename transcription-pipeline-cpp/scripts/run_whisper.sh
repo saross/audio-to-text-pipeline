@@ -6,6 +6,7 @@
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 RED='\033[0;31m'
+YELLOW='\033[1;33m'
 NC='\033[0m'
 
 # Get script directory
@@ -16,7 +17,7 @@ print_usage() {
     echo "Usage: $0 <input_audio> [options]"
     echo "Options:"
     echo "  -o, --output FILE    Output file (default: input_name.txt)"
-    echo "  -m, --model MODEL    Model to use (tiny.en, base.en, small.en, medium.en, large-v3-q5_0)"
+    echo "  -m, --model MODEL    Model to use (tiny.en, base.en, small.en, medium.en)"
     echo "                       Default: medium.en"
     echo "  -p, --prompt FILE    Prompt file to guide transcription"
     echo "  --build              Build the Docker image"
@@ -27,6 +28,7 @@ print_usage() {
     echo "  $0 interview.flac -o transcript.txt -m small.en"
     echo "  $0 interview.flac -p whisper_prompt.txt"
     echo "  $0 --build"
+    echo "  $0 --gpu-test"
 }
 
 # Build function
@@ -35,13 +37,58 @@ build_image() {
     cd "$PROJECT_ROOT"
     # Build with docker directory as context so COPY can find transcribe.py
     docker build -f docker/Dockerfile.whisper-cpp -t whisper-cpp-gpu docker/
-    echo -e "${GREEN}Build complete!${NC}"
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}Build complete!${NC}"
+    else
+        echo -e "${RED}Build failed!${NC}"
+        exit 1
+    fi
 }
 
 # GPU test function
 test_gpu() {
-    echo -e "${BLUE}Testing GPU access...${NC}"
+    echo -e "${BLUE}Testing GPU access in Docker container...${NC}"
+    echo ""
+    
+    # First check if Docker image exists
+    if ! docker image inspect whisper-cpp-gpu >/dev/null 2>&1; then
+        echo -e "${RED}Error: Docker image 'whisper-cpp-gpu' not found.${NC}"
+        echo "Please run: $0 --build"
+        exit 1
+    fi
+    
+    # Test nvidia-smi
+    echo -e "${BLUE}Running nvidia-smi in container:${NC}"
     docker run --rm --gpus all whisper-cpp-gpu nvidia-smi
+    
+    if [ $? -eq 0 ]; then
+        echo ""
+        echo -e "${GREEN}✓ GPU access successful!${NC}"
+        
+        # Additional GPU info
+        echo ""
+        echo -e "${BLUE}GPU Memory Info:${NC}"
+        docker run --rm --gpus all whisper-cpp-gpu nvidia-smi --query-gpu=name,memory.total,memory.free --format=csv,noheader
+        
+        # Test CUDA
+        echo ""
+        echo -e "${BLUE}Testing CUDA in whisper.cpp:${NC}"
+        docker run --rm --gpus all whisper-cpp-gpu /bin/bash -c "cd /app/whisper.cpp && ./main --help | grep -i cuda"
+        
+        echo ""
+        echo -e "${GREEN}GPU is ready for transcription!${NC}"
+    else
+        echo ""
+        echo -e "${RED}✗ GPU access failed!${NC}"
+        echo ""
+        echo "Troubleshooting steps:"
+        echo "1. Check if NVIDIA drivers are installed: nvidia-smi"
+        echo "2. Check if Docker GPU support is installed:"
+        echo "   docker run --rm --gpus all nvidia/cuda:12.2.0-base-ubuntu22.04 nvidia-smi"
+        echo "3. Check if nvidia-container-toolkit is installed:"
+        echo "   dpkg -l | grep nvidia-container"
+        exit 1
+    fi
 }
 
 # Parse arguments
@@ -51,7 +98,7 @@ if [ "$1" == "--build" ]; then
 elif [ "$1" == "--gpu-test" ]; then
     test_gpu
     exit 0
-elif [ "$1" == "--help" ] || [ -z "$1" ]; then
+elif [ "$1" == "--help" ] || [ "$1" == "-h" ] || [ -z "$1" ]; then
     print_usage
     exit 0
 fi
@@ -62,6 +109,13 @@ shift
 # Check if input file exists
 if [ ! -f "$INPUT_FILE" ]; then
     echo -e "${RED}Error: Input file '$INPUT_FILE' not found${NC}"
+    exit 1
+fi
+
+# Check if Docker image exists
+if ! docker image inspect whisper-cpp-gpu >/dev/null 2>&1; then
+    echo -e "${RED}Error: Docker image 'whisper-cpp-gpu' not found.${NC}"
+    echo "Please run: $0 --build"
     exit 1
 fi
 
@@ -106,16 +160,19 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Validate model choice
+# Validate model choice (removed large-v3-q5_0)
 case $MODEL in
-    tiny.en|base.en|small.en|medium.en|large-v3-q5_0)
+    tiny.en|base.en|small.en|medium.en)
         ;;
     *)
         echo -e "${RED}Invalid model: $MODEL${NC}"
-        echo "Valid models: tiny.en, base.en, small.en, medium.en, large-v3-q5_0"
+        echo "Valid models: tiny.en, base.en, small.en, medium.en"
         exit 1
         ;;
 esac
+
+# Create output directory if it doesn't exist
+mkdir -p "$OUTPUT_DIR"
 
 # Build docker run command
 DOCKER_CMD="docker run --rm --gpus all"
@@ -144,6 +201,10 @@ echo "Output: $OUTPUT_DIR/$OUTPUT_NAME"
 echo "Model: $MODEL"
 echo ""
 
+# Show progress hint
+echo -e "${YELLOW}Progress will be shown below. This may take a few minutes...${NC}"
+echo ""
+
 # Complete command
 FULL_CMD="$DOCKER_CMD whisper-cpp-gpu /input/$INPUT_NAME -o /output/$OUTPUT_NAME -m $MODEL $PROMPT_ARG"
 
@@ -151,14 +212,24 @@ FULL_CMD="$DOCKER_CMD whisper-cpp-gpu /input/$INPUT_NAME -o /output/$OUTPUT_NAME
 eval "$FULL_CMD"
 
 if [ $? -eq 0 ]; then
-    echo -e "\n${GREEN}Transcription complete!${NC}"
+    echo ""
+    echo -e "${GREEN}✓ Transcription complete!${NC}"
     echo "Output saved to: $OUTPUT_DIR/$OUTPUT_NAME"
     
+    # Show file size
+    if [ -f "$OUTPUT_DIR/$OUTPUT_NAME" ]; then
+        FILE_SIZE=$(wc -c < "$OUTPUT_DIR/$OUTPUT_NAME")
+        echo "File size: $FILE_SIZE bytes"
+    fi
+    
     # Suggest next step
-    echo -e "\n${BLUE}Next step:${NC}"
+    echo ""
+    echo -e "${BLUE}Next step:${NC}"
     echo "Apply corrections with:"
     echo "  python3 $SCRIPT_DIR/apply_corrections.py $OUTPUT_DIR/$OUTPUT_NAME"
 else
-    echo -e "\n${RED}Transcription failed${NC}"
+    echo ""
+    echo -e "${RED}✗ Transcription failed${NC}"
+    echo "Check the error messages above for details."
     exit 1
 fi

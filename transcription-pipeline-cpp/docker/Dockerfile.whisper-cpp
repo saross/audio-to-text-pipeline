@@ -6,6 +6,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV CUDA_DOCKER_ARCH=all
 ENV WHISPER_CUDA=1
 
+# Use Australian mirror (since you're in Melbourne)
+RUN sed -i 's|http://archive.ubuntu.com/ubuntu|http://au.archive.ubuntu.com/ubuntu|g' /etc/apt/sources.list && \
+    sed -i 's|http://security.ubuntu.com/ubuntu|http://au.archive.ubuntu.com/ubuntu|g' /etc/apt/sources.list
+
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -25,19 +29,15 @@ WORKDIR /app
 # Clone and build whisper.cpp with CUDA support
 RUN git clone https://github.com/ggerganov/whisper.cpp.git && \
     cd whisper.cpp && \
-    make clean && \
-    WHISPER_CUDA=1 make -j$(nproc)
+    cmake -B build -DGGML_CUDA=ON && \
+    cmake --build build --config Release
 
 # Download models
 WORKDIR /app/whisper.cpp
 RUN bash ./models/download-ggml-model.sh tiny.en && \
     bash ./models/download-ggml-model.sh base.en && \
     bash ./models/download-ggml-model.sh small.en && \
-    bash ./models/download-ggml-model.sh medium.en && \
-    bash ./models/download-ggml-model.sh large-v3
-
-# Convert large-v3 to quantized format for 6GB GPUs
-RUN ./quantize models/ggml-large-v3.bin models/ggml-large-v3-q5_0.bin q5_0
+    bash ./models/download-ggml-model.sh medium.en
 
 # Install Python dependencies
 RUN pip3 install pyyaml
