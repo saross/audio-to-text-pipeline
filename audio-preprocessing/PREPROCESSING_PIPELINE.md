@@ -37,15 +37,17 @@ This pipeline converts MP4 audio files to FLAC format optimized for speech trans
 - **Method**: FFmpeg loudnorm filter
 - **Benefits**: Consistent levels across different recordings
 
-#### 6. Dynamic Range Compression
-- **Settings**: -20dB threshold, 4:1 ratio
-- **Attack/Release**: 5ms/50ms (fast for speech)
-- **Purpose**: Reduces volume variations without over-compressing
+#### 6. Dynamic Range Compression (Updated for Better Diarization)
+- **Settings**: -22dB threshold, 3:1 ratio (gentler than before)
+- **Attack/Release**: 10ms/100ms (slower for natural dynamics)
+- **Purpose**: Reduces volume variations while preserving speaker characteristics
+- **Change rationale**: Better speaker separation for diarization
 
-#### 7. Speech Enhancement EQ
+#### 7. Speech Enhancement EQ (Enhanced for Whisper)
 - **100Hz**: -2dB (reduce low frequency muddiness)
 - **1kHz**: +3dB (boost fundamental speech frequencies)  
 - **3kHz**: +2dB (enhance consonant clarity)
+- **4kHz**: +1dB (NEW: gentle boost for 's', 't', 'k' recognition)
 - **8kHz**: -3dB (reduce high frequency noise)
 
 ## Compression Strategy
@@ -105,12 +107,20 @@ alimiter=limit=0.95:attack=5:release=50
 
 ### Single File Conversion
 ```bash
+# Standard processing (preserves natural pauses)
 python3 simple_preprocess.py convert input.mp4 output.flac
+
+# With silence removal (VAD enabled)
+python3 simple_preprocess.py convert input.mp4 output.flac --remove-silence
 ```
 
 ### Batch Processing
 ```bash
+# Standard batch processing
 python3 simple_preprocess.py batch /input/directory /output/directory
+
+# Batch with silence removal
+python3 simple_preprocess.py batch /input/directory /output/directory --remove-silence
 ```
 
 ### Test Mode (30-second preview)
@@ -122,6 +132,16 @@ python3 simple_preprocess.py test input.mp4
 ```bash
 ./batch_process_transcription_data.sh
 ```
+
+## Optional Features
+
+### Silence Removal (--remove-silence)
+When enabled with the `--remove-silence` flag:
+- Removes silence gaps longer than 0.5 seconds
+- Uses -35dB threshold (preserves quiet speech)
+- Reduces file size and processing time
+- May affect natural speech rhythm
+- Recommended only when pauses are not important
 
 ## Performance Characteristics
 

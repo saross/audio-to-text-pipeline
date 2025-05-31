@@ -128,7 +128,7 @@ def check_file(filepath):
         print(f"Warning: Could not probe file info")
         return True  # Continue anyway
 
-def convert_mp4_to_flac(input_file, output_file, verbose=False):
+def convert_mp4_to_flac(input_file, output_file, verbose=False, remove_silence=False):
     """
     Convert MP4 to FLAC with all 7 processing steps:
     1. MP4 to FLAC conversion
@@ -138,6 +138,12 @@ def convert_mp4_to_flac(input_file, output_file, verbose=False):
     5. Volume normalisation
     6. Dynamic range compression
     7. Speech enhancement (EQ)
+    
+    Args:
+        input_file: Path to input MP4 file
+        output_file: Path to output FLAC file
+        verbose: Show detailed processing information
+        remove_silence: Enable VAD and silence removal (default: False)
     """
     
     # Check input file
@@ -168,12 +174,12 @@ def convert_mp4_to_flac(input_file, output_file, verbose=False):
         # release=100ms: Smooth closing to avoid cutting words
         "agate=threshold=0.02:ratio=2:attack=10:release=100",
         
-        # STEP 6: Dynamic range compression
-        # threshold=-20dB: Compress audio above -20dB
-        # ratio=4:1: Moderate compression preserves dynamics
-        # attack=5ms: Fast response for speech
-        # release=50ms: Natural decay
-        "acompressor=threshold=-20dB:ratio=4:attack=5:release=50",
+        # STEP 6: Dynamic range compression (gentler for better diarization)
+        # threshold=-22dB: Slightly lower threshold
+        # ratio=3:1: Gentler compression to preserve speaker characteristics
+        # attack=10ms: Slightly slower for more natural sound
+        # release=100ms: Slower release preserves speech dynamics
+        "acompressor=threshold=-22dB:ratio=3:attack=10:release=100",
         
         # STEP 7: Speech enhancement EQ
         # Carefully tuned frequency adjustments for clarity
@@ -194,6 +200,10 @@ def convert_mp4_to_flac(input_file, output_file, verbose=False):
         # 8kHz high-shelf, -3dB to reduce hiss
         "equalizer=f=8000:t=h:width=2000:g=-3",
         
+        # 7e: High-frequency boost for Whisper consonant recognition
+        # 4kHz high-shelf, +1dB gentle boost for 's', 't', 'k' sounds
+        "equalizer=f=4000:t=h:width=2000:g=1",
+        
         # STEP 5: Volume normalisation with EBU R128 standard
         # I=-16: Integrated loudness target (LUFS)
         # TP=-1.5: True peak limit (dB)
@@ -205,6 +215,18 @@ def convert_mp4_to_flac(input_file, output_file, verbose=False):
         # Fast attack/release for transparent limiting
         "alimiter=limit=0.95:attack=5:release=50"
     ]
+    
+    # Add optional silence removal filters
+    if remove_silence:
+        # Insert VAD and silence removal after noise gate, before compression
+        silence_filters = [
+            # Remove silence periods longer than 0.5 seconds
+            # start_threshold=-35dB: Fairly sensitive to preserve quiet speech
+            # stop_threshold=-35dB: Same threshold for consistency
+            "silenceremove=start_periods=1:start_duration=0.5:start_threshold=-35dB:stop_periods=-1:stop_duration=0.5:stop_threshold=-35dB",
+        ]
+        # Insert after noise gate (index 3) but before compression
+        audio_filters = audio_filters[:3] + silence_filters + audio_filters[3:]
     
     # Join all filters with commas
     filter_string = ",".join(audio_filters)
@@ -229,10 +251,16 @@ def convert_mp4_to_flac(input_file, output_file, verbose=False):
         print("2. ✓ Sample rate: 16kHz")
         print("3. ✓ Stereo to mono")
         print("4. ✓ Noise reduction (gate + high-pass)")
+        if remove_silence:
+            print("   ✓ VAD silence removal (>0.5s gaps)")
         print("5. ✓ Volume normalisation")
-        print("6. ✓ Dynamic range compression")
-        print("7. ✓ Speech enhancement EQ")
+        print("6. ✓ Dynamic range compression (gentle 3:1)")
+        print("7. ✓ Speech enhancement EQ + HF boost")
         print(f"\nCommand: {' '.join(command[:6])}... [complex filter chain] ... {output_file}")
+    
+    # Check if output file already exists
+    if os.path.exists(output_file):
+        print(f"⚠️  Overwriting existing file: {output_file}")
     
     # Run conversion
     success = run_ffmpeg(command, f"Converting {os.path.basename(input_file)} to optimized FLAC", 
@@ -246,7 +274,7 @@ def convert_mp4_to_flac(input_file, output_file, verbose=False):
         print(f"✗ Failed to create {output_file}")
         return False
 
-def process_batch(input_dir, output_dir, pattern="*.mp4", dry_run=False, verbose=False):
+def process_batch(input_dir, output_dir, pattern="*.mp4", dry_run=False, verbose=False, remove_silence=False):
     """Process all matching files in a directory"""
     input_path = Path(input_dir)
     output_path = Path(output_dir)
@@ -279,7 +307,7 @@ def process_batch(input_dir, output_dir, pattern="*.mp4", dry_run=False, verbose
             print(f"  Would create: {output_file}")
             successful += 1
         else:
-            if convert_mp4_to_flac(str(input_file), str(output_file), verbose):
+            if convert_mp4_to_flac(str(input_file), str(output_file), verbose, remove_silence):
                 successful += 1
             else:
                 failed += 1
@@ -304,6 +332,8 @@ def main():
     single_parser.add_argument('input', help='Input MP4 file')
     single_parser.add_argument('output', help='Output FLAC file')
     single_parser.add_argument('-v', '--verbose', action='store_true', help='Verbose output')
+    single_parser.add_argument('--remove-silence', action='store_true', 
+                              help='Remove silence gaps longer than 0.5 seconds (VAD)')
     
     # Batch processing
     batch_parser = subparsers.add_parser('batch', help='Process multiple files')
@@ -312,6 +342,8 @@ def main():
     batch_parser.add_argument('-p', '--pattern', default='*.mp4', help='File pattern (default: *.mp4)')
     batch_parser.add_argument('-d', '--dry-run', action='store_true', help='Show what would be done')
     batch_parser.add_argument('-v', '--verbose', action='store_true', help='Verbose output')
+    batch_parser.add_argument('--remove-silence', action='store_true', 
+                             help='Remove silence gaps longer than 0.5 seconds (VAD)')
     
     # Quick test
     test_parser = subparsers.add_parser('test', help='Test with first 30 seconds of a file')
@@ -322,12 +354,13 @@ def main():
     
     if args.command == 'convert':
         # Single file conversion
-        success = convert_mp4_to_flac(args.input, args.output, args.verbose)
+        success = convert_mp4_to_flac(args.input, args.output, args.verbose, args.remove_silence)
         sys.exit(0 if success else 1)
     
     elif args.command == 'batch':
         # Batch processing
-        process_batch(args.input_dir, args.output_dir, args.pattern, args.dry_run, args.verbose)
+        process_batch(args.input_dir, args.output_dir, args.pattern, args.dry_run, 
+                     args.verbose, args.remove_silence)
     
     elif args.command == 'test':
         # Test with first 30 seconds
