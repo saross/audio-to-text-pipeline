@@ -256,11 +256,13 @@ audio-transcription/
 │   │   ├── Dockerfile.whisper-cpp     # Whisper container
 │   │   ├── Dockerfile.diarization     # Diarization container
 │   │   └── transcribe.py              # Whisper wrapper
+│   ├── logs/                     # Processing logs
 │   ├── results/                  # Output transcripts
 │   └── scripts/
 │       ├── run_whisper.sh        # Main transcription runner
-│       ├── run_diarization.sh    # Diarization runner
-│       ├── diarize_audio.py      # Diarization implementation
+│       ├── run_diarization.sh    # Diarization runner  
+│       ├── chunked_diarization.sh # Diarization for long files
+│       ├── diarize_audio.py      # Core diarization implementation
 │       ├── merge_diarization.py  # Merge speakers with transcript
 │       ├── apply_corrections.py  # Term corrections
 │       └── transcribe_with_speakers.sh  # Complete pipeline

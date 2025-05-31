@@ -1,3 +1,19 @@
 # Exclude data directory containing large audio files
 data/
-trasciption-pipeline-cpp/data
+transcription-pipeline-cpp/data/
+
+# Exclude logs
+logs/
+*.log
+
+# Exclude results and temporary files
+results/
+*.json
+/tmp/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Docker volumes
+docker-volumes/
