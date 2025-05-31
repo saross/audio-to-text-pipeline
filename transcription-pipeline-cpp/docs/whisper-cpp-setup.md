@@ -1,213 +1,59 @@
-# Whisper.cpp GPU Setup Instructions
+# Whisper.cpp Setup - Historical Notes
 
-## Quick Start
+**⚠️ This document is historical/archival. For current usage, see the main [README.md](../README.md).**
 
-### 1. Create project structure
-```bash
-# Create and enter project directory
-mkdir ~/whisper-transcription && cd ~/whisper-transcription
+This document preserves the learning process and challenges encountered during the initial whisper.cpp implementation.
 
-# Create directory structure
-mkdir -p {config,docker,scripts,data/{input,processed},results/{raw,corrected,final},models,docs,logs}
-```
+## Original Setup Challenges
 
-### 2. Save the provided files
-- Save `Dockerfile.whisper-cpp` to `docker/` directory
-- Save `run_whisper.sh` to `scripts/` directory and make executable: `chmod +x scripts/run_whisper.sh`
-- Save `apply_corrections.py` to `scripts/` directory and make executable: `chmod +x scripts/apply_corrections.py`
+When first implementing whisper.cpp, we encountered several challenges that have since been resolved:
 
-### 3. Copy your configuration files
-```bash
-# Copy from your existing project
-cp ~/Code/audio-transcription/transcription-pipeline/config/whisper_prompt.txt config/
-cp ~/Code/audio-transcription/transcription-pipeline/config/term_corrections.txt config/
-```
+1. **Deprecated main executable** - whisper.cpp moved from `main` to `whisper-cli`
+2. **Missing build targets** - Had to explicitly build the CLI tool
+3. **Large model memory issues** - Resolved by removing large-v3 (doesn't fit in 6GB)
+4. **Progress tracking** - Initially had no progress indicators
 
-### 4. Build the Docker image
-```bash
-./scripts/run_whisper.sh --build
-```
+## Key Learnings
 
-This will:
-- Download NVIDIA CUDA base image
-- Compile whisper.cpp with GPU support
-- Download models (tiny, base, small, medium, large-v3)
-- Create quantized large-v3 model for 6GB GPUs
-- Takes about 15-20 minutes
+### Model Selection for 6GB GPUs
+After testing, we determined the optimal models for 6GB GPUs (like RTX 3050):
+- `tiny.en` - Very fast, basic quality
+- `base.en` - Fast, good quality
+- `small.en` - Balanced speed/quality
+- `medium.en` - Best quality that fits comfortably
 
-### 5. Test GPU access
-```bash
-./scripts/run_whisper.sh --gpu-test
-```
+The large-v3 model and its quantized versions were removed as they exceed 6GB memory limits.
 
-### 6. Transcribe your audio
-```bash
-# Basic usage
-./scripts/run_whisper.sh data/input/interview-2.flac
+### Prompt Optimization
+Discovered that whisper.cpp has a ~2048 character limit for prompts, requiring condensed technical term lists.
 
-# With prompt and model selection
-./scripts/run_whisper.sh data/input/interview-2.flac \
-  -o results/raw/interview-2.txt \
-  -m medium.en \
-  -p config/whisper_prompt.txt
+### Docker Build Evolution
 
-# Using quantized large model
-./scripts/run_whisper.sh data/input/interview-2.flac \
-  -o results/raw/interview-2.txt \
-  -m large-v3-q5_0 \
-  -p config/whisper_prompt.txt
-```
+The Dockerfile evolved through several iterations:
 
-### 7. Apply term corrections
-```bash
-python3 scripts/apply_corrections.py \
-  results/raw/interview-2.txt \
-  -o results/corrected/interview-2-corrected.txt \
-  -c config/term_corrections.txt
-```
+1. **Initial version** - Basic CUDA setup, downloaded all models
+2. **Memory optimization** - Removed large models, added specific CUDA architectures
+3. **Build fix** - Added explicit whisper-cli target
+4. **Current version** - Streamlined with only models that fit in 6GB
 
-## Project Structure
+### Integration with Existing Pipeline
 
-```
-whisper-transcription/
-├── config/
-│   ├── whisper_prompt.txt         # Your technical prompt
-│   └── term_corrections.txt       # Post-processing corrections
-├── docker/
-│   └── Dockerfile.whisper-cpp     # Docker build file
-├── scripts/
-│   ├── run_whisper.sh            # Main runner script
-│   ├── apply_corrections.py      # Post-processing
-│   └── batch_process.sh          # Batch processing
-├── data/
-│   ├── raw/                      # Your audio files
-│   └── processed/                # Preprocessed audio
-├── results/
-│   ├── raw/                      # Direct whisper output
-│   ├── corrected/                # After corrections
-│   └── final/                    # Final formatted
-├── models/                       # Model cache
-├── docs/                         # Documentation
-└── logs/                         # Processing logs
-```
+The whisper.cpp implementation was designed to slot into the existing pipeline:
+- Maintains same directory structure
+- Compatible with existing term corrections
+- Produces similar output format to Python Whisper
 
-## Expected Performance
+### Performance Observations
 
-On your RTX 3050 (6GB):
+On RTX 3050 (6GB VRAM):
+- **Medium model** proved optimal - best quality/speed trade-off
+- **Batch processing** works well overnight
+- **Progress tracking** essential for long files
 
-| Model | Speed | Memory | Quality |
-|-------|-------|---------|---------|
-| tiny.en | ~2-5 min | ~1GB | Basic |
-| base.en | ~3-7 min | ~1.5GB | Good |
-| small.en | ~5-10 min | ~2GB | Very Good |
-| medium.en | ~10-20 min | ~3GB | Excellent |
-| large-v3-q5_0 | ~15-30 min | ~3.5GB | Best |
+### Lessons for Future Implementations
 
-## Command Line Options
-
-```bash
-./scripts/run_whisper.sh <input_audio> [options]
-
-Options:
-  -o, --output FILE    Output file (default: input_name.txt)
-  -m, --model MODEL    Model to use (tiny.en, base.en, small.en, medium.en, large-v3-q5_0)
-                       Default: medium.en
-  -p, --prompt FILE    Prompt file to guide transcription
-  --build              Build the Docker image
-  --gpu-test           Test GPU access
-```
-
-## Batch Processing
-
-Create a batch processing script in `scripts/batch_process.sh`:
-
-```bash
-#!/bin/bash
-# Process all interviews with prompt and corrections
-
-MODEL=${1:-medium.en}
-
-for f in data/input/*.flac; do
-    if [ -f "$f" ]; then
-        basename=$(basename "$f" .flac)
-        echo "Processing $basename with $MODEL model..."
-        
-        # Transcribe with prompt
-        ./scripts/run_whisper.sh "$f" \
-            -o "results/raw/${basename}.txt" \
-            -m "$MODEL" \
-            -p config/whisper_prompt.txt
-        
-        # Apply corrections
-        python3 scripts/apply_corrections.py \
-            "results/raw/${basename}.txt" \
-            -o "results/corrected/${basename}-corrected.txt" \
-            -c config/term_corrections.txt
-    fi
-done
-```
-
-Make it executable: `chmod +x scripts/batch_process.sh`
-
-Run all interviews: `./scripts/batch_process.sh large-v3-q5_0`
-
-## Using Prompts
-
-The whisper_prompt.txt file helps guide the model to recognise technical terms. Your 5570-character prompt with terms like SKOS, SISSVoc, ARDC, Kurrawong, etc., will significantly improve accuracy.
-
-Example with prompt:
-```bash
-./scripts/run_whisper.sh data/input/interview.flac \
-  -p config/whisper_prompt.txt \
-  -m large-v3-q5_0
-```
-
-## Key Advantages
-
-1. **No Python dependency issues** - Pure C++ implementation
-2. **Excellent GPU memory management** - Quantization allows large models on 6GB
-3. **Fast** - Optimised CUDA kernels
-4. **Prompt support** - Guides technical term recognition
-5. **Simple** - Just works
-
-## Troubleshooting
-
-### If build fails
-- Check Docker GPU support: `docker run --rm --gpus all nvidia/cuda:12.2.0-base-ubuntu22.04 nvidia-smi`
-- Ensure NVIDIA container toolkit is installed
-- Check disk space (need ~25GB during build)
-
-### If GPU not detected
-- The image uses CUDA 12.2 which should work with your drivers
-- Try: `docker run --rm --gpus all whisper-cpp-gpu nvidia-smi`
-
-### If out of memory
-- Use quantized large model (large-v3-q5_0) instead of medium
-- Close other GPU applications
-- Monitor with `nvidia-smi`
-
-### If transcription quality is poor
-- Use the prompt file (`-p config/whisper_prompt.txt`)
-- Try large-v3-q5_0 model for best quality
-- Apply term corrections after transcription
-
-## Notes on Speaker Diarisation
-
-whisper.cpp doesn't include speaker diarisation. Options:
-1. Use your working CPU pipeline for diarisation
-2. Post-process with pyannote.audio separately
-3. Consider WhisperX or similar tools that combine both
-
-For interview transcripts, you might want to:
-1. Get high-quality transcription with whisper.cpp + GPU
-2. Run speaker diarisation separately
-3. Combine the results
-
-## Recommended Workflow
-
-1. **Preprocess audio** (if needed): Ensure files are 16kHz mono FLAC
-2. **Transcribe with large model**: `./scripts/run_whisper.sh input.flac -m large-v3-q5_0 -p config/whisper_prompt.txt`
-3. **Apply corrections**: `python3 scripts/apply_corrections.py transcript.txt`
-4. **Add speakers**: Use separate diarisation tool if needed
-
-This approach gives you the best transcription quality while leveraging your GPU effectively.
+1. **Always test Docker GPU access first**
+2. **Start with smaller models** and work up
+3. **Monitor GPU memory** during first runs
+4. **Keep prompts under 2048 chars** for whisper.cpp
+5. **Plan for progress indicators** from the start
