@@ -77,10 +77,15 @@ export HF_TOKEN=your_huggingface_token
 # https://huggingface.co/pyannote/speaker-diarization-3.1
 ```
 
-#### Diarization takes too long
+#### Diarization takes too long or hangs
 - Normal: 10-15 minutes per hour of audio with GPU
 - Check if using GPU: `nvidia-smi` should show python process
-- For 2-3 hour files, expect 30-45 minutes
+- **For files >10 minutes**: Use chunked processing instead:
+  ```bash
+  ./scripts/chunked_diarization.sh -c 10 audio.flac output.json
+  ```
+- Files >15 minutes often hang with regular diarization
+- Chunked processing avoids memory issues and hanging
 
 #### Wrong number of speakers detected
 - Specify manually: `-n 2` for 2 speakers

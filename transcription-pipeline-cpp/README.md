@@ -115,15 +115,23 @@ export HF_TOKEN=your_token_here
 ```
 
 #### Usage:
+
+**For short files (<10 minutes):**
 ```bash
 # Auto-detect speakers
 ./scripts/run_diarization.sh diarize audio.flac
 
 # Specify number of speakers
 ./scripts/run_diarization.sh diarize audio.flac -n 2
+```
 
-# Different output format
-./scripts/run_diarization.sh diarize audio.flac --format simple
+**For long files (>10 minutes):**
+```bash
+# Use chunked processing to avoid hanging
+./scripts/chunked_diarization.sh -c 10 -n 2 audio.flac output.json
+
+# Smaller chunks for very long files
+./scripts/chunked_diarization.sh -c 5 audio.flac output.json
 ```
 
 ### 4. Merge Transcripts with Speakers (`scripts/merge_diarization.py`)
