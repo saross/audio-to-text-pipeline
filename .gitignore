@@ -6,9 +6,7 @@ transcription-pipeline-cpp/data/
 logs/
 *.log
 
-# Exclude results and temporary files
-results/
-*.json
+# Exclude temporary files
 /tmp/
 
 # Python cache
