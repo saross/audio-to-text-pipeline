@@ -20,13 +20,15 @@ print_usage() {
     echo "  -m, --model MODEL    Model to use (tiny.en, base.en, small.en, medium.en)"
     echo "                       Default: medium.en"
     echo "  -p, --prompt FILE    Prompt file to guide transcription"
+    echo "  -v, --verbose        Show detailed whisper output (default: quiet with progress)"
+    echo "  --no-corrections     Skip automatic term corrections"
     echo "  --build              Build the Docker image"
     echo "  --gpu-test           Test GPU access"
     echo ""
     echo "Examples:"
     echo "  $0 interview.flac"
     echo "  $0 interview.flac -o transcript.txt -m small.en"
-    echo "  $0 interview.flac -p whisper_prompt.txt"
+    echo "  $0 interview.flac -p whisper_prompt.txt --verbose"
     echo "  $0 --build"
     echo "  $0 --gpu-test"
 }
@@ -129,6 +131,8 @@ OUTPUT_NAME="${INPUT_NAME%.*}.txt"
 OUTPUT_DIR="$PWD"
 MODEL="medium.en"
 PROMPT_FILE=""
+VERBOSE=false
+AUTO_CORRECT=true
 
 # Parse remaining arguments
 while [[ $# -gt 0 ]]; do
@@ -155,6 +159,14 @@ while [[ $# -gt 0 ]]; do
             PROMPT_FILE="$2"
             shift 2
             ;;
+        -v|--verbose)
+            VERBOSE=true
+            shift
+            ;;
+        --no-corrections)
+            AUTO_CORRECT=false
+            shift
+            ;;
         *)
             echo -e "${RED}Unknown option: $1${NC}"
             print_usage
@@ -176,6 +188,55 @@ esac
 
 # Create output directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
+
+# Enhanced progress monitoring function
+# Displays real-time transcription progress by monitoring whisper.cpp output
+# Shows percentage complete when available, otherwise shows animated spinner
+show_progress() {
+    local pid=$1        # Process ID to monitor
+    local log_file=$2   # Log file to extract progress from
+    local delay=0.5     # Update frequency in seconds
+    local spinstr='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'  # Unicode spinner characters
+    local start_time=$(date +%s)
+    local last_progress=""
+    
+    echo -ne "${YELLOW}Starting transcription...${NC}"
+    
+    # Monitor while process is running
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        local elapsed=$(($(date +%s) - start_time))
+        local mins=$((elapsed / 60))
+        local secs=$((elapsed % 60))
+        
+        # Try to extract progress percentage from whisper.cpp output
+        if [ -f "$log_file" ]; then
+            # Look for whisper progress output (e.g., "progress = 45%")
+            local current_progress=$(grep -o "progress = [0-9]*%" "$log_file" | tail -1 | grep -o "[0-9]*")
+            if [ -n "$current_progress" ] && [ "$current_progress" != "$last_progress" ]; then
+                last_progress=$current_progress
+                # Show percentage and elapsed time
+                printf "\r${YELLOW}Transcribing... ${current_progress}%% [%02d:%02d]${NC}        " "$mins" "$secs"
+            else
+                # Show spinner if no percentage available
+                printf "\r${YELLOW}Transcribing... %c [%02d:%02d]${NC} " "$spinstr" "$mins" "$secs"
+            fi
+        else
+            # Log file not yet created, show spinner
+            printf "\r${YELLOW}Transcribing... %c [%02d:%02d]${NC} " "$spinstr" "$mins" "$secs"
+        fi
+        
+        # Rotate spinner
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+    done
+    
+    # Final update showing total time
+    local elapsed=$(($(date +%s) - start_time))
+    local mins=$((elapsed / 60))
+    local secs=$((elapsed % 60))
+    printf "\r${GREEN}Transcription complete! [%02d:%02d]${NC}        \n" "$mins" "$secs"
+}
 
 # Build docker run command
 DOCKER_CMD="docker run --rm --gpus all"
@@ -199,41 +260,94 @@ fi
 
 # Run transcription
 echo -e "${BLUE}Starting transcription...${NC}"
-echo "Input: $INPUT_FILE"
+echo "Input:  $INPUT_FILE"
 echo "Output: $OUTPUT_DIR/$OUTPUT_NAME"
-echo "Model: $MODEL"
-echo ""
-
-# Show progress hint
-echo -e "${YELLOW}Progress will be shown below. This may take a few minutes...${NC}"
+echo "Model:  $MODEL"
+if [ -n "$PROMPT_FILE" ]; then
+    echo "Prompt: $PROMPT_FILE"
+fi
 echo ""
 
 # Complete command
 # Note: transcribe.py expects different argument format than whisper.cpp
 FULL_CMD="$DOCKER_CMD whisper-cpp-cuda-fixed /input/$INPUT_NAME -o /output/$OUTPUT_NAME -m $MODEL $PROMPT_ARG"
 
-# Execute
-eval "$FULL_CMD"
-
-if [ $? -eq 0 ]; then
+if [ "$VERBOSE" = true ]; then
+    # Verbose mode - show all output
+    echo -e "${YELLOW}Verbose mode - showing detailed output...${NC}"
     echo ""
+    eval "$FULL_CMD"
+    EXIT_CODE=$?
+else
+    # Quiet mode with progress indicator (default)
+    # Create a temporary file for capturing output
+    TEMP_LOG=$(mktemp)
+    
+    # Execute in background with output redirected
+    eval "$FULL_CMD > $TEMP_LOG 2>&1" &
+    DOCKER_PID=$!
+    
+    # Show progress while running
+    show_progress $DOCKER_PID $TEMP_LOG
+    
+    # Wait for completion and get exit code
+    wait $DOCKER_PID
+    EXIT_CODE=$?
+fi
+
+if [ $EXIT_CODE -eq 0 ]; then
     echo -e "${GREEN}✓ Transcription complete!${NC}"
     echo "Output saved to: $OUTPUT_DIR/$OUTPUT_NAME"
     
-    # Show file size
+    # Show file size and word count
     if [ -f "$OUTPUT_DIR/$OUTPUT_NAME" ]; then
         FILE_SIZE=$(wc -c < "$OUTPUT_DIR/$OUTPUT_NAME")
-        echo "File size: $FILE_SIZE bytes"
+        WORD_COUNT=$(wc -w < "$OUTPUT_DIR/$OUTPUT_NAME")
+        echo "File size: $(numfmt --to=iec --suffix=B $FILE_SIZE 2>/dev/null || echo "$FILE_SIZE bytes")"
+        echo "Word count: $(printf "%'d" $WORD_COUNT 2>/dev/null || echo "$WORD_COUNT")"
     fi
     
-    # Suggest next step
-    echo ""
-    echo -e "${BLUE}Next step:${NC}"
-    echo "Apply corrections with:"
-    echo "  python3 $SCRIPT_DIR/apply_corrections.py $OUTPUT_DIR/$OUTPUT_NAME"
+    # Apply corrections if enabled
+    if [ "$AUTO_CORRECT" = true ] && [ -f "$OUTPUT_DIR/$OUTPUT_NAME" ]; then
+        echo ""
+        echo -e "${BLUE}Applying term corrections...${NC}"
+        
+        # Check if corrections script exists
+        if [ -f "$SCRIPT_DIR/apply_corrections.py" ]; then
+            python3 "$SCRIPT_DIR/apply_corrections.py" "$OUTPUT_DIR/$OUTPUT_NAME"
+            if [ $? -eq 0 ]; then
+                echo -e "${GREEN}✓ Corrections applied${NC}"
+            else
+                echo -e "${YELLOW}Warning: Corrections failed but transcript is available${NC}"
+            fi
+        else
+            echo -e "${YELLOW}Warning: Corrections script not found${NC}"
+        fi
+    fi
+    
+    # Clean up temp file in quiet mode
+    if [ "$VERBOSE" = false ] && [ -n "$TEMP_LOG" ]; then
+        rm -f "$TEMP_LOG"
+    fi
 else
-    echo ""
     echo -e "${RED}✗ Transcription failed${NC}"
-    echo "Check the error messages above for details."
+    
+    if [ "$VERBOSE" = false ]; then
+        # In quiet mode, show last 20 lines of error output
+        echo ""
+        echo "Error output:"
+        echo "---"
+        if [ -f "$TEMP_LOG" ]; then
+            tail -20 "$TEMP_LOG"
+        fi
+        echo "---"
+        echo ""
+        echo "Full log saved to: $TEMP_LOG"
+        echo "(Remove with: rm $TEMP_LOG)"
+    else
+        # In verbose mode, error was already shown
+        echo "Check the error messages above for details."
+    fi
     exit 1
 fi
+

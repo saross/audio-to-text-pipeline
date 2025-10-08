@@ -76,7 +76,7 @@ def transcribe(input_file, output_file, model="medium.en", threads=4, prompt_fil
         "-pp",    # Print progress
         "-nt",    # No timestamps in output
         "-t", str(threads),
-        "-np",    # No prints (suppress transcription output)
+        # Note: removed -np to allow progress output
     ]
     
     # Specify output file without extension (whisper.cpp adds .txt automatically)
@@ -156,7 +156,9 @@ def transcribe(input_file, output_file, model="medium.en", threads=4, prompt_fil
     
     # Look for output file in multiple possible locations
     base_name = os.path.basename(input_file).rsplit('.', 1)[0]
+    output_dir = os.path.dirname(output_file) if output_file else os.path.dirname(input_file)
     possible_outputs = [
+        output_file,  # First check the exact output file specified
         input_file + ".txt",  # Next to input file
         os.path.join(os.path.dirname(input_file), base_name + ".txt"),  # In input dir
         os.path.join(output_dir, base_name + ".txt") if output_file else None,  # In output dir
